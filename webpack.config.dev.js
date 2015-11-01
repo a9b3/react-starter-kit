@@ -1,11 +1,13 @@
 const path = require('path');
 const webpack = require('webpack');
 
+const hotMiddlewareScript = 'webpack-hot-middleware/client?reload=true';
+
 module.exports = {
     devtool: 'eval-source-map',
     entry: {
         app: [
-            'webpack-hot-middleware/client?reload=true',
+            hotMiddlewareScript,
             './src/index.js',
         ],
     },
@@ -15,6 +17,7 @@ module.exports = {
         publicPath: '/static/',
     },
     plugins: [
+        new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
     ],
