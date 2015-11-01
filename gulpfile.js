@@ -7,8 +7,10 @@ const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const express = require('express');
+const del = require('del');
 
 const config = {
+    src: 'src',
     dist: 'dist',
 };
 
@@ -21,8 +23,16 @@ gulp.task('clean', done => {
     });
 });
 
-gulp.task('build', done => {
+gulp.task('move:index', ['clean'], () => {
+    return gulp.src([
+        config.src + '/index.html',
+    ])
+    .pipe(gulp.dest(config.dist));
+});
+
+gulp.task('build', ['move:index'], done => {
     const wpConfig = require('./webpack.config.prod.js');
+    process.env.NODE_ENV = 'production';
     webpack(wpConfig, (e, stats) => {
         if (e) throw new $.util.PluginError('webpack', e);
         $.util.log('[webpack]', stats.toString());
