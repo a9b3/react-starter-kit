@@ -8,14 +8,36 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const express = require('express');
 
+const config = {
+    dist: 'dist',
+};
+
+gulp.task('clean', done => {
+    del([
+        config.dist,
+    ], {force: true})
+    .then(() => {
+        done();
+    });
+});
+
+gulp.task('build', done => {
+    const wpConfig = require('./webpack.config.prod.js');
+    webpack(wpConfig, (e, stats) => {
+        if (e) throw new $.util.PluginError('webpack', e);
+        $.util.log('[webpack]', stats.toString());
+        done();
+    });
+});
+
 gulp.task('dev-server', done => {
-    const config = require('./webpack.config.dev.js');
-    const compiler = webpack(config);
+    const wpConfig = require('./webpack.config.dev.js');
+    const compiler = webpack(wpConfig);
     const app = express();
 
     app.use(webpackDevMiddleware(compiler, {
         noInfo: true,
-        publicPath: config.output.publicPath,
+        publicPath: wpConfig.output.publicPath,
     }));
 
     app.use(webpackHotMiddleware(compiler));

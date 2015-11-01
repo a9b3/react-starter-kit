@@ -18,7 +18,7 @@ const App = React.createClass({
     render() {
         return (
             <div>
-                Hello World! ok no
+                Hello World! ok nono
             </div>
        );
     },
