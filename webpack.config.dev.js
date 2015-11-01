@@ -5,7 +5,7 @@ module.exports = {
     devtool: 'eval-source-map',
     entry: {
         app: [
-            'webpack-hot-middleware/client',
+            'webpack-hot-middleware/client?reload=true',
             './src/index.js',
         ],
     },
@@ -23,10 +23,11 @@ module.exports = {
             {
                 test: /\.jsx?$/,
                 exclude: /(node_modules|bower_components)/,
-                loaders: [
-                    'babel',
-                    'jsx',
-                ],
+                loader: 'babel',
+                // query: {
+                //     presets: ['es2015', 'react'],
+                //     cacheDirectory: true,
+                // }
             },
             {
                 test: /\.s?css$/,

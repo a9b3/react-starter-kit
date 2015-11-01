@@ -1,5 +1,5 @@
-const React = require('react');
-const store = require('./store.js');
+import React from 'react';
+import store from './store.js';
 
 const App = React.createClass({
 
@@ -18,7 +18,7 @@ const App = React.createClass({
     render() {
         return (
             <div>
-                Hello World!
+                Hello World! ok no
             </div>
        );
     },
