@@ -1,0 +1,77 @@
+exclude: 'node_modules/**'
+
+linters:
+    ColorVariable:
+        enabled: false
+
+    ColorKeyword:
+        enabled: false
+
+    Indentation:
+        width: 4
+
+    BorderZero:
+        convention: 'none'
+
+    DebugStatement:
+        enabled: true
+
+    DeclarationOrder:
+        enabled: true
+
+    DuplicateProperty:
+        enabled: true
+
+    EmptyLineBetweenBlocks:
+        enabled: true
+
+    EmptyRule:
+        enabled: true
+
+    HexValidation:
+        enabled: true
+
+    ImportantRule:
+        enabled: true
+
+    MergeableSelector:
+        enabled: true
+
+    NameFormat:
+        enabled: true
+
+    NestingDepth:
+        enabled: true
+
+    PropertySpelling:
+        enabled: true
+
+    QualifyingElement:
+        enabled: true
+
+    SelectorDepth:
+        enabled: true
+
+    SingleLinePerProperty:
+        enabled: true
+
+    SingleLinePerSelector:
+        enabled: true
+
+    SpaceAfterComma:
+        enabled: true
+
+    SpaceAfterPropertyColon:
+        enabled: true
+
+    SpaceAfterPropertyName:
+        enabled: true
+
+    SpaceAfterVariableName:
+        enabled: true
+
+    SpaceAroundOperator:
+        enabled: true
+
+    SpaceBeforeBrace:
+        enabled: true

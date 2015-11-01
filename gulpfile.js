@@ -14,6 +14,49 @@ const config = {
     dist: 'dist',
 };
 
+/**
+ * Lint all js files added and modified in git
+ */
+gulp.task('lint', ['lint:js', 'lint:scss']);
+
+gulp.task('lint:js', () => {
+    return gulp.src([
+        './gulpfile.js',
+        config.src + '/**/*.js',
+        '!' + 'node_modules/**/*',
+        '!' + 'dist/**/*',
+    ])
+    .pipe($.gitmodified(['added', 'modified']))
+    .pipe($.eslint())
+    .pipe($.eslint.format())
+    .pipe($.eslint.failAfterError())
+});
+
+gulp.task('lint:scss', () => {
+    return gulp.src([
+        config.src + '/**/*.scss',
+        '!' + 'node_modules/**/*',
+        '!' + 'dist/**/*',
+    ])
+    .pipe($.gitmodified(['added', 'modified']))
+    .pipe($.scssLint({
+      config: '.scss-lint.yml',
+    }))
+    .pipe($.scssLint.failReporter('E'))
+});
+
+gulp.task('others', () => {
+    return gulp.src([
+        '!' + config.src + '/**/*.html',
+        '!' + config.src + '/**/*.js',
+        '!' + config.src + '/**/*.jsx',
+        '!' + config.src + '/**/*.scss',
+        '!' + config.src + '/**/*.css',
+        config.src + '/**/*.*',
+    ])
+    .pipe(gulp.dest(config.dist));
+});
+
 gulp.task('clean', done => {
     del([
         config.dist,
@@ -30,9 +73,9 @@ gulp.task('move:index', ['clean'], () => {
     .pipe(gulp.dest(config.dist));
 });
 
-gulp.task('build', ['move:index'], done => {
-    const wpConfig = require('./webpack.config.prod.js');
+gulp.task('build', ['move:index', 'others'], done => {
     process.env.NODE_ENV = 'production';
+    const wpConfig = require('./webpack.config.prod.js');
     webpack(wpConfig, (e, stats) => {
         if (e) throw new $.util.PluginError('webpack', e);
         $.util.log('[webpack]', stats.toString());

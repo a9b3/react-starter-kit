@@ -4,8 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "gulp lint"
   },
+  "pre-commit": [
+    "lint"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -22,10 +26,14 @@
     "express": "^4.13.3",
     "file-loader": "^0.8.4",
     "gulp": "^3.9.0",
+    "gulp-eslint": "^1.0.0",
+    "gulp-gitmodified": "^1.1.0",
     "gulp-load-plugins": "^1.0.0",
+    "gulp-scss-lint": "^0.3.7",
     "gulp-util": "^3.0.7",
     "html-loader": "^0.3.0",
     "node-sass": "^3.4.1",
+    "pre-commit": "^1.1.2",
     "react-transform-catch-errors": "^1.0.0",
     "react-transform-hmr": "^1.0.1",
     "redbox-react": "^1.1.1",
