@@ -18,8 +18,7 @@ const App = React.createClass({
     render() {
         return (
             <div>
-                Hello World! ok nono
-                <i className='fa fa-gear'></i>
+                Hello World!
             </div>
        );
     },

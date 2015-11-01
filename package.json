@@ -46,6 +46,7 @@
   },
   "dependencies": {
     "font-awesome": "^4.4.0",
+    "normalize.css": "^3.0.3",
     "react": "^0.14.1",
     "react-dom": "^0.14.1",
     "redux": "^3.0.4",

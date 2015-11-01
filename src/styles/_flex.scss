@@ -1,0 +1,73 @@
+/**
+ * Rows Cols, Item
+ */
+
+.flex-row {
+  align-items: stretch;
+  display: flex;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-item {
+  align-items: center;
+  display: flex;
+}
+
+.flex-end {
+  align-items: inherit;
+  display: inherit;
+  margin-left: auto;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+/**
+ * Alignment
+ */
+
+.flex-center {
+  justify-content: center;
+}
+
+.flex-left {
+  justify-content: flex-start;
+}
+
+.flex-right {
+  justify-content: flex-end;
+}
+
+/**
+ * Flex Grid
+ * Use with flex-row and flex-item
+ */
+
+.flex-fit {
+  flex-grow: 1;
+}
+
+.flex-grid-50 {
+  flex: 0 0 50%;
+}
+
+.flex-grid-25 {
+  flex: 0 0 25%;
+}
+
+.flex-grid-20 {
+  flex: 0 0 20%;
+}
+
+.flex-grid-15 {
+  flex: 0 0 15%;
+}
+
+.flex-grid-10 {
+  flex: 0 0 10%;
+}

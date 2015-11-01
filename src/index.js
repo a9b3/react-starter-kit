@@ -1,7 +1,8 @@
 // app entry point
 // styles
-require('./styles/index.scss');
+require('normalize.css');
 require('font-awesome/scss/font-awesome.scss');
+require('./styles/index.scss');
 
 // deps
 const ReactDOM = require('react-dom');
