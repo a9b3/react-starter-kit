@@ -29,7 +29,7 @@ gulp.task('lint:js', () => {
     .pipe($.gitmodified(['added', 'modified']))
     .pipe($.eslint())
     .pipe($.eslint.format())
-    .pipe($.eslint.failAfterError())
+    .pipe($.eslint.failAfterError());
 });
 
 gulp.task('lint:scss', () => {
