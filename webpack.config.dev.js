@@ -41,7 +41,7 @@ module.exports = {
                 loaders: ['html'],
             },
             {
-                test: /\.(png|jpg)$/,
+                test: /\.(png|jpg|jpeg)$/,
                 // inline ULRS for <= 8k images, direct URLs else
                 loaders: ['url-loader?limit=8192'],
             },
