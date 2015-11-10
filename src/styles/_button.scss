@@ -1,0 +1,14 @@
+.button {
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-align: center;
+    border: 1px solid white;
+    @extend .blue3-bg;
+    transition: all 0.2s;
+}
+
+.button:hover {
+    cursor: pointer;
+    opacity: 1.2;
+    transition: all 0.2s;
+}

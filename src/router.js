@@ -1,9 +1,11 @@
+import App from './app/App.js';
+
 const routes = {
     path: '/',
-    component: require('./App.js'),
+    component: App,
     // childRoutes: [
     //     { path: 'about', component: Test },
     // ]
 };
 
-export default routes;
+module.exports = routes;

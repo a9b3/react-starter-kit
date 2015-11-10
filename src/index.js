@@ -5,8 +5,8 @@ require('font-awesome/scss/font-awesome.scss');
 require('./styles/index.scss');
 
 // deps
-const ReactDOM = require('react-dom');
-const React = require('react');
+import ReactDOM from 'react-dom';
+import React from 'react';
 import { Router, Route, Link } from 'react-router';
 import routes from './router.js';
 

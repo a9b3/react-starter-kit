@@ -1,73 +1,64 @@
-/**
- * Rows Cols, Item
- */
+.grow1 { flex-grow: 1 }
+.grow2 { flex-grow: 2 }
+.grow3 { flex-grow: 3 }
+.grow4 { flex-grow: 4 }
+.grow5 { flex-grow: 5 }
 
-.flex-row {
-  align-items: stretch;
-  display: flex;
-}
+.grid10 { flex: 0 0 10% }
+.grid15 { flex: 0 0 15% }
+.grid20 { flex: 0 0 20% }
+.grid25 { flex: 0 0 25% }
+.grid30 { flex: 0 0 30% }
+.grid35 { flex: 0 0 35% }
+.grid40 { flex: 0 0 40% }
+.grid45 { flex: 0 0 45% }
+.grid50 { flex: 0 0 50% }
+.grid55 { flex: 0 0 55% }
+.grid60 { flex: 0 0 60% }
+.grid65 { flex: 0 0 65% }
+.grid70 { flex: 0 0 70% }
+.grid75 { flex: 0 0 75% }
+.grid80 { flex: 0 0 80% }
+.grid85 { flex: 0 0 85% }
+.grid90 { flex: 0 0 90% }
+.grid95 { flex: 0 0 95% }
 
-.flex-col {
+.col {
     display: flex;
     flex-direction: column;
+
+    >.end {
+        @extend .col;
+        margin-top: auto;
+    }
 }
 
-.flex-item {
-  align-items: center;
-  display: flex;
+.row {
+    align-items: stretch;
+    display: flex;
+    flex-direction: row;
+
+    >.item {
+        display: inherit;
+        align-items: center;
+    }
+
+    >.end {
+        @extend .row;
+        margin-left: auto;
+    }
 }
 
-.flex-end {
-  align-items: inherit;
-  display: inherit;
-  margin-left: auto;
+// use inside a flex row
+.row.center {
+    justify-content: center;
 }
 
-.flex-wrap {
-  flex-wrap: wrap;
+.row.wrap {
+    flex-wrap: wrap;
 }
 
-/**
- * Alignment
- */
-
-.flex-center {
-  justify-content: center;
-}
-
-.flex-left {
-  justify-content: flex-start;
-}
-
-.flex-right {
-  justify-content: flex-end;
-}
-
-/**
- * Flex Grid
- * Use with flex-row and flex-item
- */
-
-.flex-fit {
-  flex-grow: 1;
-}
-
-.flex-grid-50 {
-  flex: 0 0 50%;
-}
-
-.flex-grid-25 {
-  flex: 0 0 25%;
-}
-
-.flex-grid-20 {
-  flex: 0 0 20%;
-}
-
-.flex-grid-15 {
-  flex: 0 0 15%;
-}
-
-.flex-grid-10 {
-  flex: 0 0 10%;
+// use inside a flex column
+.self-center {
+    align-self: center;
 }

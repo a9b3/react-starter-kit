@@ -1,4 +1,7 @@
-.dark1-bg { background-color: $dark1 }
+.dark1-bg {
+    background-color: $dark1;
+    color: white;
+}
 .dark2-bg { background-color: $dark2 }
 .dark3-bg { background-color: $dark3 }
 .dark4-bg { background-color: $dark4 }
@@ -8,7 +11,10 @@
 .dark8-bg { background-color: $dark8 }
 .blue1-bg { background-color: $blue1 }
 .blue2-bg { background-color: $blue2 }
-.blue3-bg { background-color: $blue3 }
+.blue3-bg {
+    background-color: $blue3;
+    color: white;
+}
 .blue4-bg { background-color: $blue4 }
 .blue5-bg { background-color: $blue5 }
 .blue6-bg { background-color: $blue6 }
@@ -76,4 +82,8 @@
 .turquoise5-color { color: $turquoise5 }
 .turquoise6-color { color: $turquoise6 }
 
+.white-bg { background-color: white }
 .white-color { color: white }
+.dim {
+    color: rgba($dark3, 0.4);
+}

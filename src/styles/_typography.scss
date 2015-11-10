@@ -1,0 +1,62 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800);
+// $font-family: 'Helvetica Neue';
+$font-family: 'Roboto';
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 100;
+    margin: 0;
+}
+
+h1 {
+    font-size: 4rem;
+    line-height: 4rem;
+}
+h1.xl {
+    font-size: 8rem;
+    line-height: 8rem;
+}
+h2 {
+    font-size: 3rem;
+    line-height: 3rem;
+}
+h3 {
+    font-size: 2rem;
+    line-height: 2rem;
+}
+h4 {
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+}
+h5 {
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+}
+h6 {
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+}
+
+body {
+    font-family: $font-family;
+    font-size: .9rem;
+    line-height: 1.6rem;
+    font-weight: 300;
+    color: $dark3;
+}
+
+/*******************************
+ *          Mods
+ *******************************/
+
+.bold {
+    font-weight: 400;
+}
+
+.spaced {
+    letter-spacing: 5px;
+}
