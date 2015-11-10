@@ -7,11 +7,10 @@ require('./styles/index.scss');
 // deps
 const ReactDOM = require('react-dom');
 const React = require('react');
-
-// app
-const App = require('./app/App.js');
+import { Router, Route, Link } from 'react-router';
+import routes from './router.js';
 
 ReactDOM.render(
-    <App />,
+    <Router routes={routes} />,
     document.getElementById('mount')
 );

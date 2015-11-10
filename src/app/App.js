@@ -1,5 +1,6 @@
 import React from 'react';
 import store from './store.js';
+import { Router, Route, Link } from 'react-router';
 
 const App = React.createClass({
 
