@@ -33,9 +33,9 @@
     justify-content: center;
 }
 
-/***************************************
- *  Header
- ***************************************/
+/*******************************
+ *          Header
+ *******************************/
 
 .header {
     background-color: white;
@@ -59,4 +59,20 @@
 .header.sticky {
     position: fixed;
     width: 100%;
+}
+
+
+/*******************************
+ *          Content
+ *******************************/
+
+.content {
+    width: 100%;
+    height: 100%;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+    padding-left: 200px;
 }

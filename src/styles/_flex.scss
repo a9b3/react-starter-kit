@@ -36,7 +36,7 @@
 .row {
     align-items: stretch;
     display: flex;
-    flex-direction: row;
+    flex-flow: row wrap;
 
     >.item {
         display: inherit;

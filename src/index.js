@@ -7,10 +7,9 @@ require('./styles/index.scss');
 // deps
 import ReactDOM from 'react-dom';
 import React from 'react';
-import { Router, Route, Link } from 'react-router';
-import routes from './router.js';
+import router from './router.js';
 
 ReactDOM.render(
-    <Router routes={routes} />,
-    document.getElementById('mount')
+    router,
+    document.getElementById('mount'),
 );

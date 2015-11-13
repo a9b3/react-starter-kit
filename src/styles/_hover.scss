@@ -1,8 +1,17 @@
 .hover {
-    transition: all 0.5s;
+    transition: all 0.2s;
 }
 
 .hover:hover {
     cursor: pointer;
-    transition: all 0.5s;
+    transition: all 0.2s;
+    background-color: $blue3;
+    color: white;
+    box-shadow: 5px 0px 0px rgba($dark3, 0.5);
+}
+
+.active {
+    background-color: $blue3;
+    color: white !important;
+    box-shadow: 5px 0px 0px rgba($dark4, 0.5);
 }
