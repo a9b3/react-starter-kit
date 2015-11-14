@@ -24,6 +24,14 @@ const Sidebar = React.createClass({
     },
 
     render() {
+        const header = (
+            <div className="row center">
+                <div className="item l-pad">
+                    <img src="img/icon.png" style={{width: '100px'}}/>
+                </div>
+            </div>
+        );
+
         const links = this.props.links.map(link => (
             <Link className="row link hover s-pad"
                 activeClassName="active"
@@ -41,11 +49,7 @@ const Sidebar = React.createClass({
 
         return (
             <div className="dark7-bg dark5-color col shadow sidebar" style={sidebarStyle}>
-                <div className="row center">
-                    <div className="item l-pad">
-                        <img src="img/icon.png" />
-                    </div>
-                </div>
+                {header}
                 {links}
 
                 <div className="end dark2-bg">

@@ -95,6 +95,8 @@ gulp.task('dev-server', done => {
 
     app.use(webpackHotMiddleware(compiler));
 
+    app.use(express.static('src'));
+
     app.get('*', (req, res) => {
         res.sendFile(path.join(__dirname, 'src', 'index.html'));
     });
