@@ -4,7 +4,9 @@ import { findDOMNode } from 'react-dom';
 const Navbar = React.createClass({
 
     getInitialState() {
-        return {};
+        return {
+            text: 'Hello this is some random text.',
+        };
     },
 
     componentDidMount() {
@@ -17,21 +19,22 @@ const Navbar = React.createClass({
 
     render() {
         return (
-            <div className="white-bg shadow">
-                <div className="m-wwrap">
-                    <div className="row">
-                        <div className="item m-pad">
-                            <h4>
-                                Something
-                            </h4>
-                        </div>
-                        <div className="end">
-                            <div className="item m-pad">
-                                end
-                            </div>
-                            <div className="item m-pad">
-                                end
-                            </div>
+            <div className="navbar white-bg shadow" style={{
+                position: 'absolute',
+                display: 'flex',
+                left: '0',
+                right: '0',
+                padding: '0px 10px',
+                zIndex: '700',
+            }}>
+                <div className="row grow1">
+                    <div className="item hint m-pad">
+                        {this.state.text}
+                    </div>
+
+                    <div className="end">
+                        <div className="item s-margin">
+                            {/* <img src="img/icon.png" style={{width: '30px'}}/> */}
                         </div>
                     </div>
                 </div>

@@ -36,12 +36,12 @@ const Default = React.createClass({
                 </div>
 
                 <div className="row grid50">
-                    <div className="item row center grid50" style={{minWidth: '400px'}}>
+                    <div className="row center grid50" style={{minWidth: '400px'}}>
                         <div className="item">
                             hi
                         </div>
                     </div>
-                    <div className="item row center grid50" style={{minWidth: '400px'}}>
+                    <div className="row center grid50" style={{minWidth: '400px'}}>
                         <div className="item">
                             hi
                         </div>

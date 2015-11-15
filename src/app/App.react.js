@@ -38,8 +38,14 @@ const App = React.createClass({
                 <Sidebar
                     links={links}/>
 
-                <div className="main dark8-bg">
-                    {this.props.children}
+                <div className="main">
+                    <Navbar />
+
+                    <div className="content" style={{
+                        paddingTop: '60px',
+                    }}>
+                        {this.props.children}
+                    </div>
                 </div>
             </div>
        );

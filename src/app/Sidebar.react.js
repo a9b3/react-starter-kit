@@ -2,13 +2,6 @@ import React, { PropTypes } from 'react';
 import { findDOMNode } from 'react-dom';
 import { Link } from 'react-router';
 
-const sidebarStyle = {
-    height: '100vh',
-    width: '200px',
-    zIndex: '999',
-    position: 'fixed',
-};
-
 const Sidebar = React.createClass({
 
     getInitialState() {
@@ -24,15 +17,24 @@ const Sidebar = React.createClass({
     },
 
     render() {
+        let sidebarStyle = {
+            width: this.props.width || '200px',
+            zIndex: '999',
+            position: 'absolute',
+            top: '0',
+            bottom: '0',
+        };
+
         const header = (
-            <div className="row center">
-                <div className="item l-pad">
-                    <img src="img/icon.png" style={{width: '100px'}}/>
+            <div className="row center" style={{
+                height: '65px',
+            }}>
+                <div className="item">
                 </div>
             </div>
         );
 
-        const links = this.props.links.map(link => (
+        const links = this.props.links && this.props.links.map(link => (
             <Link className="row link hover s-pad"
                 activeClassName="active"
                 to={link.src}>
@@ -48,17 +50,21 @@ const Sidebar = React.createClass({
         ));
 
         return (
-            <div className="dark7-bg dark5-color col shadow sidebar" style={sidebarStyle}>
+            <div className="dark3-bg dark5-color col right-shadow sidebar" style={sidebarStyle}>
                 {header}
                 {links}
 
                 <div className="end dark2-bg">
                     <div className="row">
                         <div className="grow1 row hover center m-pad">
-                            hi
+                            <div className="item">
+                                <i className="fa fa-github"></i>
+                            </div>
                         </div>
                         <div className="grow1 row hover center m-pad">
-                            hi
+                            <div className="item">
+                                <i className="fa fa-github"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
