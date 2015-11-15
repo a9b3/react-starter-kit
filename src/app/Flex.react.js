@@ -21,14 +21,16 @@ const Flex = React.createClass({
             <div className="s-wwrap m-pad white-bg" style={{
                 minHeight: '100%',
             }}>
-                <div className="m-pad">
+                <div className="m-margin">
                     <h3>Flex</h3>
+                    <hr />
+
                     <p>
                         There are two types of flex components, 'row' and 'col'.
                     </p>
                 </div>
 
-                <div className="m-pad">
+                <div className="m-margin">
                     <div className="row debug">
                         <div className="item s-pad debug">
                             item in row
@@ -69,7 +71,7 @@ const Flex = React.createClass({
                     </div>
                 </div>
 
-                <div className="m-pad">
+                <div className="m-margin">
                     <div className="row debug">
                         <div className="item grid50 debug">
                             grid50
@@ -94,7 +96,7 @@ const Flex = React.createClass({
                     </div>
                 </div>
 
-                <div className="m-pad">
+                <div className="m-margin">
                     <div className="content debug" style={{
                         height: '600px',
                     }}>

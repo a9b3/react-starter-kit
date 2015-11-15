@@ -2,6 +2,7 @@ import React from 'react';
 import store from './store.js';
 import Navbar from './Navbar.react.js';
 import Sidebar from './Sidebar.react.js';
+import Footer from './Footer.react.js';
 
 const App = React.createClass({
 
@@ -45,6 +46,8 @@ const App = React.createClass({
                         paddingTop: '60px',
                     }}>
                         {this.props.children}
+
+                        <Footer />
                     </div>
                 </div>
             </div>
