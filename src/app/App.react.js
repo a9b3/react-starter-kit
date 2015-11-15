@@ -42,7 +42,7 @@ const App = React.createClass({
                 <div className="main">
                     <Navbar />
 
-                    <div className="content" style={{
+                    <div className="content scroll-view" style={{
                         paddingTop: '60px',
                     }}>
                         {this.props.children}

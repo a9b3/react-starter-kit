@@ -17,7 +17,7 @@ const Default = React.createClass({
 
     render() {
         return (
-            <div className="content col">
+            <div className="col content">
                 <div className="row center grid50 blue3-bg white-color">
                     <div className="row center grow1">
                         <div className="item grid20 m-pad">
@@ -46,10 +46,6 @@ const Default = React.createClass({
                             hi
                         </div>
                     </div>
-                </div>
-
-                <div className="dark6-bg l-pad white-color">
-                    hi
                 </div>
             </div>
         );

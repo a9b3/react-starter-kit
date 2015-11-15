@@ -17,7 +17,7 @@ const Test = React.createClass({
 
     render() {
         return (
-            <div>
+            <div className="content">
                 Test
             </div>
         );
