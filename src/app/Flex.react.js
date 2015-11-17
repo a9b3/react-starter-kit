@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import { findDOMNode } from 'react-dom';
 import Sidebar from './Sidebar.react.js';
 import Navbar from './Navbar.react.js';
+import Footer from './Footer.react.js';
 import $ from 'jquery';
 import hljs from 'highlight.js';
 
@@ -222,7 +223,7 @@ const gridCard = (
             <div className="col self-center grid50 m-pad">
                 <div className="m-pad">
                   Within a row or a col you can have grid items ranging from 5
-                  to 100 with intervals of 5. For example <i>grid50</i> will be
+                  to 100 with intervals of 5. For example <i>'grid50'</i> will be
                   50%.
                 </div>
 
@@ -292,66 +293,29 @@ const Flex = React.createClass({
 
     render() {
         return (
-            <div className="m-wwrap m-pad white-bg" style={{
-                minHeight: '100%',
-            }}>
-                <div className="m-margin">
-                    <h3>Flex</h3>
-                    <hr />
-
-                    <p>
-                        There are two types of flex components, 'row' and 'col', these component's childs can also be a flex component.
-                    </p>
-                </div>
-
-                {rowCard}
-
-                {colCard}
-
-                {gridCard}
-
-
-                <div className="m-margin" style={{
-                    marginTop: '100px'
-                }}>
-                    <h3>
-                        Sidebar
-                    </h3>
-                    <hr />
-
-                    <p>
-                        The sidebar
-                    </p>
-
-                    <pre>
-                    <code className="html">
-                        {exHtml.sidebar}
-                    </code>
-                    </pre>
-                </div>
-
-                <div className="m-margin">
-                    <div className="content debug" style={{
-                        height: '600px',
+            <div className="content">
+                <div className="content scroll-view">
+                    <div className="m-wwrap m-pad white-bg" style={{
+                        minHeight: '100%',
                     }}>
-                        <Sidebar/>
+                        <div className="m-margin">
+                            <h3>Flex</h3>
+                            <hr />
 
-                        <div>
-                            hi
+                            <p>
+                                There are two types of flex components, 'row' and 'col', these component's childs can also be a flex component.
+                            </p>
                         </div>
-                    </div>
-                </div>
 
-                <div className="m-margin">
-                    <div className="content scroll-view debug" style={{
-                        height: '600px',
-                    }}>
-                        <Navbar/>
+                        {rowCard}
 
-                        <div className="scroll-view">
-                            hi
-                        </div>
+                        {colCard}
+
+                        {gridCard}
+
                     </div>
+
+                    <Footer />
                 </div>
             </div>
         );

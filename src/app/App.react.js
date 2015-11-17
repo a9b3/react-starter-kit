@@ -25,10 +25,6 @@ const App = React.createClass({
                 display: 'Main',
             },
             {
-                src: 'about',
-                display: 'About',
-            },
-            {
                 src: 'flex',
                 display: 'Flex',
             },
@@ -43,12 +39,7 @@ const App = React.createClass({
                     links={links}/>
 
                 <div className="content">
-
-                    <div className="content scroll-view">
-                        {this.props.children}
-
-                        <Footer />
-                    </div>
+                    {this.props.children}
                 </div>
             </div>
        );
