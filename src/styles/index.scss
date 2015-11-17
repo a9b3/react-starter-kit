@@ -1,9 +1,15 @@
+// global
 @import './_variables.scss';
-@import './_colors.scss';
 @import './_typography.scss';
+@import './_colors.scss';
+@import './_overwrites.scss';
 
-@import './_button.scss';
-@import './_flex.scss';
+// general
 @import './_general.scss';
+@import './_flex.scss';
 @import './_layout.scss';
-@import './_hover.scss';
+
+// specific components
+@import './_navbar.scss';
+@import './_sidebar.scss';
+@import './_card.scss';

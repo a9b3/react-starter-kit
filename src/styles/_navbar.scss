@@ -1,0 +1,16 @@
+$navbar-height: 60px;
+
+.navbar {
+    display: flex;
+    left: 0;
+    max-height: $navbar-height;
+    padding: 0px 10px;
+    position: absolute;
+    right: 0;
+    z-index: 700;
+}
+
+.navbar + div {
+    padding-top: $navbar-height;
+    z-index: 600;
+}

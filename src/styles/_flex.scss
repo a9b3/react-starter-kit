@@ -23,9 +23,18 @@
 .grid90 { flex: 0 0 90% }
 .grid95 { flex: 0 0 95% }
 
+.item {
+    box-sizing: border-box;
+}
+
 .col {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
+
+    &.center {
+        align-items: center;
+    }
 
     >.end {
         @extend .col;
@@ -34,9 +43,14 @@
 }
 
 .row {
+    box-sizing: border-box;
     align-items: stretch;
     display: flex;
     flex-flow: row wrap;
+
+    &.center {
+        justify-content: center;
+    }
 
     >.item {
         display: inherit;
@@ -49,16 +63,7 @@
     }
 }
 
-// use inside a flex row
-.row.center {
-    justify-content: center;
-}
-
-.row.wrap {
-    flex-wrap: wrap;
-}
-
-// use inside a flex column
+// use inside a flex column to align vertical center
 .self-center {
     align-self: center;
 }

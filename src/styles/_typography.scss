@@ -1,6 +1,10 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800);
-// $font-family: 'Helvetica Neue';
-$font-family: 'Roboto';
+@font-face {
+    font-family: 'Proggy';
+    src: url('./fonts/ProggyClean.ttf');
+}
+
+$font-family: 'Helvetica Neue';
+$font-color: rgba($dark3, 0.8);
 
 h1,
 h2,
@@ -47,7 +51,7 @@ body {
     font-size: .9rem;
     line-height: 1.6rem;
     font-weight: 300;
-    color: $dark3;
+    color: $font-color;
 }
 
 hr {

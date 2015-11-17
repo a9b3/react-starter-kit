@@ -1,0 +1,30 @@
+// remove link styling
+a:link,
+a:visited,
+a:active {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+// remove input styling
+input, textarea{
+    border: none;
+    box-shadow: none;
+    outline: none;
+}
+input:focus, textarea:focus {
+    border: none;
+    box-shadow: none;
+    outline: none;
+}
+
+pre {
+    white-space: pre-wrap;
+}
+
+code {
+    border-radius: 3px;
+    font-family: 'Proggy';
+    font-size: 1rem;
+    line-height: 1rem;
+}

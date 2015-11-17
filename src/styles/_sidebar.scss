@@ -1,0 +1,34 @@
+$sidebar-width: 200px;
+
+.sidebar {
+    bottom: 0;
+    position: absolute;
+    top: 0;
+    transition: all 0.4s;
+    width: $sidebar-width;
+    z-index: 999;
+
+    .active {
+        border-right: 10px solid $blue3;
+        color: white !important;
+    }
+
+    .link {
+        border-bottom: 1px solid rgba(black, .01);
+    }
+
+    .hover {
+        transition: all 0.2s;
+    }
+
+    .hover:hover {
+        border-right: 10px solid $blue3;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+
+}
+
+.sidebar + div {
+    margin-left: $sidebar-width;
+}

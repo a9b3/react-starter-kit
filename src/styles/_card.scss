@@ -1,0 +1,8 @@
+.card {
+    @extend .shadow;
+
+    // meant to be used in conjuction with a row class
+    .header {
+        border-bottom: 1px solid $dark7;
+    }
+}
