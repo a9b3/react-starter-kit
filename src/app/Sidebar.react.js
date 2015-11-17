@@ -31,7 +31,7 @@ const Sidebar = React.createClass({
         );
 
         const links = this.props.links && this.props.links.map(link => (
-            <Link className="row link hover s-pad seperator"
+            <Link className="row link s-pad seperator"
                 activeClassName="active"
                 to={link.src}>
                 <div className="item">
@@ -53,16 +53,11 @@ const Sidebar = React.createClass({
 
                 <div className="end dark2-bg">
                     <div className="row">
-                        <div className="grow1 row hover center m-pad">
+                        <a className="grow1 row hover center m-pad" href="https://github.com/esayemm">
                             <div className="item">
                                 <i className="fa fa-github"></i>
                             </div>
-                        </div>
-                        <div className="grow1 row hover center m-pad">
-                            <div className="item">
-                                <i className="fa fa-github"></i>
-                            </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>

@@ -38,12 +38,12 @@ const Default = React.createClass({
                 <div className="row grid50">
                     <div className="row center grid50" style={{minWidth: '400px'}}>
                         <div className="item">
-                            hi
+                            Cool
                         </div>
                     </div>
                     <div className="row center grid50" style={{minWidth: '400px'}}>
                         <div className="item">
-                            hi
+                            Man
                         </div>
                     </div>
                 </div>

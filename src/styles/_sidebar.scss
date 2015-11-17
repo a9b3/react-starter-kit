@@ -15,6 +15,13 @@ $sidebar-width: 200px;
 
     .link {
         border-bottom: 1px solid rgba(black, .01);
+        transition: all 0.2s;
+    }
+
+    .link:hover {
+        border-right: 10px solid $blue3;
+        cursor: pointer;
+        transition: all 0.2s;
     }
 
     .hover {
@@ -22,8 +29,9 @@ $sidebar-width: 200px;
     }
 
     .hover:hover {
-        border-right: 10px solid $blue3;
         cursor: pointer;
+        background-color: $dark1;
+        color: white;
         transition: all 0.2s;
     }
 
