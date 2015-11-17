@@ -37,14 +37,14 @@ const App = React.createClass({
         return (
             <div className="row" style={{height: '100%'}}>
                 <Sidebar
+                    attrs={{
+                        test: 'test',
+                    }}
                     links={links}/>
 
-                <div className="main">
-                    <Navbar />
+                <div className="content">
 
-                    <div className="content scroll-view" style={{
-                        paddingTop: '60px',
-                    }}>
+                    <div className="content scroll-view">
                         {this.props.children}
 
                         <Footer />

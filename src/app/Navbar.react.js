@@ -19,14 +19,7 @@ const Navbar = React.createClass({
 
     render() {
         return (
-            <div className="navbar white-bg shadow" style={{
-                position: 'absolute',
-                display: 'flex',
-                left: '0',
-                right: '0',
-                padding: '0px 10px',
-                zIndex: '700',
-            }}>
+            <div className="navbar white-bg shadow">
                 <div className="row grow1">
                     <div className="item hint m-pad">
                         {this.state.text}

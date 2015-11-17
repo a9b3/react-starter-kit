@@ -45,8 +45,11 @@
     "webpack-hot-middleware": "^2.4.1"
   },
   "dependencies": {
+    "animate.css": "^3.4.0",
     "font-awesome": "^4.4.0",
+    "highlight.js": "^8.9.1",
     "history": "^1.13.0",
+    "jquery": "^2.1.4",
     "normalize.css": "^3.0.3",
     "react": "^0.14.1",
     "react-dom": "^0.14.1",

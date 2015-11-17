@@ -19,10 +19,6 @@ const Sidebar = React.createClass({
     render() {
         let sidebarStyle = {
             width: this.props.width || '200px',
-            zIndex: '999',
-            position: 'absolute',
-            top: '0',
-            bottom: '0',
         };
 
         const header = (
@@ -35,7 +31,7 @@ const Sidebar = React.createClass({
         );
 
         const links = this.props.links && this.props.links.map(link => (
-            <Link className="row link hover s-pad"
+            <Link className="row link hover s-pad seperator"
                 activeClassName="active"
                 to={link.src}>
                 <div className="item">
@@ -50,7 +46,8 @@ const Sidebar = React.createClass({
         ));
 
         return (
-            <div className="dark3-bg dark5-color col right-shadow sidebar" style={sidebarStyle}>
+            <div className="dark3-bg dark4-color col shadow sidebar"
+                style={sidebarStyle}>
                 {header}
                 {links}
 
