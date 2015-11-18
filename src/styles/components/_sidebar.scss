@@ -13,9 +13,13 @@ $sidebar-width: 200px;
         color: white !important;
     }
 
+    $link-border: 1px solid rgba($dark4, 0.1);
     .link {
-        border-bottom: 1px solid rgba(black, .01);
+        border-top: $link-border;
         transition: all 0.2s;
+    }
+    .link + .link {
+        border-bottom: $link-border;
     }
 
     .link:hover {
