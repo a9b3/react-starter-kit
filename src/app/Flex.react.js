@@ -29,6 +29,18 @@ row:
     </div>
 </div>`,
 
+rowCenter:
+`<div className="row center debug" style={{
+    width: '100px',
+    height: '100px',
+}}>
+    <div className="item debug">
+        <div className="debug">
+            center
+        </div>
+    </div>
+</div>`,
+
 col:
 `<div className="col debug" style={{
     height: '300px',
@@ -106,7 +118,7 @@ const rowCard = (
             </div>
         </div>
 
-
+        {/* section */}
         <div className="row">
             <div className="col self-center grid50 m-pad">
                 <div className="m-pad">
@@ -146,6 +158,38 @@ const rowCard = (
                 <div className="grow1">
                     <pre><code className="html">
                         {exHtml.row}
+                    </code></pre>
+                </div>
+            </div>
+        </div>
+
+        {/* section */}
+        <div className="row">
+            <div className="col center self-center grid50 m-pad">
+                {/* description */}
+                <div className="m-pad">
+                    If you want to align something vertically center,
+                    you can use a row as the parent, and use an item as a wrapper.
+                </div>
+
+                {/* example */}
+                <div className="row center debug" style={{
+                    width: '100px',
+                    height: '100px',
+                }}>
+                    <div className="item debug">
+                        <div className="debug">
+                            center
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="item grid50 m-pad">
+                <div className="grow1">
+                    {/* example code */}
+                    <pre><code className="html">
+                        {exHtml.rowCenter}
                     </code></pre>
                 </div>
             </div>

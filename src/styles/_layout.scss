@@ -9,6 +9,12 @@
     overflow: auto;
 }
 
+.content.xy-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .scroll-view {
     box-sizing: border-box;
     overflow: auto;
