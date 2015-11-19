@@ -23,8 +23,8 @@ const Sidebar = React.createClass({
 
         const header = (
             <div className="row center">
-                <div className="item spaced l-pad">
-                    <h4>styleguide</h4>
+                <div className="item spaced l-pad white-color bold">
+                    <h4><span className="normal">style</span>guide</h4>
                 </div>
             </div>
         );
@@ -52,7 +52,7 @@ const Sidebar = React.createClass({
 
                 <div className="end dark2-bg">
                     <div className="row">
-                        <a className="grow1 row hover center m-pad" href="https://github.com/esayemm">
+                        <a className="grow1 row hover center m-pad" href="https://github.com/esayemm" target="_blank">
                             <div className="item">
                                 <i className="fa fa-github"></i>
                             </div>
