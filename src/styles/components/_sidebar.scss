@@ -45,3 +45,14 @@ $sidebar-width: 200px;
 .sidebar + div {
     margin-left: $sidebar-width;
 }
+
+@media (max-width: 700px) {
+    $sidebar-sm-width: 80px;
+    .sidebar {
+        width: $sidebar-sm-width !important;
+    }
+
+    .sidebar + div {
+        margin-left: $sidebar-sm-width !important;
+    }
+}
