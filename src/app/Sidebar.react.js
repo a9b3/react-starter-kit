@@ -17,9 +17,6 @@ const Sidebar = React.createClass({
     },
 
     render() {
-        let sidebarStyle = {
-            width: this.props.width || '200px',
-        };
 
         const header = (
             <div className="row center">
@@ -45,8 +42,7 @@ const Sidebar = React.createClass({
         ));
 
         return (
-            <div className="dark3-bg dark4-color col shadow sidebar"
-                style={sidebarStyle}>
+            <div className="dark3-bg dark4-color col shadow sidebar">
                 {header}
                 {links}
 
