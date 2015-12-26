@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route, Link } from 'react-router';
+import { Router, Route, Link, IndexRedirect } from 'react-router';
 import { createHistory } from 'history';
 import App from './app/App.react.js';
 import Default from './app/Default.react.js';
@@ -11,6 +11,7 @@ const history = createHistory();
 const router = (
     <Router history={history}>
         <Route path="/" component={App}>
+            <IndexRedirect to="/main" />
             <Route path="main" component={Default} />
             <Route path="flex" component={Flex} />
             <Route path="test" component={Test} />
