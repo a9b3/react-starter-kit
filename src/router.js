@@ -20,6 +20,11 @@ const routes = [
                 name: 'flex',
                 component: Flex,
             },
+            {
+                path: '/test',
+                name: 'test',
+                component: require('./app/Test.react.js'),
+            },
         ],
     },
 ];
@@ -28,7 +33,8 @@ const history = createHistory();
 
 const router = (
     <Router history={history}
-        routes={routes} />
+        routes={routes}>
+    </Router>
 );
 
 module.exports = router;
