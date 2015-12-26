@@ -19,7 +19,7 @@ const Sidebar = React.createClass({
     render() {
 
         const header = (
-            <div className="row center">
+            <div className="row center header">
                 <div className="item spaced l-pad white-color bold">
                     <h4><span className="normal">style</span>guide</h4>
                 </div>

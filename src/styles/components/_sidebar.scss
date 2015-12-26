@@ -50,6 +50,11 @@ $sidebar-width: 200px;
     $sidebar-sm-width: 80px;
     .sidebar {
         width: $sidebar-sm-width !important;
+
+        .header {
+            width: $sidebar-sm-width;
+            overflow: hidden;
+        }
     }
 
     .sidebar + div {
