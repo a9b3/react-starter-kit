@@ -2,9 +2,10 @@
 // styles
 require('normalize.css');
 require('font-awesome/scss/font-awesome.scss');
-require('./styles/index.scss');
 require('animate.css/animate.css');
 require('highlight.js/styles/github.css');
+// custom
+require('./styles/index.scss');
 
 // deps
 import ReactDOM from 'react-dom';
