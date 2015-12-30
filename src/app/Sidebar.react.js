@@ -26,8 +26,10 @@ const Sidebar = React.createClass({
             </div>
         );
 
+        let i = 0;
         const links = this.props.links && this.props.links.map(link => (
             <Link className="row link s-pad seperator"
+                key={i++}
                 activeClassName="active"
                 to={link.src}>
                 <div className="item">
