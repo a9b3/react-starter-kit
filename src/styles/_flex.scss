@@ -4,27 +4,31 @@
 .grow4 { flex-grow: 4 }
 .grow5 { flex-grow: 5 }
 
-.grid10 { flex: 0 0 10% }
-.grid15 { flex: 0 0 15% }
-.grid20 { flex: 0 0 20% }
-.grid25 { flex: 0 0 25% }
-.grid30 { flex: 0 0 30% }
-.grid35 { flex: 0 0 35% }
-.grid40 { flex: 0 0 40% }
-.grid45 { flex: 0 0 45% }
-.grid50 { flex: 0 0 50% }
-.grid55 { flex: 0 0 55% }
-.grid60 { flex: 0 0 60% }
-.grid65 { flex: 0 0 65% }
-.grid70 { flex: 0 0 70% }
-.grid75 { flex: 0 0 75% }
-.grid80 { flex: 0 0 80% }
-.grid85 { flex: 0 0 85% }
-.grid90 { flex: 0 0 90% }
-.grid95 { flex: 0 0 95% }
+.grid10 { flex: 1 0 10% }
+.grid15 { flex: 1 0 15% }
+.grid20 { flex: 1 0 20% }
+.grid25 { flex: 1 0 25% }
+.grid30 { flex: 1 0 30% }
+.grid35 { flex: 1 0 35% }
+.grid40 { flex: 1 0 40% }
+.grid45 { flex: 1 0 45% }
+.grid50 { flex: 1 0 50% }
+.grid55 { flex: 1 0 55% }
+.grid60 { flex: 1 0 60% }
+.grid65 { flex: 1 0 65% }
+.grid70 { flex: 1 0 70% }
+.grid75 { flex: 1 0 75% }
+.grid80 { flex: 1 0 80% }
+.grid85 { flex: 1 0 85% }
+.grid90 { flex: 1 0 90% }
+.grid95 { flex: 1 0 95% }
 
 .item {
     box-sizing: border-box;
+
+    &.center {
+        justify-content: center;
+    }
 }
 
 .col {
@@ -43,8 +47,8 @@
 }
 
 .row {
-    box-sizing: border-box;
     align-items: stretch;
+    box-sizing: border-box;
     display: flex;
     flex-flow: row wrap;
 
