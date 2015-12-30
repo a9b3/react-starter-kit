@@ -28,6 +28,10 @@ const App = React.createClass({
                 src: 'flex',
                 display: 'Flex',
             },
+            {
+                src: 'test',
+                display: 'Test',
+            },
         ];
 
         return (
