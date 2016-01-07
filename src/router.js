@@ -8,7 +8,7 @@ import { createHistory } from 'history';
 import store from './store.js';
 
 // react
-import App from './react/App.js';
+import App from './react/App.container.js';
 
 const history = createHistory();
 
