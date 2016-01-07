@@ -28,7 +28,9 @@ const AppContainer = React.createClass({
     },
 
     render() {
-        const test = {foo: 'hiih'};
+        const test = {
+            foo: 'hiih',
+        };
 
         return (
             <AppComponent test={test}>
