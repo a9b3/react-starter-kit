@@ -1,9 +1,12 @@
+'use strict';
+
 const path = require('path');
 const webpack = require('webpack');
 
 const hotMiddlewareScript = 'webpack-hot-middleware/client?reload=true';
 
 module.exports = {
+
     devtool: 'eval-source-map',
     entry: {
         app: [
@@ -11,16 +14,19 @@ module.exports = {
             './src/index.js',
         ],
     },
+
     output: {
         path: path.join(__dirname, 'dist'),
         filename: '[name].bundle.js',
         publicPath: '/static/',
     },
+
     plugins: [
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
     ],
+
     module: {
         loaders: [
             {
@@ -33,8 +39,12 @@ module.exports = {
                 // }
             },
             {
-                test: /\.s?css$/,
+                test: /\.scss$/,
                 loaders: ['style', 'css', 'autoprefixer', 'sass'],
+            },
+            {
+                test: /\.css$/,
+                loaders: ['style', 'css?modules&importLoaders=1', 'postcss'],
             },
             {
                 test: /\.html$/,
@@ -66,5 +76,13 @@ module.exports = {
                 loader: "url?limit=10000&mimetype=image/svg+xml"
             }
         ],
-    }
+    },
+
+    postcss() {
+        return [
+            require('autoprefixer'),
+            require('precss'),
+        ];
+    },
+
 };
