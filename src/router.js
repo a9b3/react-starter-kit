@@ -7,8 +7,8 @@ import { Router, Route, Link, IndexRedirect } from 'react-router';
 import { createHistory } from 'history';
 import store from './store.js';
 
-// containers
-import App from './containers/App.js';
+// react
+import App from './react/App.js';
 
 const history = createHistory();
 
