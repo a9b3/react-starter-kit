@@ -15,7 +15,7 @@ function test(state = {}, action) {
 }
 
 const rootReducer = combineReducers({
-    routing: rootReducer,
+    routing: routeReducer,
     test,
 });
 

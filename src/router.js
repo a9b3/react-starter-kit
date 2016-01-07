@@ -1,5 +1,6 @@
 'use strict';
 
+import React from 'react';
 import { Provider } from 'react-redux';
 import { syncReduxAndRouter } from 'redux-simple-router';
 import { Router, Route, Link, IndexRedirect } from 'react-router';
