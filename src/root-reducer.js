@@ -1,6 +1,7 @@
 'use strict';
 
 import { combineReducers } from 'redux';
+import { routeReducer } from 'redux-simple-router';
 
 function test(state = {}, action) {
     switch(action.type) {
@@ -14,6 +15,7 @@ function test(state = {}, action) {
 }
 
 const rootReducer = combineReducers({
+    routing: rootReducer,
     test,
 });
 
