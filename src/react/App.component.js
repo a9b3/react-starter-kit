@@ -5,21 +5,14 @@ import { findDOMNode } from 'react-dom';
 
 const AppComponent = React.createClass({
 
-    getInitialState() {
-        return {};
-    },
-
-    componentDidMount() {
-
-    },
-
-    componentWillUnmount() {
-
+    propTypes: {
+        test: React.PropTypes.string.isRequired,
     },
 
     render() {
         return (
             <div>
+                {this.props.test.foo}
                 hi
             </div>
         );

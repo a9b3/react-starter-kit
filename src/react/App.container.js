@@ -15,7 +15,7 @@ const AppContainer = React.createClass({
     },
 
     componentDidMount() {
-        unsubscibe = store.subscribe(this._onChange);
+        unsubscribe = store.subscribe(this._onChange);
     },
 
     componentWillUnmount() {
@@ -28,6 +28,7 @@ const AppContainer = React.createClass({
     },
 
     render() {
+        const test = {foo: 'hiih'};
 
         return <AppComponent></AppComponent>;
     },
