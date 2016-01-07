@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { syncReduxAndRouter } from 'redux-simple-router';
 import { Router, Route, Link, IndexRedirect } from 'react-router';
 import { createHistory } from 'history';
-import store from './app/store.js';
+import store from './store.js';
 
 // containers
 import App from './app/App.react.js';
