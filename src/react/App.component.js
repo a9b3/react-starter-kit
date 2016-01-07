@@ -7,7 +7,7 @@ import style from './App.css';
 const AppComponent = React.createClass({
 
     propTypes: {
-        test: React.PropTypes.string.isRequired,
+        test: React.PropTypes.object.isRequired,
     },
 
     render() {
