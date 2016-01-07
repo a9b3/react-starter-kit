@@ -12,6 +12,7 @@ const createStoreWithMiddleware = applyMiddleware(
     loggerMiddleware
 )(createStore);
 
+// do local storage stuff here
 const defaultState = {
 
 };
