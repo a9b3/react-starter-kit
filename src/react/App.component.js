@@ -2,6 +2,7 @@
 
 import React, { PropTypes } from 'react';
 import { findDOMNode } from 'react-dom';
+import style from './App.css';
 
 const AppComponent = React.createClass({
 
@@ -11,7 +12,7 @@ const AppComponent = React.createClass({
 
     render() {
         return (
-            <div>
+            <div className={style.app}>
                 {this.props.test.foo}
                 hi
             </div>

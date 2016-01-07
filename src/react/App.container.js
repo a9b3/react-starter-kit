@@ -30,7 +30,10 @@ const AppContainer = React.createClass({
     render() {
         const test = {foo: 'hiih'};
 
-        return <AppComponent></AppComponent>;
+        return (
+            <AppComponent test={test}>
+            </AppComponent>
+        );
     },
 
 });
