@@ -2,29 +2,36 @@
 
 import React, { PropTypes } from 'react';
 import { findDOMNode } from 'react-dom';
+import store from '../store.js';
+import AppComponent from './App.component.js';
 
-const App = React.createClass({
+// reference function to unsubscribe from redux store
+let unsubscribe;
+
+const AppContainer = React.createClass({
 
     getInitialState() {
-        return {};
+        return store.getState();
     },
 
     componentDidMount() {
-
+        unsubscibe = store.subscribe(this._onChange);
     },
 
     componentWillUnmount() {
+        if (!unsubscribe) return;
+        unsubscribe();
+    },
 
+    _onChange() {
+        this.setState(store.getState());
     },
 
     render() {
-        return (
-            <div>
-                hi
-            </div>
-        );
+
+        return <AppComponent></AppComponent>;
     },
 
 });
 
-export default App;
+export default AppContainer;
