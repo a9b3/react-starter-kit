@@ -1,5 +1,7 @@
+$black: blue;
+
 .app {
-    background-color: black;
+    background-color: $black;
     color: white;
     height: 100%;
 }
