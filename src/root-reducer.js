@@ -3,7 +3,16 @@
 import { combineReducers } from 'redux';
 import { routeReducer } from 'redux-simple-router';
 
-function test(state = {}, action) {
+const reducers = {};
+
+reducers.sessionToken = (state = {}, action) => {
+    switch(action.type) {
+        default:
+            return state;
+    }
+};
+
+reducers.test = (state = {}, action) => {
     switch(action.type) {
         case 'TEST':
             return {
@@ -12,11 +21,16 @@ function test(state = {}, action) {
         default:
             return state;
     }
-}
+};
 
-const rootReducer = combineReducers({
+const combinedReducers = Object.keys(reducers).reduce((obj, key) => {
+    if (obj[key]) return obj;
+    obj[key] = reducers[key];
+    return obj;
+}, {
     routing: routeReducer,
-    test,
 });
+
+const rootReducer = combineReducers(combinedReducers);
 
 export default rootReducer;
