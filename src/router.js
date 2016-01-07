@@ -1,6 +1,9 @@
-import React from 'react';
+'use strict';
+
 import { Router, Route, Link, IndexRedirect } from 'react-router';
 import { createHistory } from 'history';
+
+// containers
 import App from './app/App.react.js';
 import Default from './app/Default.react.js';
 import Flex from './app/Flex.react.js';
