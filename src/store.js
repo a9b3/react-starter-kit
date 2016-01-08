@@ -10,7 +10,7 @@ const loggerMiddleware = createLogger();
 
 const middlewares = [
     thunkMiddleware,
-    !config.DEBUG && loggerMiddleware,
+    config.DEBUG && loggerMiddleware,
 ].filter(a => a);
 
 const createStoreWithMiddleware = applyMiddleware(
