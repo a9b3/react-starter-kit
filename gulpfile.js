@@ -32,7 +32,7 @@ gulp.task('lint:scss', () => {
     ])
     .pipe($.gitmodified(['added', 'modified']))
     .pipe($.scssLint({
-      config: '.scss-lint.yml',
+        config: '.scss-lint.yml',
     }))
     .pipe($.scssLint.failReporter('E'))
 });
@@ -72,15 +72,15 @@ gulp.task('build', ['move:index', 'others'], done => {
     const wpConfig = require('./webpack.config.prod.js');
 
     runSequence(
-      'clean',
-      ['move:index', 'others'],
-      () => {
-        webpack(wpConfig, (e, stats) => {
-          if (e) throw new $.util.PluginError('webpack', e);
-          $.util.log('[webpack]', stats.toString());
-          done();
-        });
-      }
+        'clean',
+        ['move:index', 'others'],
+        () => {
+            webpack(wpConfig, (e, stats) => {
+                if (e) throw new $.util.PluginError('webpack', e);
+                $.util.log('[webpack]', stats.toString());
+                done();
+            });
+        }
     );
 });
 
@@ -111,7 +111,7 @@ gulp.task('dev-server', done => {
     app.listen(config.port, 'localhost', e => {
         if (e) return console.log(e);
         console.log(`
-                    serving app on port ${config.port}
+            serving app on port ${config.port}
         `);
         done();
     });
@@ -119,7 +119,7 @@ gulp.task('dev-server', done => {
 
 
 /***********************************************
-*					  Exposed gulp functions					   *
+*			Exposed Gulp Functions	           *
 ***********************************************/
 
 gulp.task('default', ['dev-server']);
