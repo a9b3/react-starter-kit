@@ -1,11 +1,13 @@
-#react-gulp-starter
+# react-gulp-starter
 
-Basically [react-transform-boilerplate](https://github.com/gaearon/react-transform-boilerplate), but with a gulpfile because I want to have some formal build tool integration. Also some boilerplate linter configs and travis config.
-
-Using [webpack-hot-middleware](https://github.com/glenjamin/webpack-hot-middleware) for the hot reloading. Using [babel-plugin-react-transform](https://github.com/gaearon/babel-plugin-react-transform) for the react hot loading.
-
+### Instructions
 ```
-npm install
-gulp // dev server
-gulp build // build into dist folder
+$ npm install
+$ gulp // dev server
+$ gulp build // build into dist folder
 ```
+
+### Overview
+The app is being served from an express server using webpack dev and hot middleware.
+Uses webpack for bundling and babel for transpiling es2015 code. Application
+code is in /src the entry file is in index.js
