@@ -84,7 +84,7 @@ gulp.task('build', ['move:index', 'others'], done => {
     );
 });
 
-gulp.task('dev-server', done => {
+gulp.task('server:dev', done => {
     const path = require('path');
     const express = require('express');
     const webpackDevMiddleware = require('webpack-dev-middleware');
@@ -117,12 +117,33 @@ gulp.task('dev-server', done => {
     });
 });
 
+gulp.task('server:dist', done => {
+    const path = require('path');
+    const express = require('express');
+
+    const app = express();
+
+    app.use(express.static('dist'));
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+    });
+
+    app.listen(config.port, 'localhost', e => {
+        if (e) return console.log(e);
+        console.log(`
+            serving app on port ${config.port}
+        `);
+        done();
+    });
+});
+
 
 /***********************************************
 *			Exposed Gulp Functions	           *
 ***********************************************/
 
-gulp.task('default', ['dev-server']);
+gulp.task('default', ['server:dev']);
 
 // Lint all js files added and modified in git
 gulp.task('lint', ['lint:js', 'lint:scss']);
