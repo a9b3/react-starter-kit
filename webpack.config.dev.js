@@ -94,13 +94,6 @@ const config = Object.assign({}, prodConfig, {
         new webpack.NoErrorsPlugin(),
     ],
 
-    postcss() {
-        return [
-            require('autoprefixer'),
-            require('precss'),
-        ];
-    },
-
 });
 
 module.exports = config;

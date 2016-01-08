@@ -89,4 +89,11 @@ module.exports = {
         ],
     },
 
+    postcss() {
+        return [
+            require('autoprefixer'),
+            require('precss'),
+        ];
+    },
+
 };
