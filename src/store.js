@@ -1,5 +1,6 @@
 'use strict';
 
+import config from 'config';
 import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
 import { createStore, applyMiddleware } from 'redux';
@@ -7,9 +8,13 @@ import rootReducer from './root-reducer.js';
 
 const loggerMiddleware = createLogger();
 
-const createStoreWithMiddleware = applyMiddleware(
+const middlewares = [
     thunkMiddleware,
-    loggerMiddleware
+    !config.DEBUG && loggerMiddleware,
+].filter(a => a);
+
+const createStoreWithMiddleware = applyMiddleware(
+    ...middlewares,
 )(createStore);
 
 // do local storage stuff here
