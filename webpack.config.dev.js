@@ -2,41 +2,50 @@
 
 const path = require('path');
 const webpack = require('webpack');
+const prodConfig = require('./webpack.config.prod.js');
 
-const hotMiddlewareScript = 'webpack-hot-middleware/client?reload=true';
-
-module.exports = {
-
-    devtool: 'eval-source-map',
-    entry: {
-        app: [
-            hotMiddlewareScript,
-            './src/index.js',
+const BABEL_QUERY = {
+    presets: ['react', 'stage-0', "es2015"],
+    env: {
+      development: {
+        plugins: [
+          [
+            'react-transform',
+            {
+              transforms: [
+                {
+                  transform: 'react-transform-hmr',
+                  imports: ['react'],
+                  locals: ['module'],
+                },
+                {
+                  transform: 'react-transform-catch-errors',
+                  imports: ['react', 'redbox-react'],
+                },
+              ],
+            },
+          ],
         ],
+      },
     },
+    plugins: ['transform-es2015-modules-commonjs']
+};
 
-    output: {
-        path: path.join(__dirname, 'dist'),
-        filename: '[name].bundle.js',
-        publicPath: '/static/',
-    },
+const config = Object.assign({}, prodConfig, {
+    devtool: 'inline-source-map',
 
-    plugins: [
-        new webpack.optimize.OccurenceOrderPlugin(),
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin(),
+    entry: [
+        'webpack-hot-middleware/client?reload=true',
+        './src',
     ],
 
     module: {
         loaders: [
             {
                 test: /\.jsx?$/,
-                exclude: /(node_modules|bower_components)/,
+                exclude: /node_modules/,
                 loader: 'babel',
-                // query: {
-                //     presets: ['es2015', 'react'],
-                //     cacheDirectory: true,
-                // }
+                query: BABEL_QUERY,
             },
             {
                 test: /\.scss$/,
@@ -75,8 +84,15 @@ module.exports = {
                 test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
                 loader: "url?limit=10000&mimetype=image/svg+xml"
             }
+
         ],
     },
+
+    plugins: [
+        new webpack.optimize.OccurenceOrderPlugin(),
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoErrorsPlugin(),
+    ],
 
     postcss() {
         return [
@@ -85,4 +101,6 @@ module.exports = {
         ];
     },
 
-};
+});
+
+module.exports = config;

@@ -4,17 +4,17 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-    devtool: 'source-map',
-    entry: {
-        app: [
-            './src/index.js',
-        ],
-    },
+
+    entry: [
+        './src',
+    ],
+
     output: {
         path: path.join(__dirname, 'dist', 'static'),
-        filename: '[name].bundle.js',
+        filename: 'bundle.js',
         publicPath: '/static/',
     },
+
     plugins: [
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.DefinePlugin({
@@ -28,16 +28,13 @@ module.exports = {
             }
         })
     ],
+
     module: {
         loaders: [
             {
                 test: /\.jsx?$/,
-                exclude: /(node_modules|bower_components)/,
-                loader: 'babel',
-                // query: {
-                //     presets: ['es2015', 'react'],
-                //     cacheDirectory: true,
-                // }
+                exclude: /node_modules/,
+                loaders: ['babel'],
             },
             {
                 test: /\.scss$/,
@@ -77,13 +74,6 @@ module.exports = {
                 loader: "url?limit=10000&mimetype=image/svg+xml"
             }
         ],
-    },
-
-    postcss() {
-        return [
-            require('autoprefixer'),
-            require('precss'),
-        ];
     },
 
 };
