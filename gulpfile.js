@@ -1,23 +1,15 @@
 'use strict';
 
-const path = require('path');
 const gulp = require('gulp');
 const $ = require('gulp-load-plugins')();
+const runSequence = require('run-sequence');
 const webpack = require('webpack');
-const webpackDevMiddleware = require('webpack-dev-middleware');
-const webpackHotMiddleware = require('webpack-hot-middleware');
-const express = require('express');
-const del = require('del');
 
 const config = {
     src: 'src',
     dist: 'dist',
+    port: 8080,
 };
-
-/**
- * Lint all js files added and modified in git
- */
-gulp.task('lint', ['lint:js', 'lint:scss']);
 
 gulp.task('lint:js', () => {
     return gulp.src([
@@ -45,6 +37,17 @@ gulp.task('lint:scss', () => {
     .pipe($.scssLint.failReporter('E'))
 });
 
+gulp.task('clean', done => {
+    const del = require('del');
+
+    del([
+        config.dist,
+    ], {force: true})
+    .then(() => {
+        done();
+    });
+});
+
 gulp.task('others', () => {
     return gulp.src([
         '!' + config.src + '/**/*.html',
@@ -57,16 +60,7 @@ gulp.task('others', () => {
     .pipe(gulp.dest(config.dist));
 });
 
-gulp.task('clean', done => {
-    del([
-        config.dist,
-    ], {force: true})
-    .then(() => {
-        done();
-    });
-});
-
-gulp.task('move:index', ['clean'], () => {
+gulp.task('move:index', () => {
     return gulp.src([
         config.src + '/index.html',
     ])
@@ -76,16 +70,29 @@ gulp.task('move:index', ['clean'], () => {
 gulp.task('build', ['move:index', 'others'], done => {
     process.env.NODE_ENV = 'production';
     const wpConfig = require('./webpack.config.prod.js');
-    webpack(wpConfig, (e, stats) => {
-        if (e) throw new $.util.PluginError('webpack', e);
-        $.util.log('[webpack]', stats.toString());
-        done();
-    });
+
+    runSequence(
+      'clean',
+      ['move:index', 'others'],
+      () => {
+        webpack(wpConfig, (e, stats) => {
+          if (e) throw new $.util.PluginError('webpack', e);
+          $.util.log('[webpack]', stats.toString());
+          done();
+        });
+      }
+    );
 });
 
 gulp.task('dev-server', done => {
+    const path = require('path');
+    const express = require('express');
+    const webpackDevMiddleware = require('webpack-dev-middleware');
+    const webpackHotMiddleware = require('webpack-hot-middleware');
     const wpConfig = require('./webpack.config.dev.js');
+
     const compiler = webpack(wpConfig);
+
     const app = express();
 
     app.use(webpackDevMiddleware(compiler, {
@@ -101,14 +108,21 @@ gulp.task('dev-server', done => {
         res.sendFile(path.join(__dirname, 'src', 'index.html'));
     });
 
-    app.listen(8080, 'localhost', e => {
+    app.listen(config.port, 'localhost', e => {
+        if (e) return console.log(e);
+        console.log(`
+                    serving app on port ${config.port}
+        `);
         done();
-        if (e) {
-            console.log(e);
-            return;
-        }
-        console.log('dev server listening on port 8080');
     });
 });
 
+
+/***********************************************
+*					  Exposed gulp functions					   *
+***********************************************/
+
 gulp.task('default', ['dev-server']);
+
+// Lint all js files added and modified in git
+gulp.task('lint', ['lint:js', 'lint:scss']);
