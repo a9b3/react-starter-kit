@@ -3,6 +3,13 @@
 const path = require('path');
 const webpack = require('webpack');
 
+let envConfig;
+if (process.env.NODE_ENV === 'production') {
+    envConfig = path.join(__dirname, 'config', process.env.NODE_ENV);
+} else {
+    envConfig = path.join(__dirname, 'config', 'default');
+}
+
 module.exports = {
 
     entry: [
@@ -28,6 +35,12 @@ module.exports = {
             }
         })
     ],
+
+    resolve: {
+        alias: {
+            config: envConfig,
+        },
+    },
 
     module: {
         loaders: [
