@@ -67,13 +67,20 @@ gulp.task('move:index', () => {
     .pipe(gulp.dest(config.dist));
 });
 
+gulp.task('move:service-worker', () => {
+    return gulp.src([
+        config.src + '/service-worker.js',
+    ])
+    .pipe(gulp.dest(config.dist));
+});
+
 gulp.task('build', ['move:index', 'others'], done => {
     process.env.NODE_ENV = 'production';
     const wpConfig = require('./webpack.config.prod.js');
 
     runSequence(
         'clean',
-        ['move:index', 'others'],
+        ['move:index', 'move:service-worker', 'others'],
         () => {
             webpack(wpConfig, (e, stats) => {
                 if (e) throw new $.util.PluginError('webpack', e);

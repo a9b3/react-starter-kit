@@ -1,5 +1,11 @@
 'use strict';
 
+import config from 'config';
+
+if (!config.DEBUG && navigator.serviceWorker) {
+    navigator.serviceWorker.register('/service-worker.js');
+}
+
 // app entry point
 // styles
 require('normalize.css');
