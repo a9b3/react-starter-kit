@@ -23,7 +23,6 @@ can go into cli/ and npm link to use it.
 
 ```
 // will create a folder App/ in cwd with
-//      - app.container.js
 //      - app.component.js
 //      - app.css
 $ rcomp comp --name App
