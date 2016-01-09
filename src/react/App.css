@@ -1,7 +1,7 @@
-$black: blue;
+$bg-color: white;
 
 .app {
-    background-color: $black;
-    color: white;
+    background-color: $bg-color;
+    color: black;
     height: 100%;
 }
