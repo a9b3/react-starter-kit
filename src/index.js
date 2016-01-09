@@ -8,18 +8,18 @@ if (!config.DEBUG && navigator.serviceWorker) {
 
 // app entry point
 // styles
-require('normalize.css');
-require('font-awesome/scss/font-awesome.scss');
-require('animate.css/animate.css');
-require('highlight.js/styles/github.css');
+import 'normalize.css';
+import 'font-awesome/scss/font-awesome.scss';
+import 'animate.css/animate.css';
+import 'highlight.js/styles/github.css';
 
 // custom
-require('./styles/index.scss');
+import 'root/styles/index.scss';
 
 // deps
 import ReactDOM from 'react-dom';
 import React from 'react';
-import router from './router.js';
+import router from 'root/router.js';
 
 function init() {
     ReactDOM.render(

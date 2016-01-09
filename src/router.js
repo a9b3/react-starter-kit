@@ -5,10 +5,10 @@ import { Provider } from 'react-redux';
 import { syncReduxAndRouter } from 'redux-simple-router';
 import { Router, Route, Link, IndexRedirect } from 'react-router';
 import { createHistory } from 'history';
-import store from './store.js';
+import store from 'root/store.js';
 
 // react
-import App from './react/App.container.js';
+import App from 'root/react/App.container.js';
 
 const history = createHistory();
 
@@ -22,4 +22,4 @@ const router = (
     </Provider>
 );
 
-module.exports = router;
+export default router;
