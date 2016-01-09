@@ -3,7 +3,7 @@
 import React, { PropTypes } from 'react';
 import { findDOMNode } from 'react-dom';
 import store from 'root/store.js';
-import AppComponent from './App.component.js';
+import AppComponent from 'root/components/App/App.component.js';
 
 // reference function to unsubscribe from redux store
 let unsubscribe;
@@ -28,12 +28,8 @@ const AppContainer = React.createClass({
     },
 
     render() {
-        const test = {
-            foo: 'hiih',
-        };
-
         return (
-            <AppComponent test={test}>
+            <AppComponent>
             </AppComponent>
         );
     },

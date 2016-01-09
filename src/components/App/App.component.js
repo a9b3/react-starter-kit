@@ -13,8 +13,7 @@ const AppComponent = React.createClass({
     render() {
         return (
             <div className={style.app}>
-                {this.props.test.foo}
-                hi
+                Hello World!
             </div>
         );
     },
