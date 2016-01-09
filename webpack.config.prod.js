@@ -39,6 +39,7 @@ module.exports = {
     resolve: {
         alias: {
             config: envConfig,
+            root: path.join(__dirname, 'src'),
         },
     },
 
