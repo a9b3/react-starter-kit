@@ -74,7 +74,7 @@ gulp.task('move:service-worker', () => {
     .pipe(gulp.dest(config.dist));
 });
 
-gulp.task('build', ['move:index', 'others'], done => {
+gulp.task('build', done => {
     process.env.NODE_ENV = 'production';
     const wpConfig = require('./webpack.config.prod.js');
 
