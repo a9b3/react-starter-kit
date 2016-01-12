@@ -4,6 +4,8 @@ const gulp = require('gulp');
 const $ = require('gulp-load-plugins')();
 const runSequence = require('run-sequence');
 const webpack = require('webpack');
+const swPrecache = require('sw-precache');
+const path = require('path');
 
 const config = {
     src: 'src',
@@ -67,32 +69,25 @@ gulp.task('move:index', () => {
     .pipe(gulp.dest(config.dist));
 });
 
-gulp.task('move:service-worker', () => {
-    return gulp.src([
-        config.src + '/service-worker.js',
-    ])
-    .pipe(gulp.dest(config.dist));
+gulp.task('generate-service-worker', done => {
+    swPrecache.write(path.join(config.dist, 'service-worker.js'), {
+        staticFileGlobs: [config.dist + '/**/*.{js,html,css,png,jpg,gif}'],
+        stripPrefix: config.dist,
+    }, done);
 });
 
-gulp.task('build', done => {
+gulp.task('webpack-build', done => {
     process.env.NODE_ENV = 'production';
     const wpConfig = require('./webpack.config.prod.js');
 
-    runSequence(
-        'clean',
-        ['move:index', 'move:service-worker', 'others'],
-        () => {
-            webpack(wpConfig, (e, stats) => {
-                if (e) throw new $.util.PluginError('webpack', e);
-                $.util.log('[webpack]', stats.toString());
-                done();
-            });
-        }
-    );
+    webpack(wpConfig, (e, stats) => {
+        if (e) throw new $.util.PluginError('webpack', e);
+        $.util.log('[webpack]', stats.toString());
+        done();
+    });
 });
 
 gulp.task('server:dev', done => {
-    const path = require('path');
     const express = require('express');
     const webpackDevMiddleware = require('webpack-dev-middleware');
     const webpackHotMiddleware = require('webpack-hot-middleware');
@@ -125,7 +120,6 @@ gulp.task('server:dev', done => {
 });
 
 gulp.task('server:dist', done => {
-    const path = require('path');
     const express = require('express');
 
     const app = express();
@@ -151,6 +145,14 @@ gulp.task('server:dist', done => {
 ***********************************************/
 
 gulp.task('default', ['server:dev']);
+
+gulp.task('build', done => {
+    runSequence(
+        'clean',
+        ['move:index', 'others', 'webpack-build'],
+        'generate-service-worker'
+    );
+});
 
 // Lint all js files added and modified in git
 gulp.task('lint', ['lint:js', 'lint:scss']);
