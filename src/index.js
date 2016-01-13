@@ -8,10 +8,10 @@ if (!config.DEBUG && navigator.serviceWorker) {
 
 // app entry point
 // styles
-import 'normalize.css';
+import '!style-loader!css-loader!normalize.css';
 import 'font-awesome/scss/font-awesome.scss';
-import 'animate.css/animate.css';
-import 'highlight.js/styles/github.css';
+import '!style-loader!css-loader!animate.css/animate.css';
+import '!style-loader!css-loader!highlight.js/styles/github.css';
 
 // custom
 import 'root/styles/index.scss';
