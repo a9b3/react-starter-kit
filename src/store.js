@@ -9,12 +9,12 @@ import rootReducer from 'root/root-reducer.js';
 const loggerMiddleware = createLogger();
 
 const middlewares = [
-    thunkMiddleware,
-    config.DEBUG && loggerMiddleware,
+  thunkMiddleware,
+  config.DEBUG && loggerMiddleware,
 ].filter(a => a);
 
 const createStoreWithMiddleware = applyMiddleware(
-    ...middlewares,
+  ...middlewares,
 )(createStore);
 
 // do local storage stuff here

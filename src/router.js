@@ -15,11 +15,11 @@ const history = createHistory();
 syncReduxAndRouter(history, store);
 
 const router = (
-    <Provider store={store}>
-        <Router history={history}>
-            <Route path="/" component={App} />
-        </Router>
-    </Provider>
+  <Provider store={store}>
+    <Router history={history}>
+      <Route path="/" component={App} />
+    </Router>
+  </Provider>
 );
 
 export default router;

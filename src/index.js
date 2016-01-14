@@ -3,7 +3,7 @@
 import config from 'config';
 
 if (!config.DEBUG && navigator.serviceWorker) {
-    navigator.serviceWorker.register('/service-worker.js');
+  navigator.serviceWorker.register('/service-worker.js');
 }
 
 // app entry point
@@ -22,13 +22,13 @@ import React from 'react';
 import router from 'root/router.js';
 
 function init() {
-    ReactDOM.render(
-        router,
-        document.getElementById('mount'),
-    );
+  ReactDOM.render(
+    router,
+    document.getElementById('mount'),
+  );
 }
 
 /***********************************************
-*		    Immediately Envoked				   *
-***********************************************/
+ *		    Immediately Envoked				   *
+ ***********************************************/
 init();
