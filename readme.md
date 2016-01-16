@@ -1,4 +1,4 @@
-# react-gulp-starter
+# react-starter-kit
 
 ### Instructions
 ```
@@ -17,12 +17,5 @@ Using [sw-precache](https://github.com/GoogleChrome/sw-precache) to generate
 service worker.
 
 ### CLI tool
-I also made a small little cli tool that scaffolds out a react component. You
-can go into cli/ and npm link to use it.
-
-```
-// will create a folder App/ in cwd with
-//      - app.component.js
-//      - app.css
-$ rcomp comp --name App
-```
+companion cli tool available at [react-starter-kit-cli](https://github.com/esayemm/react-starter-kit-cli).
+helps with creating projects and scaffolding component/container files.
