@@ -40,6 +40,7 @@ module.exports = {
     alias: {
       config: envConfig,
       root: path.join(__dirname, 'src'),
+      styles: path.join(__dirname, 'src', 'styles'),
       components: path.join(__dirname, 'src', 'components'),
       containers: path.join(__dirname, 'src', 'containers'),
     },
