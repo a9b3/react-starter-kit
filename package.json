@@ -1,13 +1,13 @@
 {
-  "name": "gulp-webpack2",
+  "name": "react-starter-kit",
   "version": "1.0.0",
-  "description": "",
+  "description": "Front-end starter kit with react, webpack, gulp, redux, postcss, babel",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "gulp lint"
   },
-  "author": "",
+  "author": "Sam Lau",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^6.2.3",
