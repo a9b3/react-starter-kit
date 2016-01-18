@@ -2,7 +2,7 @@
 
 import React, { PropTypes } from 'react';
 import { findDOMNode } from 'react-dom';
-import style from './App.css';
+import style from './app.css';
 
 const AppComponent = React.createClass({
 

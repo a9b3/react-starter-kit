@@ -3,7 +3,7 @@
 import React, { PropTypes } from 'react';
 import { findDOMNode } from 'react-dom';
 import store from 'root/store.js';
-import AppComponent from 'components/App/App.component.js';
+import AppComponent from 'components/app/app.component.js';
 
 // reference function to unsubscribe from redux store
 let unsubscribe;
