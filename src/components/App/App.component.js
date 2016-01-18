@@ -1,8 +1,9 @@
 'use strict';
 
+import './app.scss';
+
 import React, { PropTypes } from 'react';
 import { findDOMNode } from 'react-dom';
-import style from './app.css';
 
 const AppComponent = React.createClass({
 
@@ -12,7 +13,7 @@ const AppComponent = React.createClass({
 
   render() {
     return (
-      <div className={style.app}>
+      <div className="app">
         Hello World!
       </div>
     );

@@ -1,7 +1,0 @@
-@import "../../styles/_colors.css";
-
-.app {
-  background-color: $blue3;
-  color: black;
-  height: 100%;
-}
