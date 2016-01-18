@@ -2,11 +2,11 @@ sudo: false
 
 language: node_js
 node_js:
-    - "4.0"
+  - "4.0"
 
 install:
-    - npm install
+  - npm install
 
 script:
-    - npm test
-    - npm run lint
+  - npm test
+  - npm run lint

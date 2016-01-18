@@ -133,16 +133,16 @@ gulp.task('server:dist', done => {
   app.listen(config.port, 'localhost', e => {
     if (e) return console.log(e);
     console.log(`
-      serving app on port ${config.port}
-    `);
-    done();
+                serving app on port ${config.port}
+                `);
+                done();
   });
 });
 
 
-    /***********************************************
-     *			Exposed Gulp Functions	           *
-     ***********************************************/
+/***********************************************
+ *			Exposed Gulp Functions	           *
+ ***********************************************/
 
 gulp.task('default', ['server:dev']);
 

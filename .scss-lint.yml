@@ -1,77 +1,77 @@
 exclude: 'node_modules/**'
 
 linters:
-    ColorVariable:
-        enabled: false
+  ColorVariable:
+    enabled: false
 
-    ColorKeyword:
-        enabled: false
+  ColorKeyword:
+    enabled: false
 
-    Indentation:
-        width: 4
+  Indentation:
+    width: 4
 
-    BorderZero:
-        convention: 'none'
+  BorderZero:
+    convention: 'none'
 
-    DebugStatement:
-        enabled: true
+  DebugStatement:
+    enabled: true
 
-    DeclarationOrder:
-        enabled: true
+  DeclarationOrder:
+    enabled: true
 
-    DuplicateProperty:
-        enabled: true
+  DuplicateProperty:
+    enabled: true
 
-    EmptyLineBetweenBlocks:
-        enabled: true
+  EmptyLineBetweenBlocks:
+    enabled: true
 
-    EmptyRule:
-        enabled: true
+  EmptyRule:
+    enabled: true
 
-    HexValidation:
-        enabled: true
+  HexValidation:
+    enabled: true
 
-    ImportantRule:
-        enabled: true
+  ImportantRule:
+    enabled: true
 
-    MergeableSelector:
-        enabled: true
+  MergeableSelector:
+    enabled: true
 
-    NameFormat:
-        enabled: true
+  NameFormat:
+    enabled: true
 
-    NestingDepth:
-        enabled: true
+  NestingDepth:
+    enabled: true
 
-    PropertySpelling:
-        enabled: true
+  PropertySpelling:
+    enabled: true
 
-    QualifyingElement:
-        enabled: true
+  QualifyingElement:
+    enabled: true
 
-    SelectorDepth:
-        enabled: true
+  SelectorDepth:
+    enabled: true
 
-    SingleLinePerProperty:
-        enabled: true
+  SingleLinePerProperty:
+    enabled: true
 
-    SingleLinePerSelector:
-        enabled: true
+  SingleLinePerSelector:
+    enabled: true
 
-    SpaceAfterComma:
-        enabled: true
+  SpaceAfterComma:
+    enabled: true
 
-    SpaceAfterPropertyColon:
-        enabled: true
+  SpaceAfterPropertyColon:
+    enabled: true
 
-    SpaceAfterPropertyName:
-        enabled: true
+  SpaceAfterPropertyName:
+    enabled: true
 
-    SpaceAfterVariableName:
-        enabled: true
+  SpaceAfterVariableName:
+    enabled: true
 
-    SpaceAroundOperator:
-        enabled: true
+  SpaceAroundOperator:
+    enabled: true
 
-    SpaceBeforeBrace:
-        enabled: true
+  SpaceBeforeBrace:
+    enabled: true

@@ -10,31 +10,31 @@ let unsubscribe;
 
 const AppContainer = React.createClass({
 
-    getInitialState() {
-        return store.getState();
-    },
+  getInitialState() {
+    return store.getState();
+  },
 
-    componentDidMount() {
-        unsubscribe = store.subscribe(this._onChange);
-    },
+  componentDidMount() {
+    unsubscribe = store.subscribe(this._onChange);
+  },
 
-    componentWillUnmount() {
-        if (!unsubscribe) return;
-        unsubscribe();
-    },
+  componentWillUnmount() {
+    if (!unsubscribe) return;
+    unsubscribe();
+  },
 
-    _onChange() {
-        this.setState(store.getState());
-    },
+  _onChange() {
+    this.setState(store.getState());
+  },
 
-    render() {
-        const test = {};
+  render() {
+    const test = {};
 
-        return (
-            <AppComponent test={test}>
-            </AppComponent>
-        );
-    },
+    return (
+      <AppComponent test={test}>
+      </AppComponent>
+    );
+  },
 
 });
 

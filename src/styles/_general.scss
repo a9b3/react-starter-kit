@@ -1,14 +1,14 @@
 // add default margin to font-awesome
 i.fa {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 
 html,
 body,
 #mount,
 .app {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 /*******************************
@@ -16,13 +16,13 @@ body,
  *******************************/
 
 .t-center {
-    text-align: center;
+  text-align: center;
 }
 
 .hint {
-    color: rgba($dark3, 0.4);
-    font-size: 0.8rem;
-    font-weight: 300;
+  color: rgba($dark3, 0.4);
+  font-size: 0.8rem;
+  font-weight: 300;
 }
 
 /*******************************
@@ -30,43 +30,43 @@ body,
  *******************************/
 
 .xs-pad {
-    padding: 5px 20px;
+  padding: 5px 20px;
 }
 
 .s-pad {
-    padding: 10px 20px;
+  padding: 10px 20px;
 }
 
 .m-pad {
-    padding: 20px 20px;
+  padding: 20px 20px;
 }
 
 .l-pad {
-    padding: 30px 20px;
+  padding: 30px 20px;
 }
 
 .xl-pad {
-    padding: 50px 20px;
+  padding: 50px 20px;
 }
 
 .xs-margin {
-    margin: 5px 5px;
+  margin: 5px 5px;
 }
 
 .s-margin {
-    margin: 10px 10px;
+  margin: 10px 10px;
 }
 
 .m-margin {
-    margin: 20px 20px;
+  margin: 20px 20px;
 }
 
 .l-margin {
-    margin: 30px 20px;
+  margin: 30px 20px;
 }
 
 .xl-margin {
-    margin: 50px 20px;
+  margin: 50px 20px;
 }
 
 /*******************************
@@ -74,13 +74,13 @@ body,
  *******************************/
 
 .shadow {
-    box-shadow: 0px 5px 15px rgba($dark3, 0.5);
-    transition: box-shadow 0.2s;
+  box-shadow: 0px 5px 15px rgba($dark3, 0.5);
+  transition: box-shadow 0.2s;
 }
 
 .shadow:hover {
-    box-shadow: 0px 5px 25px rgba($dark3, 0.4);
-    transition: box-shadow 0.2s;
+  box-shadow: 0px 5px 25px rgba($dark3, 0.4);
+  transition: box-shadow 0.2s;
 }
 
 /*******************************
@@ -88,15 +88,15 @@ body,
  *******************************/
 
 .border {
-    border: 1px solid rgba($dark3, 0.4);
+  border: 1px solid rgba($dark3, 0.4);
 }
 
 .bg {
-    background-color: rgba($green1, 0.2);
+  background-color: rgba($green1, 0.2);
 }
 
 .debug {
-    @extend .border;
-    @extend .bg;
-    box-sizing: border-box;
+  @extend .border;
+  @extend .bg;
+  box-sizing: border-box;
 }

@@ -24,50 +24,50 @@
 .grid95 { flex: 1 0 95% }
 
 .item {
-    box-sizing: border-box;
+  box-sizing: border-box;
 
-    &.center {
-        justify-content: center;
-    }
+  &.center {
+    justify-content: center;
+  }
 }
 
 .col {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 
-    &.center {
-        align-items: center;
-    }
+  &.center {
+    align-items: center;
+  }
 
-    >.end {
-        @extend .col;
-        margin-top: auto;
-    }
+  >.end {
+    @extend .col;
+    margin-top: auto;
+  }
 }
 
 .row {
-    align-items: stretch;
-    box-sizing: border-box;
-    display: flex;
-    flex-flow: row wrap;
+  align-items: stretch;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row wrap;
 
-    &.center {
-        justify-content: center;
-    }
+  &.center {
+    justify-content: center;
+  }
 
-    >.item {
-        display: inherit;
-        align-items: center;
-    }
+  >.item {
+    display: inherit;
+    align-items: center;
+  }
 
-    >.end {
-        @extend .row;
-        margin-left: auto;
-    }
+  >.end {
+    @extend .row;
+    margin-left: auto;
+  }
 }
 
 // use inside a flex column to align vertical center
 .self-center {
-    align-self: center;
+  align-self: center;
 }
