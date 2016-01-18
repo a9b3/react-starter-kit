@@ -3,12 +3,13 @@
 import React, { PropTypes } from 'react';
 import { findDOMNode } from 'react-dom';
 import store from 'root/store.js';
-import AppComponent from 'components/app/app.component.js';
+
+import Hello from 'components/hello/hello.component.js';
 
 // reference function to unsubscribe from redux store
 let unsubscribe;
 
-const AppContainer = React.createClass({
+export default React.createClass({
 
   getInitialState() {
     return store.getState();
@@ -28,14 +29,10 @@ const AppContainer = React.createClass({
   },
 
   render() {
-    const test = {};
-
     return (
-      <AppComponent test={test}>
-      </AppComponent>
+      <Hello>
+      </Hello>
     );
   },
 
 });
-
-export default AppContainer;

@@ -8,7 +8,7 @@ import { createHistory } from 'history';
 import store from 'root/store.js';
 
 // react
-import App from 'containers/app.container.js';
+import Hello from 'containers/hello.container.js';
 
 const history = createHistory();
 
@@ -17,7 +17,7 @@ syncReduxAndRouter(history, store);
 const router = (
   <Provider store={store}>
     <Router history={history}>
-      <Route path="/" component={App} />
+      <Route path="/" component={Hello} />
     </Router>
   </Provider>
 );
