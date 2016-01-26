@@ -1,3 +1,7 @@
+/*
+ * Entry point for reducers. Import reducers from services here and combine them
+ * here. Services that wish to expose a reducer should export reducer.
+ */
 'use strict';
 
 import { combineReducers } from 'redux';
@@ -5,24 +9,15 @@ import { routeReducer } from 'redux-simple-router';
 
 const reducers = {};
 
-reducers.sessionToken = (state = {}, action) => {
-  switch(action.type) {
-    default:
-      return state;
-  }
-};
+/*
+ * import exported reducers from services here
+ * ex:
+ * import { reducer as fooReducer } from 'services/foo.js';
+ * reducers.foo = fooReducer;
+ */
 
-reducers.test = (state = {}, action) => {
-  switch(action.type) {
-    case 'TEST':
-      return {
-        ...state,
-        test: 'testing',
-      };
-    default:
-      return state;
-  }
-};
+import { reducer as exampleStateReducer } from 'services/example-state.js';
+reducers.exampleState = exampleStateReducer;
 
 const combinedReducers = Object.keys(reducers).reduce((obj, key) => {
   if (obj[key]) return obj;
