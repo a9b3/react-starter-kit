@@ -1,0 +1,34 @@
+/*******************************
+ rem font size pixel fallback
+ *******************************/
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+
+/*******************************
+ named breakpoints
+ *******************************/
+@mixin bp-l {
+  @media only screen and (max-width: 60em) {
+    @content;
+  }
+}
+
+@mixin bp-m {
+  @media only screen and (max-width: 40em) {
+    @content;
+  }
+}
+
+@mixin bp-s {
+  @media only screen and (max-width: 30em) {
+    @content;
+  }
+}
