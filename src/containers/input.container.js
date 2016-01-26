@@ -1,5 +1,6 @@
 'use strict';
 
+import './input.scss';
 import React, { PropTypes } from 'react';
 import { findDOMNode } from 'react-dom';
 import store from 'root/store.js';
@@ -23,10 +24,15 @@ const inputContainer = React.createClass({
 
   render() {
     return (
-      <form onSubmit={this.submitHandler}>
-        <input type="text" ref="input" placeholder="Enter Todo..." />
+      <form className="input-form"
+        onSubmit={this.submitHandler} >
+        <input className="input"
+          type="text"
+          ref="input"
+          placeholder="Enter Todo..." />
 
-        <button type="submit">
+        <button className="submit"
+          type="submit">
           Submit
         </button>
       </form>

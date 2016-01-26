@@ -1,0 +1,17 @@
+@import '~styles/shared';
+
+.input-form {
+
+  .input {
+    display: block;
+    padding: 20px 20px;
+  }
+
+  .submit {
+    background: linear-gradient(135deg, $green3, $green1);
+    padding: 10px 20px;
+    color: white;
+    width: 100%;
+    display: block;
+  }
+}
