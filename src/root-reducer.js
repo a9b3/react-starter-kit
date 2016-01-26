@@ -16,8 +16,8 @@ const reducers = {};
  * reducers.foo = fooReducer;
  */
 
-import { reducer as exampleStateReducer } from 'services/example-state.js';
-reducers.exampleState = exampleStateReducer;
+import { reducer as exampleState } from 'services/example-state.js';
+reducers[exampleState.key] = exampleState.reducer;
 
 const combinedReducers = Object.keys(reducers).reduce((obj, key) => {
   if (obj[key]) return obj;

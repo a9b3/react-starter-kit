@@ -21,5 +21,5 @@ import { pushPath } from 'redux-simple-router';
  * exports['foo'] = foo;
  */
 
-import { actions as exampleStateActions } from 'services/example-state.js';
-exports['exampleState'] = exampleStateActions;
+import { actions as exampleState } from 'services/example-state.js';
+exports[exampleState.key] = exampleState.actions;

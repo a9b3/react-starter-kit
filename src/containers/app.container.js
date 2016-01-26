@@ -4,7 +4,7 @@ import React, { PropTypes } from 'react';
 import { findDOMNode } from 'react-dom';
 import store from 'root/store.js';
 
-import { actions as exampleStateActions } from 'services/example-state.js';
+import * as actions from 'root/actions.js';
 
 import TodoComponent from 'components/todos/todos.component.js';
 import Input from 'containers/input.container.js';
@@ -35,11 +35,11 @@ const AppContainer = React.createClass({
     const exampleState = this.state.exampleState;
 
     const add = (text) => {
-      store.dispatch(exampleStateActions.add(text));
+      store.dispatch(actions.exampleState.add(text));
     };
 
     const remove = (i) => {
-      store.dispatch(exampleStateActions.remove(i));
+      store.dispatch(actions.exampleState.remove(i));
     };
 
     return (

@@ -1,28 +1,36 @@
 'use strict';
 
-export const actions = {
-  add(text) {
-    exampleState.add(text);
-    return {
-      type: 'UPDATE_EXAMPLE',
-    };
-  },
+const key = 'exampleState';
 
-  remove(i) {
-    exampleState.remove(i);
-    return {
-      type: 'UPDATE_EXAMPLE',
-    };
-  }
+export const actions = {
+  key,
+  actions: {
+    add(text) {
+      exampleState.add(text);
+      return {
+        type: 'UPDATE_EXAMPLE',
+      };
+    },
+
+    remove(i) {
+      exampleState.remove(i);
+      return {
+        type: 'UPDATE_EXAMPLE',
+      };
+    }
+  },
 };
 
-export function reducer(state = exampleState, action) {
-  switch(action.type) {
-  case 'UPDATE_EXAMPLE':
-    return Object.assign({}, state, exampleState);
-  default:
-    return state;
-  }
+export const reducer = {
+  key,
+  reducer(state = exampleState, action) {
+    switch(action.type) {
+      case 'UPDATE_EXAMPLE':
+        return Object.assign({}, state, exampleState);
+      default:
+        return state;
+    }
+  },
 };
 
 class ExampleState {
