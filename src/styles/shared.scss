@@ -1,2 +1,17 @@
 @import './_variables.scss';
 @import './_mixins.scss';
+
+%fitted {
+  height: 100%;
+  width: 100%;
+}
+
+%middle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+%shadow {
+  box-shadow: 0px 5px 15px rgba(black, 0.4);
+}

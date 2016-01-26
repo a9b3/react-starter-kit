@@ -1,5 +1,7 @@
 /*******************************
  rem font size pixel fallback
+ usage:
+ @include font-size(12px);
  *******************************/
 @function calculateRem($size) {
   $remSize: $size / 16px;
@@ -14,6 +16,11 @@
 
 /*******************************
  named breakpoints
+
+ usage:
+ @include bp-l {
+  width: 100%;
+ }
  *******************************/
 @mixin bp-l {
   @media only screen and (max-width: 60em) {

@@ -1,5 +1,6 @@
 'use strict';
 
+import './app.scss';
 import React, { PropTypes } from 'react';
 import { findDOMNode } from 'react-dom';
 import store from 'root/store.js';
@@ -43,13 +44,15 @@ const AppContainer = React.createClass({
     };
 
     return (
-      <div>
-        <TodoComponent todos={exampleState.todos}
-          remove={remove}>
-        </TodoComponent>
+      <div className="app">
+        <div className="box">
+          <TodoComponent todos={exampleState.todos}
+            remove={remove}>
+          </TodoComponent>
 
-        <Input add={add}>
-        </Input>
+          <Input add={add}>
+          </Input>
+        </div>
       </div>
     );
   },

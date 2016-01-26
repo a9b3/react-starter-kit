@@ -1,0 +1,13 @@
+@import '~styles/shared.scss';
+
+.app {
+  @extend %fitted;
+  @extend %middle;
+  background: linear-gradient(135deg, $blue1, $peach);
+
+  .box {
+    padding: 20px;
+    @extend %shadow;
+    background: white;
+  }
+}

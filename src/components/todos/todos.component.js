@@ -6,7 +6,9 @@ import React, { PropTypes } from 'react';
 const todosComponent = props =>
 <div className="todos">
   {props.todos.map((todo, i) => (
-    <div key={i} onClick={props.remove.bind(null, i)}>
+    <div className="todo"
+      key={i}
+      onClick={props.remove.bind(null, i)}>
       {todo}
     </div>
   ))}
