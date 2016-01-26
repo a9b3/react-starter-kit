@@ -43,6 +43,7 @@ module.exports = {
       styles: path.join(__dirname, 'src', 'styles'),
       components: path.join(__dirname, 'src', 'components'),
       containers: path.join(__dirname, 'src', 'containers'),
+      services: path.join(__dirname, 'src', 'services'),
     },
   },
 
