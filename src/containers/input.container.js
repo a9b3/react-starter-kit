@@ -26,10 +26,13 @@ const inputContainer = React.createClass({
     return (
       <form className="input-form"
         onSubmit={this.submitHandler} >
-        <input className="input"
-          type="text"
-          ref="input"
-          placeholder="Enter Todo..." />
+
+        <div className="input">
+          <input
+            type="text"
+            ref="input"
+            placeholder="Enter Todo..." />
+        </div>
 
         <button className="submit"
           type="submit">

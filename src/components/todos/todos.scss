@@ -2,4 +2,17 @@
 
 .todos {
 
+  min-width: 300px;
+
+  .todo {
+    padding: 10px 20px;
+    transition: all .2s;
+
+    &:hover {
+      cursor: pointer;
+      background: $red6;
+      transition: all .2s;
+    }
+  }
+
 }
