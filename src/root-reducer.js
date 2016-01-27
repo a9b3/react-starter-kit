@@ -19,6 +19,7 @@ const reducers = {};
 import { reducer as exampleState } from 'services/example-state.js';
 reducers[exampleState.key] = exampleState.reducer;
 
+// combine the reducers
 const combinedReducers = Object.keys(reducers).reduce((obj, key) => {
   if (obj[key]) return obj;
   obj[key] = reducers[key];
