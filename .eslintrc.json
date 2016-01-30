@@ -1,0 +1,16 @@
+{
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "plugins": [
+    "react"
+  ],
+  "ecmaFeatures": {
+    "spread": true,
+    "restParams": true,
+    "experimentalObjectRestSpread": true
+  },
+  "rules": {
+    "strict": [0],
+    "no-param-reassign": [0]
+  }
+}
