@@ -20,7 +20,7 @@ linters:
   DeclarationOrder:
     enabled: false
   DuplicateProperty:
-    enabled: true
+    enabled: false
   ElsePlacement:
     enabled: true
     style: same_line
