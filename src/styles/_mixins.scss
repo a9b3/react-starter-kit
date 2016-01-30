@@ -1,17 +1,14 @@
-/*******************************
- rem font size pixel fallback
- usage:
- @include font-size(12px);
- *******************************/
-// @private
-@function calculateRem($size) {
-  $remSize: $size / 16px;
-  @return $remSize * 1rem;
+// rem font size pixel fallback
+// usage:
+// @include font-size(12px);
+@function calc-rem($size) {
+  $rem-size: $size / 16px;
+  @return $rem-size * 1rem;
 }
 
 @mixin font-size($size) {
   font-size: $size;
-  font-size: calculateRem($size);
+  font-size: calc-rem($size);
 }
 
 @mixin rem-font-size($size: 1.6) {
@@ -20,14 +17,12 @@
 }
 
 
-/*******************************
- named breakpoints
-
- usage:
- @include bp-l {
-  width: 100%;
- }
- *******************************/
+// named breakpoints
+//
+// usage:
+// @include bp-l {
+//  width: 100%;
+// }
 @mixin bp-l {
   @media only screen and (max-width: 60em) {
     @content;
