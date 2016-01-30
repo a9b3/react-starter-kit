@@ -7,9 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "gulp lint"
   },
-  "pre-commit": {
+  "pre-commit": [
     "lint"
-  },
+  ],
   "author": "Sam Lau",
   "license": "ISC",
   "devDependencies": {
