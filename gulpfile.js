@@ -20,7 +20,7 @@ gulp.task('lint:js', () => {
     '!' + 'node_modules/**/*',
     '!' + 'dist/**/*',
   ])
-  .pipe($.gitmodified(['added', 'modified']))
+  .pipe($.gitmodified(['added']))
   .pipe($.eslint())
   .pipe($.eslint.format())
   .pipe($.eslint.failAfterError());
@@ -32,7 +32,7 @@ gulp.task('lint:scss', () => {
     '!' + 'node_modules/**/*',
     '!' + 'dist/**/*',
   ])
-  .pipe($.gitmodified(['added', 'modified']))
+  .pipe($.gitmodified(['added']))
   .pipe($.scssLint({
     config: '.scss-lint.yml',
   }))
