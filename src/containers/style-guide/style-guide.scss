@@ -1,5 +1,6 @@
 @import '~styles/shared';
 
 .style-guide {
-
+  @extend %fitted;
+  @extend %middle;
 }

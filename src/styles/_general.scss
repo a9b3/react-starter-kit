@@ -49,14 +49,15 @@ h6 {
   line-height: 1.2;
 }
 
-html {
-  font-size: 10px;
-}
-
+html,
 body {
-  font-family: $font-family;
-  font-weight: 300;
   color: $font-color;
+  font-family: $font-family;
+  font-size: 10px;
+  font-weight: 300;
+  height: 100%;
+  width: 100%;
+  font-smoothing: subpixel-antialiased;
 }
 
 hr {
@@ -65,12 +66,11 @@ hr {
   background: rgba($dark3, 0.2);
 }
 
-html,
-body,
 #mount,
 .app {
   width: 100%;
   height: 100%;
+  @include rem-font-size(1.4);
 }
 
 .debug {
