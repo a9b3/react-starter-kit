@@ -7,7 +7,7 @@ $font-family: 'Helvetica Neue';
 $font-color: rgba($dark3, 0.8);
 
 a {
-
+  color: $link-color;
 }
 
 p {
@@ -20,34 +20,36 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 4rem;
-  line-height: 4;
+  font-size: 6rem;
+  line-height: 6rem;
 }
 h1.xl {
   font-size: 8rem;
-  line-height: 8;
+  line-height: 8rem;
 }
 h2 {
-  font-size: 3rem;
-  line-height: 3;
+  font-size: 4rem;
+  line-height: 4rem;
 }
 h3 {
-  font-size: 2rem;
-  line-height: 2rem;
-  font-weight: 500;
+  font-size: 3rem;
+  line-height: 3rem;
+  font-weight: 400;
 }
 h4 {
-  font-size: 1.6rem;
-  line-height: 1.6;
+  font-size: 2rem;
+  line-height: 2rem;
 }
 h5 {
-  font-size: 1.4rem;
-  line-height: 1.4;
+  font-size: 1.8rem;
+  line-height: 1.8rem;
 }
 h6 {
-  font-size: 1.2rem;
-  line-height: 1.2;
+  font-size: 1.4rem;
+  line-height: 1.4rem;
 }
+
+b { font-weight: 500 }
 
 html,
 body {
@@ -63,7 +65,7 @@ body {
 hr {
   border: 0;
   height: 1px;
-  background: rgba($dark3, 0.2);
+  background: $dark7;
 }
 
 #mount,
