@@ -1,0 +1,18 @@
+@import '~styles/shared';
+
+.style-guide__card {
+  @extend %shadow;
+
+  width: 40em;
+  background: white;
+  margin: 1.5em 0;
+
+  >* {
+    padding: 1em 2em;
+  }
+
+  &__header {
+    border-bottom: 1px solid $dark7;
+    text-transform: uppercase;
+  }
+}
