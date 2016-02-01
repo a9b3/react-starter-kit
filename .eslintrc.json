@@ -11,6 +11,7 @@
   },
   "rules": {
     "strict": [0],
-    "no-param-reassign": [0]
+    "no-param-reassign": [0],
+    "react/jsx-closing-bracket-location": [0, "line-aligned"]
   }
 }
