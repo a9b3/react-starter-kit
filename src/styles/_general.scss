@@ -1,66 +1,12 @@
-@font-face {
-  font-family: 'Proggy';
-  src: url('./fonts/ProggyClean.ttf');
-}
-
-$font-family: 'Helvetica Neue';
-$font-color: rgba($dark3, 0.8);
-
-a {
-  color: $link-color;
-}
-
-p {
-
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 100;
-  margin: 0;
-}
-
-h1 {
-  font-size: 6rem;
-  line-height: 6rem;
-}
-h1.xl {
-  font-size: 8rem;
-  line-height: 8rem;
-}
-h2 {
-  font-size: 4rem;
-  line-height: 4rem;
-}
-h3 {
-  font-size: 3rem;
-  line-height: 3rem;
-  font-weight: 400;
-}
-h4 {
-  font-size: 2rem;
-  line-height: 2rem;
-}
-h5 {
-  font-size: 1.8rem;
-  line-height: 1.8rem;
-}
-h6 {
-  font-size: 1.4rem;
-  line-height: 1.4rem;
+html,
+body,
+#mount,
+.app {
+  width: 100%;
+  height: 100%;
 }
 
 b { font-weight: 500 }
-
-html,
-body {
-  color: $font-color;
-  font-family: $font-family;
-  font-size: 10px;
-  font-weight: 300;
-  height: 100%;
-  width: 100%;
-  font-smoothing: subpixel-antialiased;
-}
 
 hr {
   border: 0;
@@ -68,15 +14,8 @@ hr {
   background: $dark7;
 }
 
-#mount,
-.app {
-  width: 100%;
-  height: 100%;
-  @include rem-font-size(1.4);
-}
-
 .debug {
-  @extend .border;
-  @extend .bg;
+  border: 1px dotted $green3;
   box-sizing: border-box;
+  background: rgba($green4, .5);
 }

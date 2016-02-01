@@ -62,6 +62,29 @@ class StyleGuideContainer extends React.Component {
             </form>
           </div>
         </StyleGuideCardComponent>
+
+        <StyleGuideCardComponent title={'em padding'}>
+          <div style={{
+            fontSize: '2rem',
+            padding: '2em',
+          }}
+            className="debug">
+            <span className="debug">
+              2 Rem Font
+              2 Em Padding
+            </span>
+          </div>
+          <div style={{
+            fontSize: '1rem',
+            padding: '2em',
+          }}
+            className="debug">
+            <span className="debug">
+              1 Rem Font
+              2 Em Padding
+            </span>
+          </div>
+        </StyleGuideCardComponent>
       </div>
     );
   }
