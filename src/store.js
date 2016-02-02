@@ -17,11 +17,6 @@ const createStoreWithMiddleware = applyMiddleware(
   ...middlewares,
 )(createStore);
 
-// do local storage stuff here
-const defaultState = {
-
-};
-
-const store = createStoreWithMiddleware(rootReducer, defaultState);
+const store = createStoreWithMiddleware(rootReducer);
 
 export default store;
