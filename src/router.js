@@ -8,12 +8,8 @@ import { createHistory } from 'history';
 import store from 'root/redux/store.js';
 import config from 'config';
 
-// react
+// Containers
 import StyleGuideContainer from 'containers/style-guide/style-guide.container.js'
-
-const history = createHistory();
-
-syncReduxAndRouter(history, store);
 
 function debugRoutes() {
   if (!config.DEBUG) return;
@@ -21,15 +17,22 @@ function debugRoutes() {
     <Route path='/style_guide'
       component={ StyleGuideContainer }
     />
-  )
+  );
 }
 
-const router = (
-  <Provider store={store}>
-    <Router history={history}>
-      { debugRoutes() }
-    </Router>
-  </Provider>
-);
+function initRouter() {
+  const history = createHistory();
+  syncReduxAndRouter(history, store);
+  const router = (
+    <Provider store={store}>
+      <Router history={history}>
+        { debugRoutes() }
+      </Router>
+    </Provider>
+  );
 
+  return router;
+}
+
+const router = initRouter();
 export default router;
