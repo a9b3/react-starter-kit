@@ -7,10 +7,15 @@
 import { combineReducers } from 'redux';
 import { routeReducer } from 'redux-simple-router';
 
-const reducers = {};
+function initReducer() {
+  const reducers = {};
 
-const rootReducer = combineReducers(Object.assign(reducers, {
-  routing: routeReducer,
-}));
+  const rootReducer = combineReducers(Object.assign(reducers, {
+    routing: routeReducer,
+  }));
 
+  return rootReducer;
+}
+
+const rootReducer = initReducer();
 export default rootReducer;
