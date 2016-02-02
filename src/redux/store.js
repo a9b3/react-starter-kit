@@ -6,17 +6,21 @@ import createLogger from 'redux-logger';
 import { createStore, applyMiddleware } from 'redux';
 import rootReducer from 'root/redux/root-reducer.js';
 
-const loggerMiddleware = createLogger();
+function initStore() {
+  const loggerMiddleware = createLogger();
 
-const middlewares = [
-  thunkMiddleware,
-  config.DEBUG && loggerMiddleware,
-].filter(a => a);
+  const middlewares = [
+    thunkMiddleware,
+    config.DEBUG && loggerMiddleware,
+  ].filter(a => a);
 
-const createStoreWithMiddleware = applyMiddleware(
-  ...middlewares,
-)(createStore);
+  const createStoreWithMiddleware = applyMiddleware(
+    ...middlewares,
+  )(createStore);
 
-const store = createStoreWithMiddleware(rootReducer);
+  const store = createStoreWithMiddleware(rootReducer);
+  return store;
+}
 
+const store = initStore();
 export default store;
