@@ -17,6 +17,9 @@ const StyleGuideCardComponent = props =>
 
 StyleGuideCardComponent.propTypes = {
   title: PropTypes.string,
-  children: PropTypes.element,
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.arrayOf(PropTypes.element),
+  ]),
 };
 export default StyleGuideCardComponent;

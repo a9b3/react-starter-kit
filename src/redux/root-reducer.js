@@ -9,16 +9,6 @@ import { routeReducer } from 'redux-simple-router';
 
 const reducers = {};
 
-/*
- * import exported reducers from services here
- * ex:
- * import { reducer as fooReducer } from 'services/foo.js';
- * reducers.foo = fooReducer;
- */
-
-import { reducer as exampleState } from 'services/example-state.js';
-reducers[exampleState.key] = exampleState.reducer;
-
 const rootReducer = combineReducers(Object.assign(reducers, {
   routing: routeReducer,
 }));
