@@ -44,10 +44,28 @@ class StyleGuideContainer extends React.Component {
             volutpat sit amet.
           </div>
           <div>
+            <br/>
+            Small text<br/>
+            <small>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eleifend
+              velit id turpis fringilla volutpat. Nulla tristique sem ex, ac dignissim odio
+              volutpat sit amet.
+            </small>
+          </div>
+          <div>
             <b>b tag</b>
           </div>
           <div>
             <a href="#">a tag</a>
+          </div>
+          <div>
+            <br/> Code <br/>
+            <pre>
+              <code>
+                // hello
+                const hi = 'hi';
+              </code>
+            </pre>
           </div>
         </StyleGuideCardComponent>
 
