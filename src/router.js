@@ -2,10 +2,8 @@
 
 import React from 'react';
 import { Provider } from 'react-redux';
-import { syncReduxAndRouter } from 'redux-simple-router';
-import { Router, Route, Link, IndexRedirect } from 'react-router';
-import { createHistory } from 'history';
-import store from 'root/redux/store.js';
+import { Router, Route, Link, IndexRedirect, Redirect } from 'react-router';
+import { store, history } from 'root/redux/store.js';
 import config from 'config';
 
 // Containers
@@ -21,18 +19,13 @@ function debugRoutes() {
 }
 
 function initRouter() {
-  const history = createHistory();
-  syncReduxAndRouter(history, store);
-  const router = (
+  return (
     <Provider store={store}>
       <Router history={history}>
         { debugRoutes() }
       </Router>
     </Provider>
   );
-
-  return router;
 }
 
-const router = initRouter();
-export default router;
+export default initRouter();

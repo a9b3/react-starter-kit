@@ -5,17 +5,14 @@
 'use strict';
 
 import { combineReducers } from 'redux';
-import { routeReducer } from 'redux-simple-router';
+import { routeReducer } from 'react-router-redux';
 
 function initReducer() {
   const reducers = {};
 
-  const rootReducer = combineReducers(Object.assign(reducers, {
+  return combineReducers(Object.assign(reducers, {
     routing: routeReducer,
   }));
-
-  return rootReducer;
 }
 
-const rootReducer = initReducer();
-export default rootReducer;
+export default initReducer();
