@@ -30,3 +30,18 @@
     margin-top: auto;
   }
 }
+
+%pointer {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+%hover {
+  opacity: 1;
+  transition: opacity .2s;
+  &:hover {
+    opacity: .8;
+    transition: opacity .2s;
+  }
+}
