@@ -8,6 +8,7 @@ import config from 'config';
 
 // Containers
 import StyleGuideContainer from 'containers/style-guide/style-guide.container.js'
+import NotFoundContainer from 'containers/not-found/not-found.container.js';
 
 function debugRoutes() {
   if (!config.DEBUG) return;
@@ -23,6 +24,8 @@ function initRouter() {
     <Provider store={store}>
       <Router history={history}>
         { debugRoutes() }
+
+        <Route path="*" component={NotFoundContainer}></Route>
       </Router>
     </Provider>
   );
