@@ -16,6 +16,9 @@ import '!style-loader!css-loader!highlight.js/styles/github.css';
 // custom
 import 'root/styles/index.scss';
 
+// Global polyfill Promise
+global.Promise = require('rsvp').Promise;
+
 // deps
 import ReactDOM from 'react-dom';
 import React from 'react';
