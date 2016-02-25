@@ -18,6 +18,7 @@
   display: flex;
 
   >.end {
+    display: inherit;
     margin-left: auto;
   }
 }
@@ -27,6 +28,7 @@
   flex-direction: column;
 
   >.end {
+    display: inherit;
     margin-top: auto;
   }
 }
