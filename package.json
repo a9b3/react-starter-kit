@@ -63,6 +63,7 @@
     "html": "0.0.10",
     "jquery": "^2.1.4",
     "normalize.css": "^3.0.3",
+    "ramda": "^0.19.1",
     "react": "^0.14.1",
     "react-dom": "^0.14.1",
     "react-redux": "^4.0.6",
