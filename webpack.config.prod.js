@@ -2,6 +2,7 @@
 
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 let envConfig;
 if (process.env.NODE_ENV === 'production') {
@@ -33,7 +34,12 @@ module.exports = {
       compressor: {
         warnings: false,
       }
-    })
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: './src/index.html',
+      inject: true,
+    }),
   ],
 
   resolve: {

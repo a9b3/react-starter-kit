@@ -104,8 +104,10 @@ gulp.task('server:dev', done => {
 
   app.use(webpackHotMiddleware(compiler));
 
+  // this is for static assets
   app.use(express.static('src'));
 
+  // route every request to index.html, let client handle page routing
   app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'src', 'index.html'));
   });
@@ -113,9 +115,9 @@ gulp.task('server:dev', done => {
   app.listen(config.port, 'localhost', e => {
     if (e) return console.log(e);
     console.log(`
-                serving app on port ${config.port}
-                `);
-                done();
+      serving app on port ${config.port}
+    `);
+    done();
   });
 });
 
@@ -133,9 +135,9 @@ gulp.task('server:dist', done => {
   app.listen(config.port, 'localhost', e => {
     if (e) return console.log(e);
     console.log(`
-                serving app on port ${config.port}
-                `);
-                done();
+      serving app on port ${config.port}
+    `);
+    done();
   });
 });
 
@@ -149,7 +151,11 @@ gulp.task('default', ['server:dev']);
 gulp.task('build', done => {
   runSequence(
     'clean',
-    ['move:index', 'others', 'webpack-build'],
+    [
+      // 'move:index',
+      'others',
+      'webpack-build',
+    ],
     'generate-service-worker'
   );
 });
