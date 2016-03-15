@@ -10,6 +10,7 @@ import React from 'react'
 import { browserHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 import { render } from 'react-dom'
+import useScroll from 'scroll-behavior/lib/userStandardScroll'
 import config from 'config'
 import createStore from './store.js'
 import Root from './containers/root.js'
@@ -26,7 +27,7 @@ import initialize from './initialize.js'
 initialize()
 .then(() => {
   const store = createStore()
-  const history = syncHistoryWithStore(browserHistory, store)
+  const history = useScroll(syncHistoryWithStore(browserHistory, store))
 
   render(
     <Root store={store} history={history} />,
