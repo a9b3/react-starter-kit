@@ -4,33 +4,6 @@ const path = require('path');
 const webpack = require('webpack');
 const prodConfig = require('./webpack.config.prod.js');
 
-const BABEL_QUERY = {
-  presets: ['react', 'stage-0', "es2015"],
-  env: {
-    development: {
-      plugins: [
-        [
-          'react-transform',
-          {
-            transforms: [
-              {
-                transform: 'react-transform-hmr',
-                imports: ['react'],
-                locals: ['module'],
-              },
-              {
-                transform: 'react-transform-catch-errors',
-                imports: ['react', 'redbox-react'],
-              },
-            ],
-          },
-        ],
-      ],
-    },
-  },
-  plugins: ['transform-es2015-modules-commonjs']
-};
-
 const config = Object.assign({}, prodConfig, {
   devtool: 'inline-source-map',
 
@@ -45,7 +18,6 @@ const config = Object.assign({}, prodConfig, {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: 'babel',
-        query: BABEL_QUERY,
       },
       {
         test: /\.scss$/,
