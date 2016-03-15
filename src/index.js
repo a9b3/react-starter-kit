@@ -27,7 +27,10 @@ import initialize from './initialize.js'
 initialize()
 .then(() => {
   const store = createStore()
-  const history = useScroll(syncHistoryWithStore(browserHistory, store))
+  const history = syncHistoryWithStore(
+    useScroll(() => browserHistory)(),
+      store
+  )
 
   render(
     <Root store={store} history={history} />,
