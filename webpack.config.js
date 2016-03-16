@@ -124,3 +124,5 @@ exports.dev = Object.assign({}, exports.prod, {
     }),
   ],
 });
+
+module.exports = (process.env.NODE_ENV === 'dev') ? exports.dev : exports.prod;
