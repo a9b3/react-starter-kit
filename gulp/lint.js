@@ -1,9 +1,7 @@
-'use strict';
+const $ = require('gulp-load-plugins')()
+const gulp = require('gulp')
 
-const $ = require('gulp-load-plugins')();
-const gulp = require('gulp');
-
-module.exports = function(config) {
+module.exports = function lint(config) {
   gulp.task('lint:js', () => {
     return gulp.src([
       `gulpfile.js`,
@@ -14,8 +12,8 @@ module.exports = function(config) {
     .pipe($.gitmodified(['added']))
     .pipe($.eslint(require('../.eslintrc.js')))
     .pipe($.eslint.format())
-    .pipe($.eslint.failAfterError());
-  });
+    .pipe($.eslint.failAfterError())
+  })
 
   gulp.task('lint:scss', () => {
     return gulp.src([
@@ -28,5 +26,5 @@ module.exports = function(config) {
       config: '../scss-lint.yml',
     }))
     .pipe($.scssLint.failReporter('E'))
-  });
-};
+  })
+}
