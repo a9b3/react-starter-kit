@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "gulp lint"
+    "lint": "gulp lint",
+    "flow": "./node_modules/flow-bin/cli.js; [[ $?=0||$?=2 ]]"
   },
   "pre-commit": [
     "lint"
