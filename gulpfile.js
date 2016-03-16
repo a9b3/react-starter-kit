@@ -78,7 +78,7 @@ gulp.task('generate-service-worker', done => {
 
 gulp.task('webpack-build', done => {
   process.env.NODE_ENV = 'production';
-  const wpConfig = require('./webpack.config.prod.js');
+  const wpConfig = require('./webpack.config.js').prod;
 
   webpack(wpConfig, (e, stats) => {
     if (e) throw new $.util.PluginError('webpack', e);
@@ -92,7 +92,7 @@ gulp.task('server:dev', done => {
   const webpackDevMiddleware = require('webpack-dev-middleware');
   const webpackHotMiddleware = require('webpack-hot-middleware');
 
-  const wpConfig = require('./webpack.config.dev.js');
+  const wpConfig = require('./webpack.config.js').dev;
   const compiler = webpack(wpConfig);
 
   const app = express();

@@ -5,20 +5,57 @@ const webpack = require('webpack');
 const prodConfig = require('./webpack.config.prod.js');
 const webpackPlugins = require('webpack-load-plugins')();
 
-const config = Object.assign({}, prodConfig, {
-  devtool: 'inline-source-map',
-
+exports.prod = {
   entry: [
-    'webpack-hot-middleware/client?reload=true',
     './src',
   ],
+
+  output: {
+    path: path.join(__dirname, 'dist'),
+    filename: 'bundle.js',
+    publicPath: '/',
+  },
+
+  plugins: [
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compressor: {
+        warnings: false,
+      }
+    }),
+    new webpackPlugins.html({
+      filename: 'index.html',
+      template: './src/index.html',
+      inject: true,
+    }),
+  ],
+
+  resolve: {
+    alias: {
+      config: path.join(
+        __dirname,
+        'config',
+        (process.env.NODE_ENV === 'production') ? process.env.NODE_ENV : 'default'
+      ),
+      root: path.join(__dirname, 'src'),
+      styles: path.join(__dirname, 'src', 'styles'),
+      components: path.join(__dirname, 'src', 'components'),
+      containers: path.join(__dirname, 'src', 'containers'),
+      services: path.join(__dirname, 'src', 'services'),
+    },
+  },
 
   module: {
     loaders: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel',
+        loaders: ['babel'],
       },
       {
         test: /\.scss$/,
@@ -57,9 +94,24 @@ const config = Object.assign({}, prodConfig, {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
         loader: "url?limit=10000&mimetype=image/svg+xml"
       }
-
     ],
   },
+
+  postcss() {
+    return [
+      require('postcss-import'),
+      require('autoprefixer'),
+      require('precss'),
+    ];
+  },
+};
+
+exports.dev = Object.assign({}, exports.prod, {
+  devtool: 'inline-source-map',
+
+  entry: [
+    'webpack-hot-middleware/client?reload=true',
+  ].concat(exports.prod.entry),
 
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
@@ -71,7 +123,4 @@ const config = Object.assign({}, prodConfig, {
       inject: true,
     }),
   ],
-
 });
-
-module.exports = config;
