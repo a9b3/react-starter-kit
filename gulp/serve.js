@@ -45,10 +45,10 @@ module.exports = function serve(config) {
   gulp.task('serve:dist', done => {
     const app = express()
 
-    app.use(express.static('dist'))
+    app.use(express.static('../dist'))
 
     app.get('*', (req, res) => {
-      res.sendFile(path.join(__dirname, 'dist', 'index.html'))
+      res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'))
     })
 
     app.listen(config.port, 'localhost', e => {
