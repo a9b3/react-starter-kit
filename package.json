@@ -1,6 +1,6 @@
 {
   "name": "react-starter-kit",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Front-end starter kit with react, webpack, gulp, redux, postcss, babel",
   "main": "index.js",
   "scripts": {
