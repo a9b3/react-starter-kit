@@ -4,6 +4,15 @@ const webpackPlugins = require('webpack-load-plugins')()
 
 const configs = {}
 
+const sharedPlugins = [
+  new webpack.optimize.OccurenceOrderPlugin(),
+  new webpackPlugins.html({
+    filename: 'index.html',
+    template: './src/index.html',
+    inject: true,
+  }),
+]
+
 configs.prod = {
   entry: [
     './src',
@@ -15,8 +24,7 @@ configs.prod = {
     publicPath: '/',
   },
 
-  plugins: [
-    new webpack.optimize.OccurenceOrderPlugin(),
+  plugins: sharedPlugins.concat([
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production'),
@@ -27,12 +35,7 @@ configs.prod = {
         warnings: false,
       },
     }),
-    new webpackPlugins.html({
-      filename: 'index.html',
-      template: './src/index.html',
-      inject: true,
-    }),
-  ],
+  ]),
 
   resolve: {
     alias: {
@@ -112,16 +115,10 @@ configs.dev = Object.assign({}, configs.prod, {
     'webpack-hot-middleware/client?reload=true',
   ].concat(configs.prod.entry),
 
-  plugins: [
-    new webpack.optimize.OccurenceOrderPlugin(),
+  plugins: sharedPlugins.concat([
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
-    new webpackPlugins.html({
-      filename: 'index.html',
-      template: './src/index.html',
-      inject: true,
-    }),
-  ],
+  ]),
 })
 
 module.exports = (process.env.NODE_ENV === 'production') ? configs.prod : configs.dev
