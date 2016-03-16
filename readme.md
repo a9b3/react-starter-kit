@@ -26,3 +26,7 @@ redirect from services.
 ### CLI tool
 companion cli tool available at [react-starter-kit-cli](https://github.com/esayemm/react-starter-kit-cli).
 helps with creating projects and scaffolding component/container files.
+
+### Env
+
+`dev|prod|test`

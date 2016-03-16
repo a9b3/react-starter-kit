@@ -1,11 +1,13 @@
 'use strict';
 
+const env = process.env.NODE_ENV || 'dev';
 const path = require('path');
 const webpack = require('webpack');
-const prodConfig = require('./webpack.config.prod.js');
 const webpackPlugins = require('webpack-load-plugins')();
 
-exports.prod = {
+const configs = {};
+
+configs.prod = {
   entry: [
     './src',
   ],
@@ -106,12 +108,12 @@ exports.prod = {
   },
 };
 
-exports.dev = Object.assign({}, exports.prod, {
+configs.dev = Object.assign({}, configs.prod, {
   devtool: 'inline-source-map',
 
   entry: [
     'webpack-hot-middleware/client?reload=true',
-  ].concat(exports.prod.entry),
+  ].concat(configs.prod.entry),
 
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
@@ -125,4 +127,4 @@ exports.dev = Object.assign({}, exports.prod, {
   ],
 });
 
-module.exports = (process.env.NODE_ENV === 'dev') ? exports.dev : exports.prod;
+module.exports = (process.env.NODE_ENV === 'production') ? configs.prod : configs.dev;
