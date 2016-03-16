@@ -2,7 +2,7 @@
 
 const path = require('path');
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpackPlugins = require('webpack-load-plugins')();
 
 let envConfig;
 if (process.env.NODE_ENV === 'production') {
@@ -35,7 +35,7 @@ module.exports = {
         warnings: false,
       }
     }),
-    new HtmlWebpackPlugin({
+    new webpackPlugins.html({
       filename: 'index.html',
       template: './src/index.html',
       inject: true,

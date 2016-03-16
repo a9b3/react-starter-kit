@@ -3,7 +3,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const prodConfig = require('./webpack.config.prod.js');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpackPlugins = require('webpack-load-plugins')();
 
 const config = Object.assign({}, prodConfig, {
   devtool: 'inline-source-map',
@@ -65,7 +65,7 @@ const config = Object.assign({}, prodConfig, {
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
-    new HtmlWebpackPlugin({
+    new webpackPlugins.html({
       filename: 'index.html',
       template: './src/index.html',
       inject: true,
