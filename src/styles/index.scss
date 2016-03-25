@@ -1,7 +1,7 @@
 // global
 @import './shared.scss';
-@import './_overwrites.scss';
+@import './globals/_overwrites.scss';
 
 // general
-@import './_typography.scss';
-@import './_general.scss';
+@import './globals/_typography.scss';
+@import './globals/_general.scss';
