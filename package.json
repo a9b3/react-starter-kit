@@ -15,7 +15,6 @@
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^6.2.3",
-    "autoprefixer-loader": "^3.1.0",
     "babel-core": "^6.4.0",
     "babel-eslint": "4.1.8",
     "babel-loader": "^6.2.1",
