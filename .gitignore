@@ -4,3 +4,4 @@ build/
 static/
 dist/
 nohup.out
+Session.vim
