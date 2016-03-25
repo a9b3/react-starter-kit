@@ -64,11 +64,20 @@ configs.prod = {
       },
       {
         test: /\.scss$/,
-        loaders: ['style', 'css', 'autoprefixer', 'sass'],
+        loaders: [
+          'style?sourceMap',
+          'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]&sourceMap',
+          'postcss',
+          'sass?sourceMap',
+        ],
       },
       {
         test: /\.css$/,
-        loaders: ['style', 'css?modules&importLoaders=1', 'postcss'],
+        loaders: [
+          'style',
+          'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]$sourceMap',
+          'postcss',
+        ],
       },
       {
         test: /\.html$/,
