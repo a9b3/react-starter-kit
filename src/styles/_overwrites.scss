@@ -1,42 +1,44 @@
-// remove link styling
-a:link,
-a:visited,
-a:active {
-  text-decoration: inherit;
-}
+:global {
+  // remove link styling
+  a:link,
+  a:visited,
+  a:active {
+    text-decoration: inherit;
+  }
 
-// http://www.paulirish.com/2012/box-sizing-border-box-ftw/
-html {
-  box-sizing: border-box;
-}
-*, *:before, :after {
-  box-sizing: inherit;
-}
+  // http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+  html {
+    box-sizing: border-box;
+  }
+  *, *:before, :after {
+    box-sizing: inherit;
+  }
 
-// remove input styling
-input, textarea{
-  border: none;
-  box-shadow: none;
-  outline: none;
-}
-input:focus, textarea:focus {
-  border: none;
-  box-shadow: none;
-  outline: none;
-}
+  // remove input styling
+  input, textarea{
+    border: none;
+    box-shadow: none;
+    outline: none;
+  }
+  input:focus, textarea:focus {
+    border: none;
+    box-shadow: none;
+    outline: none;
+  }
 
-pre {
-  white-space: pre-wrap;
-}
+  pre {
+    white-space: pre-wrap;
+  }
 
-code {
-  border-radius: 3px;
-  font-family: 'Proggy';
-  font-size: 1rem;
-  line-height: 1rem;
-}
+  code {
+    border-radius: 3px;
+    font-family: 'Proggy';
+    font-size: 1rem;
+    line-height: 1rem;
+  }
 
-button {
-  outline: none;
-  border: none;
+  button {
+    outline: none;
+    border: none;
+  }
 }
