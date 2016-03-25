@@ -29,11 +29,11 @@ initialize()
   const store = createStore()
   const history = syncHistoryWithStore(
     useScroll(() => browserHistory)(),
-      store
+    store
   )
 
   render(
     <Root store={store} history={history} />,
-      document.getElementById('mount')
+    document.getElementById('mount')
   )
 })
