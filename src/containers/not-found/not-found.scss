@@ -3,5 +3,6 @@
 .not-found {
   @extend %fitted;
   @extend %middle;
+  min-height: 100vh;
   text-align: center;
 }
