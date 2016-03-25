@@ -1,23 +1,22 @@
-import './not-found.scss'
+import styles from './not-found.scss'
 import React from 'react'
+import CSSModules from 'react-css-modules'
 
 class NotFoundContainer extends React.Component {
-
   constructor() {
     super()
   }
 
   render() {
     return (
-      <div className="not-found">
-        <div className="not-found__wrapper">
-          <h1 className="bold">Whoops!</h1>
-          <h4 className="light">Page Not Found</h4>
+      <div styleName='not-found'>
+        <div>
+          <h1 className='bold'>Whoops!</h1>
+          <h4 className='light'>Page Not Found</h4>
         </div>
       </div>
     )
   }
-
 }
 
-export default NotFoundContainer
+export default CSSModules(NotFoundContainer, styles)
