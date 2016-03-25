@@ -15,7 +15,7 @@ const sharedPlugins = [
 
 configs.prod = {
   entry: [
-    './src',
+    './src/index.js',
   ],
 
   output: {
