@@ -57,7 +57,10 @@ configs.prod = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loaders: ['babel'],
+        loader: 'babel',
+        query: {
+          cacheDirectory: true,
+        },
       },
       {
         test: /\.scss$/,
