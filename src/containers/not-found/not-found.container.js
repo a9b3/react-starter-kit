@@ -1,12 +1,10 @@
-'use strict';
-
-import './not-found.scss';
-import React from 'react';
+import './not-found.scss'
+import React from 'react'
 
 class NotFoundContainer extends React.Component {
 
   constructor() {
-    super();
+    super()
   }
 
   render() {
@@ -17,9 +15,9 @@ class NotFoundContainer extends React.Component {
           <h4 className="light">Page Not Found</h4>
         </div>
       </div>
-    );
+    )
   }
 
 }
 
-export default NotFoundContainer;
+export default NotFoundContainer

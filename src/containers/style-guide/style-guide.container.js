@@ -1,9 +1,7 @@
-'use strict';
+import './style-guide.scss'
+import React from 'react'
 
-import './style-guide.scss';
-import React from 'react';
-
-import StyleGuideCardComponent from './style-guide-card/style-guide-card.component.js';
+import StyleGuideCardComponent from './style-guide-card/style-guide-card.component.js'
 
 class StyleGuideContainer extends React.Component {
   render() {
@@ -63,7 +61,7 @@ class StyleGuideContainer extends React.Component {
             <pre>
               <code>
                 // hello
-                const hi = 'hi';
+                const hi = 'hi'
               </code>
             </pre>
           </div>
@@ -104,8 +102,8 @@ class StyleGuideContainer extends React.Component {
           </div>
         </StyleGuideCardComponent>
       </div>
-    );
+    )
   }
 }
 
-export default StyleGuideContainer;
+export default StyleGuideContainer
