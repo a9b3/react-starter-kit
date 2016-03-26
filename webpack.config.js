@@ -25,6 +25,7 @@ const sharedPlugins = [
     template: './src/index.html',
     inject: true,
   }),
+  new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
 ]
 
 const sharedLoaders = [
@@ -72,9 +73,36 @@ const sharedLoaders = [
  *****************************************************************************/
 
 configs.prod = {
-  entry: [
-    './src/index.js',
-  ],
+  entry: {
+    app: [
+      './src/index.js',
+    ],
+    vendor: [
+      'animate.css',
+      'axios',
+      'font-awesome/css/font-awesome.css',
+      'highlight.js',
+      'history',
+      'html',
+      'invariant',
+      'jquery',
+      'normalize.css',
+      'ramda',
+      'react',
+      'react-css-modules',
+      'react-dom',
+      'react-helmet',
+      'react-redux',
+      'react-router',
+      'react-router-redux',
+      'redux',
+      'redux-logger',
+      'redux-simple-router',
+      'redux-thunk',
+      'rsvp',
+      'scroll-behavior',
+    ],
+  },
 
   output: {
     path: path.join(__dirname, 'dist'),
@@ -96,6 +124,7 @@ configs.prod = {
         warnings: false,
       },
     }),
+    new webpack.optimize.DedupePlugin(),
   ]),
 
   resolve: {
@@ -130,6 +159,10 @@ configs.prod = {
         ),
       },
     ]),
+    noParse: [
+      /node_modules/,
+      /dist/,
+    ],
   },
 
   postcss() {
@@ -155,9 +188,11 @@ configs.dev = Object.assign({}, configs.prod, {
     filename: bundleNames.js,
   }),
 
-  entry: [
-    'webpack-hot-middleware/client?reload=true',
-  ].concat(configs.prod.entry),
+  entry: Object.assign({}, configs.prod.entry, {
+    app: configs.prod.entry.app.concat([
+      'webpack-hot-middleware/client?reload=true',
+    ]),
+  }),
 
   plugins: sharedPlugins.concat([
     new webpack.HotModuleReplacementPlugin(),
