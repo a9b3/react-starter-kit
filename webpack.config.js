@@ -1,6 +1,9 @@
 const path = require('path')
 const webpack = require('webpack')
 const webpackPlugins = require('webpack-load-plugins')()
+const execSync = require('child_process').execSync
+
+const VERSION = execSync('git describe --tag --always').toString().trim()
 
 // TODO: clean this up
 // https://webpack.github.io/docs/configuration.html
@@ -26,6 +29,12 @@ const sharedPlugins = [
     inject: true,
   }),
   new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
+  new webpack.DefinePlugin({
+    'process.env': {
+      NODE_ENV: JSON.stringify('production'),
+    },
+    VERSION,
+  }),
 ]
 
 const sharedLoaders = [
@@ -114,11 +123,6 @@ configs.prod = {
   plugins: sharedPlugins.concat([
     new webpack.optimize.OccurenceOrderPlugin(true),
     new webpackPlugins.extractText(prodBundleNames.css),
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('production'),
-      },
-    }),
     new webpack.optimize.UglifyJsPlugin({
       compressor: {
         warnings: false,
