@@ -2,15 +2,20 @@ const path = require('path')
 const webpack = require('webpack')
 const webpackPlugins = require('webpack-load-plugins')()
 
+// TODO: clean this up
+// https://webpack.github.io/docs/configuration.html
 const bundleNames = {
-  js: 'bundle.[hash:5].js',
-  css: 'bundle.[hash:5].css',
+  js: '[name].bundle.js',
+  css: '[name].bundle.css',
+}
+const prodBundleNames = {
+  js: '[name].bundle.[hash:5].js',
+  css: '[name].bundle.[hash:5].css',
 }
 
 const configs = {}
 
 const sharedPlugins = [
-  new webpack.optimize.OccurenceOrderPlugin(),
   new webpackPlugins.html({
     filename: 'index.html',
     template: './src/index.html',
@@ -65,12 +70,14 @@ configs.prod = {
 
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: bundleNames.js,
+    pathinfo: true,
+    filename: prodBundleNames.js,
     publicPath: '/',
   },
 
   plugins: sharedPlugins.concat([
-    new webpackPlugins.extractText(bundleNames.css),
+    new webpack.optimize.OccurenceOrderPlugin(true),
+    new webpackPlugins.extractText(prodBundleNames.css),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production'),
@@ -127,7 +134,14 @@ configs.prod = {
 }
 
 configs.dev = Object.assign({}, configs.prod, {
-  devtool: 'inline-source-map',
+  // http://webpack.github.io/docs/build-performance.html
+  // recommendation: 'eval-source-map',
+  // 'eval' is the fastest if you don't care about source-map
+  devtool: 'eval-source-map',
+
+  output: Object.assign({}, configs.prod.output, {
+    filename: bundleNames.js,
+  }),
 
   entry: [
     'webpack-hot-middleware/client?reload=true',

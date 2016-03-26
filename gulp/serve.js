@@ -13,8 +13,12 @@ module.exports = function serve(config) {
     const app = express()
 
     app.use(webpackDevMiddleware(compiler, {
-      noInfo: true,
+      // if too noisy use this option to only log errors
+      // noInfo: true,
       publicPath: wpConfig.output.publicPath,
+      stats: {
+        colors: true
+      },
     }))
 
     app.use(webpackHotMiddleware(compiler))
