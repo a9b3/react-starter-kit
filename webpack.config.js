@@ -28,15 +28,12 @@ configs.shared = {
       './src/app/index.js',
     ],
     vendor: [
-      'animate.css',
       'axios',
-      'font-awesome/css/font-awesome.css',
       'highlight.js',
       'history',
       'html',
       'invariant',
       'jquery',
-      'normalize.css',
       'ramda',
       'react',
       'react-css-modules',
@@ -152,8 +149,8 @@ configs.prod = Object.assign({}, configs.shared, {
   }),
 
   plugins: configs.shared.plugins.concat([
+    new webpackPlugins.extractText(prodBundleNames.css),
     new webpack.optimize.OccurenceOrderPlugin(true),
-    // new webpackPlugins.extractText(prodBundleNames.css),
     new webpack.optimize.UglifyJsPlugin({
       compressor: {
         warnings: false,
@@ -162,45 +159,26 @@ configs.prod = Object.assign({}, configs.shared, {
     new webpack.optimize.DedupePlugin(),
   ]),
 
-  // module: Object.assign({}, configs.shared.module, {
-  //   loaders: configs.shared.module.loaders.concat([
-  //     {
-  //       test: /\.scss$/,
-  //       loader: webpackPlugins.extractText.extract(
-  //         'style',
-  //         'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
-  //         'postcss',
-  //         'sass'
-  //       ),
-  //     },
-  //     {
-  //       test: /\.css$/,
-  //       loader: webpackPlugins.extractText.extract(
-  //         'style',
-  //         'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
-  //         'postcss'
-  //       ),
-  //     },
-  //   ]),
-  // }),
-
   module: Object.assign({}, configs.shared.module, {
     loaders: configs.shared.module.loaders.concat([
       {
         test: /\.scss$/,
-        loaders: [
-          'style?sourceMap',
-          'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]&sourceMap',
-          'postcss',
-          'sass?sourceMap',
+        loader: webpackPlugins.extractText.extract(
+          'style',
+          'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!postcss!sass'
+        ),
+        include: [
+          path.resolve('./src'),
         ],
       },
       {
         test: /\.css$/,
-        loaders: [
+        loader: webpackPlugins.extractText.extract(
           'style',
-          'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]$sourceMap',
-          'postcss',
+          'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!postcss'
+        ),
+        include: [
+          path.resolve('./src'),
         ],
       },
     ]),
