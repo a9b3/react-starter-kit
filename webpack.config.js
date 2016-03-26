@@ -15,6 +15,10 @@ const prodBundleNames = {
 
 const configs = {}
 
+/*****************************************************************************
+ * Shared
+ *****************************************************************************/
+
 const sharedPlugins = [
   new webpackPlugins.html({
     filename: 'index.html',
@@ -62,6 +66,10 @@ const sharedLoaders = [
     loader: "url?limit=10000&mimetype=image/svg+xml",
   },
 ]
+
+/*****************************************************************************
+ * Production (for builds)
+ *****************************************************************************/
 
 configs.prod = {
   entry: [
@@ -132,6 +140,10 @@ configs.prod = {
     ]
   },
 }
+
+/*****************************************************************************
+ * dev
+ *****************************************************************************/
 
 configs.dev = Object.assign({}, configs.prod, {
   // http://webpack.github.io/docs/build-performance.html
