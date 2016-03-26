@@ -22,66 +22,7 @@ const configs = {}
  * Shared
  *****************************************************************************/
 
-const sharedPlugins = [
-  new webpackPlugins.html({
-    filename: 'index.html',
-    template: './src/index.html',
-    inject: true,
-  }),
-  new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
-  new webpack.DefinePlugin({
-    'process.env': {
-      NODE_ENV: JSON.stringify('production'),
-    },
-    VERSION,
-  }),
-]
-
-const sharedLoaders = [
-  {
-    test: /\.jsx?$/,
-    exclude: /node_modules/,
-    loader: 'babel',
-    query: {
-      cacheDirectory: true,
-    },
-  },
-  {
-    test: /\.html$/,
-    loaders: ['html'],
-  },
-  {
-    test: /\.(png|jpg|jpeg)$/,
-    // inline ULRS for <= 8k images, direct URLs else
-    loaders: ['url-loader?limit=8192'],
-  },
-  {
-    test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
-    loader: "url?limit=10000&mimetype=application/font-woff",
-  },
-  {
-    test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
-    loader: "url?limit=10000&mimetype=application/font-woff",
-  },
-  {
-    test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-    loader: "url?limit=10000&mimetype=application/octet-stream",
-  },
-  {
-    test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-    loader: "file",
-  },
-  {
-    test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-    loader: "url?limit=10000&mimetype=image/svg+xml",
-  },
-]
-
-/*****************************************************************************
- * Production (for builds)
- *****************************************************************************/
-
-configs.prod = {
+configs.shared = {
   entry: {
     app: [
       './src/app/index.js',
@@ -120,16 +61,20 @@ configs.prod = {
     publicPath: '/',
   },
 
-  plugins: sharedPlugins.concat([
-    new webpack.optimize.OccurenceOrderPlugin(true),
-    new webpackPlugins.extractText(prodBundleNames.css),
-    new webpack.optimize.UglifyJsPlugin({
-      compressor: {
-        warnings: false,
-      },
+  plugins: [
+    new webpackPlugins.html({
+      filename: 'index.html',
+      template: './src/index.html',
+      inject: true,
     }),
-    new webpack.optimize.DedupePlugin(),
-  ]),
+    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production'),
+      },
+      VERSION,
+    }),
+  ],
 
   resolve: {
     alias: {
@@ -147,25 +92,44 @@ configs.prod = {
   },
 
   module: {
-    loaders: sharedLoaders.concat([
+    loaders: [
       {
-        test: /\.scss$/,
-        loader: webpackPlugins.extractText.extract(
-          'style-loader',
-          'css?modules&importLoaders=2&localIdentName=[path]___[name]__[local]___[hash:base64:5]!postcss-loader!sass'
-        ),
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: 'babel',
+        query: {
+          cacheDirectory: true,
+        },
       },
       {
-        test: /\.css$/,
-        loader: webpackPlugins.extractText.extract(
-          'style',
-          'css?modules&importLoaders=2&localIdentName=[path]___[name]__[local]___[hash:base64:5]!postcss-loader!sass'
-        ),
+        test: /\.html$/,
+        loaders: ['html'],
       },
-    ]),
-    noParse: [
-      /node_modules/,
-      /dist/,
+      {
+        test: /\.(png|jpg|jpeg)$/,
+        // inline ULRS for <= 8k images, direct URLs else
+        loaders: ['url-loader?limit=8192'],
+      },
+      {
+        test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
+        loader: "url?limit=10000&mimetype=application/font-woff",
+      },
+      {
+        test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
+        loader: "url?limit=10000&mimetype=application/font-woff",
+      },
+      {
+        test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+        loader: "url?limit=10000&mimetype=application/octet-stream",
+      },
+      {
+        test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+        loader: "file",
+      },
+      {
+        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+        loader: "url?limit=10000&mimetype=image/svg+xml",
+      },
     ],
   },
 
@@ -179,32 +143,49 @@ configs.prod = {
 }
 
 /*****************************************************************************
- * dev
+ * Production (for builds)
  *****************************************************************************/
 
-configs.dev = Object.assign({}, configs.prod, {
-  // http://webpack.github.io/docs/build-performance.html
-  // recommendation: 'eval-source-map',
-  // 'eval' is the fastest if you don't care about source-map
-  devtool: 'eval-source-map',
-
-  output: Object.assign({}, configs.prod.output, {
-    filename: bundleNames.js,
+configs.prod = Object.assign({}, configs.shared, {
+  output: Object.assign({}, configs.shared.output, {
+    filename: prodBundleNames.js,
   }),
 
-  entry: Object.assign({}, configs.prod.entry, {
-    app: configs.prod.entry.app.concat([
-      'webpack-hot-middleware/client?reload=true',
-    ]),
-  }),
-
-  plugins: sharedPlugins.concat([
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
+  plugins: configs.shared.plugins.concat([
+    new webpack.optimize.OccurenceOrderPlugin(true),
+    // new webpackPlugins.extractText(prodBundleNames.css),
+    new webpack.optimize.UglifyJsPlugin({
+      compressor: {
+        warnings: false,
+      },
+    }),
+    new webpack.optimize.DedupePlugin(),
   ]),
 
-  module: {
-    loaders: sharedLoaders.concat([
+  // module: Object.assign({}, configs.shared.module, {
+  //   loaders: configs.shared.module.loaders.concat([
+  //     {
+  //       test: /\.scss$/,
+  //       loader: webpackPlugins.extractText.extract(
+  //         'style',
+  //         'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
+  //         'postcss',
+  //         'sass'
+  //       ),
+  //     },
+  //     {
+  //       test: /\.css$/,
+  //       loader: webpackPlugins.extractText.extract(
+  //         'style',
+  //         'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
+  //         'postcss'
+  //       ),
+  //     },
+  //   ]),
+  // }),
+
+  module: Object.assign({}, configs.shared.module, {
+    loaders: configs.shared.module.loaders.concat([
       {
         test: /\.scss$/,
         loaders: [
@@ -223,7 +204,55 @@ configs.dev = Object.assign({}, configs.prod, {
         ],
       },
     ]),
-  },
+  }),
+})
+
+/*****************************************************************************
+ * dev
+ *****************************************************************************/
+
+configs.dev = Object.assign({}, configs.shared, {
+  // http://webpack.github.io/docs/build-performance.html
+  // recommendation: 'eval-source-map',
+  // 'eval' is the fastest if you don't care about source-map
+  devtool: 'eval-source-map',
+
+  output: Object.assign({}, configs.shared.output, {
+    filename: bundleNames.js,
+  }),
+
+  entry: Object.assign({}, configs.shared.entry, {
+    app: configs.shared.entry.app.concat([
+      'webpack-hot-middleware/client?reload=true',
+    ]),
+  }),
+
+  plugins: configs.shared.plugins.concat([
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
+  ]),
+
+  module: Object.assign({}, configs.shared.module, {
+    loaders: configs.shared.module.loaders.concat([
+      {
+        test: /\.scss$/,
+        loaders: [
+          'style?sourceMap',
+          'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]&sourceMap',
+          'postcss',
+          'sass?sourceMap',
+        ],
+      },
+      {
+        test: /\.css$/,
+        loaders: [
+          'style',
+          'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]$sourceMap',
+          'postcss',
+        ],
+      },
+    ]),
+  }),
 })
 
 module.exports = (process.env.NODE_ENV === 'production') ? configs.prod : configs.dev
