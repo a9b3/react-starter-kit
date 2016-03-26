@@ -5,3 +5,4 @@ static/
 dist/
 nohup.out
 Session.vim
+stats.json
