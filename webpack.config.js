@@ -75,7 +75,7 @@ const sharedLoaders = [
 configs.prod = {
   entry: {
     app: [
-      './src/index.js',
+      './src/app/index.js',
     ],
     vendor: [
       'animate.css',
