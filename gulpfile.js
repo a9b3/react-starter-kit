@@ -24,12 +24,7 @@ gulp.task('default', [
 gulp.task('build', () => {
   runSequence(
     'clean',
-    [
-      // TODO: remove move:index task def
-      // 'move:index',
-      'others',
-      'webpack-build',
-    ],
+    'webpack-build',
     'generate-service-worker'
   )
 })
