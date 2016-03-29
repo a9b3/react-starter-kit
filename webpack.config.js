@@ -74,6 +74,11 @@ configs.shared = {
   ],
 
   resolve: {
+    root: [
+      // for relative paths in css
+      path.resolve('./src'),
+      path.resolve('./src/assets'),
+    ],
     alias: {
       config: path.join(
         __dirname,
@@ -103,9 +108,13 @@ configs.shared = {
         loaders: ['html'],
       },
       {
-        test: /\.(png|jpg|jpeg)$/,
-        // inline ULRS for <= 8k images, direct URLs else
-        loaders: ['url-loader?limit=8192'],
+        test: /\.(png|jpe?g|gif)$/i,
+        loaders: [
+          // inline ULRS for <= 8k images, direct URLs else
+          'url-loader?limit=8192',
+          // run image-min when not in debug
+          'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false',
+        ],
       },
       {
         test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
@@ -209,6 +218,9 @@ configs.dev = Object.assign({}, configs.shared, {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
   ]),
+
+  // run loaders in debug mode
+  debug: true,
 
   module: Object.assign({}, configs.shared.module, {
     loaders: configs.shared.module.loaders.concat([
