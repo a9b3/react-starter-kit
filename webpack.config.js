@@ -203,7 +203,7 @@ configs.dev = Object.assign({}, configs.shared, {
   entry: Object.assign({}, configs.shared.entry, {
     app: configs.shared.entry.app.concat([
       'webpack-dev-server/client?http://localhost:8080/',
-      'webpack/hot/dev-server',
+      'webpack/hot/only-dev-server',
     ]),
   }),
 
