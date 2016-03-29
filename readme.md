@@ -1,10 +1,10 @@
 # react-starter-kit
 
 ### Instructions
-```
-$ npm install
-$ gulp // dev server
-$ gulp build // build into dist folder
+```sh
+npm install
+gulp // dev server
+gulp build // build into dist folder
 ```
 
 ### Overview
@@ -30,3 +30,12 @@ helps with creating projects and scaffolding component/container files.
 ### Env
 
 `dev|prod|test`
+
+### CSS
+Use absolute paths when using url().
+
+```css
+.foo {
+  background: url(~assets/images/foo.png);
+}
+```
