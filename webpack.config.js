@@ -27,34 +27,13 @@ configs.shared = {
     app: [
       './src/app/index.js',
     ],
-    vendor: [
-      'axios',
-      'highlight.js',
-      'history',
-      'html',
-      'invariant',
-      'jquery',
-      'ramda',
-      'react',
-      'react-css-modules',
-      'react-dom',
-      'react-helmet',
-      'react-redux',
-      'react-router',
-      'react-router-redux',
-      'redux',
-      'redux-logger',
-      'redux-simple-router',
-      'redux-thunk',
-      'rsvp',
-      'scroll-behavior',
-    ],
   },
 
   output: {
     path: path.join(__dirname, 'dist'),
     pathinfo: true,
     filename: prodBundleNames.js,
+    chunkFilename: '[name].bundle.[hash:5].js',
     publicPath: '/',
   },
 
@@ -64,7 +43,13 @@ configs.shared = {
       template: './src/index.html',
       inject: true,
     }),
-    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
+
+    // puts common imports into vendor file
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      children: true,
+      minChunks: 2,
+    }),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production'),
@@ -158,14 +143,21 @@ configs.prod = Object.assign({}, configs.shared, {
   }),
 
   plugins: configs.shared.plugins.concat([
+    // merges similar chunks
+    new webpack.optimize.DedupePlugin(),
+
+    // don't create chunks if they are too small
+    new webpack.optimize.MinChunkSizePlugin({
+      minChunkSize: 51200,
+    }),
     new webpackPlugins.extractText(prodBundleNames.css),
     new webpack.optimize.OccurenceOrderPlugin(true),
     new webpack.optimize.UglifyJsPlugin({
+      mangle: true,
       compressor: {
         warnings: false,
       },
     }),
-    new webpack.optimize.DedupePlugin(),
   ]),
 
   module: Object.assign({}, configs.shared.module, {
@@ -210,7 +202,8 @@ configs.dev = Object.assign({}, configs.shared, {
 
   entry: Object.assign({}, configs.shared.entry, {
     app: configs.shared.entry.app.concat([
-      'webpack-hot-middleware/client?reload=true',
+      'webpack-dev-server/client?http://localhost:8080/',
+      'webpack/hot/dev-server',
     ]),
   }),
 
