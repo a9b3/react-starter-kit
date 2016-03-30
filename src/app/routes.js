@@ -5,7 +5,7 @@ import { Route } from 'react-router'
  * Components
  */
 import Main from './containers/main.js'
-import NotFoundContainer from './containers/not-found/not-found.container.js'
+import NotFoundContainer from './containers/not-found/not-found.js'
 
 export default (
   <Route

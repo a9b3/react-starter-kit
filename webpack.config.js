@@ -80,10 +80,17 @@ configs.shared = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel',
-        query: {
-          cacheDirectory: true,
-        },
+        loaders: [
+          {
+            loader: 'babel',
+            query: {
+              cacheDirectory: true,
+            },
+          },
+          {
+            loader: 'baggage?[file].scss=styles',
+          },
+        ],
       },
       {
         test: /\.html$/,

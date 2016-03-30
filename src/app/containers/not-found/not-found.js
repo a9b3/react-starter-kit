@@ -1,4 +1,3 @@
-import styles from './not-found.scss'
 import React from 'react'
 import CSSModules from 'react-css-modules'
 
@@ -19,4 +18,7 @@ class NotFoundContainer extends React.Component {
   }
 }
 
-export default CSSModules(NotFoundContainer, styles)
+export default CSSModules(NotFoundContainer, styles, {
+  allowMultiple: true,
+  errorWhenNotFound: false,
+})
