@@ -20,5 +20,6 @@ module.exports = {
     "no-undef": [0],
     "arrow-body-style": [0],
     "new-cap": [0],
+    "react/wrap-multilines": [0],
   },
 };

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 
 /*
  * Top level container
@@ -32,16 +32,16 @@ class Main extends Component {
       ready,
     } = this.state
 
-    if (!ready) {
-      return <div className="loading">
-        <i className="fa fa-spinner fa-spin"></i>
-      </div>
-    } else {
-      return <div>
-        {this.props.children}
-      </div>
-    }
+    return (!ready) ? <div className="loading">
+      <i className="fa fa-spinner fa-spin"></i>
+    </div> : <div>
+      {this.props.children}
+    </div>
   }
+}
+
+Main.propTypes = {
+  children: PropTypes.node,
 }
 
 export default Main

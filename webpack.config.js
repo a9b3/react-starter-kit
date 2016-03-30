@@ -76,6 +76,12 @@ configs.shared = {
   },
 
   module: {
+    preLoaders: [
+      {
+        test: /\.jsx?$/,
+        loader: 'eslint',
+      },
+    ],
     loaders: [
       {
         test: /\.jsx?$/,

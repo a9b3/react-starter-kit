@@ -8,10 +8,10 @@ class NotFoundContainer extends React.Component {
 
   render() {
     return (
-      <div styleName='not-found'>
+      <div styleName="not-found">
         <div>
-          <h1 className='bold'>Whoops!</h1>
-          <h4 className='light'>Page Not Found</h4>
+          <h1 className="bold">Whoops!</h1>
+          <h4 className="light">Page Not Found</h4>
         </div>
       </div>
     )
