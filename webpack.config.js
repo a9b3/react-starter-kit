@@ -59,22 +59,19 @@ configs.shared = {
   ],
 
   resolve: {
-    root: [
-      // for relative paths in css
+    modules: [
+      // for relative paths, precedence over node_modules
       path.resolve('./src'),
-      path.resolve('./src/assets'),
+      path.resolve('./src/app'),
+      'node_modules',
     ],
     alias: {
+      // import config from 'config'
       config: path.join(
         __dirname,
         'config',
         (process.env.NODE_ENV === 'production') ? process.env.NODE_ENV : 'default'
       ),
-      root: path.join(__dirname, 'src'),
-      styles: path.join(__dirname, 'src', 'styles'),
-      components: path.join(__dirname, 'src', 'components'),
-      containers: path.join(__dirname, 'src', 'containers'),
-      services: path.join(__dirname, 'src', 'services'),
     },
   },
 
@@ -151,7 +148,6 @@ configs.prod = Object.assign({}, configs.shared, {
       minChunkSize: 51200,
     }),
     new webpackPlugins.extractText(prodBundleNames.css),
-    new webpack.optimize.OccurenceOrderPlugin(true),
     new webpack.optimize.UglifyJsPlugin({
       mangle: true,
       compressor: {
