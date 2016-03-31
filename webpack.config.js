@@ -223,6 +223,8 @@ configs.dev = Object.assign({}, configs.shared, {
       {
         test: /\.scss$/,
         loaders: [
+          // note that sourceMap will make file-loader not work, just use
+          // url-loader for dev environments
           'style?sourceMap',
           'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]&sourceMap',
           'postcss',
@@ -232,7 +234,7 @@ configs.dev = Object.assign({}, configs.shared, {
       {
         test: /\.css$/,
         loaders: [
-          'style',
+          'style?sourceMap',
           'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]$sourceMap',
           'postcss',
         ],
