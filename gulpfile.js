@@ -4,7 +4,7 @@ const runSequence = require('run-sequence')
 const config = {
   src: 'src',
   dist: 'dist',
-  port: 8080,
+  port: process.env.PORT || 8080,
 }
 
 // load other task definitions
