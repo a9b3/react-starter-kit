@@ -1,10 +1,14 @@
-import React, { Component, PropTypes } from 'react'
-
 /*
  * Top level container
  * Purpose is to house init logic and top level components (eg. toasts)
  */
-class Main extends Component {
+import React, { Component, PropTypes } from 'react'
+
+export default class Main extends Component {
+  static propTypes = {
+    children: PropTypes.node,
+  }
+
   constructor() {
     super()
     this.state = {
@@ -13,18 +17,21 @@ class Main extends Component {
     this._init = this._init.bind(this)
   }
 
-  componentWillMount() {
-    this._init()
+  async componentWillMount() {
+    await this._init()
   }
 
-  _init() {
-    // init logic here
-    // call this.setState once everything is done
-    setTimeout(() => {
-      this.setState({
-        ready: true,
-      })
-    }, 500)
+  async _init() {
+    return new Promise((resolve, reject) => {
+      // init logic here
+      // call this.setState once everything is done
+      setTimeout(() => {
+        resolve()
+        this.setState({
+          ready: true,
+        })
+      }, 500)
+    })
   }
 
   render() {
@@ -39,9 +46,3 @@ class Main extends Component {
     </div>
   }
 }
-
-Main.propTypes = {
-  children: PropTypes.node,
-}
-
-export default Main
