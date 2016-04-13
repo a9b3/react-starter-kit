@@ -75,9 +75,9 @@ $z-index-SHOW-THIS: 999;
  *  Utils
  ****************************************************************************/
 
-$default-link-color: $blue3;
+$default-font-family: 'Helvetica Neue';
 $default-font-color: $dark3;
-// $default-font-family: 'Helvetica Neue';
-$default-font-family: 'Proggy';
-$default-font-color: rgba($dark3, 0.8);
-$default-font-size: 12px;
+$default-line-height: 1.4;
+$default-font-size: 14px;
+
+$default-link-color: $blue3;
