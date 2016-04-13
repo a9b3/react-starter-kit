@@ -5,7 +5,7 @@ const webpack = require('webpack')
 const webpackDevServer = require('webpack-dev-server')
 
 module.exports = function serve(config) {
-  gulp.task('serve:dev', done => {
+  gulp.task('dev', done => {
     const wpConfig = require('../webpack.config.js')
     const compiler = webpack(wpConfig)
 
