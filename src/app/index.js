@@ -8,6 +8,7 @@ import '!style-loader!css-loader!animate.css/animate.css'
 import '!style-loader!css-loader!highlight.js/styles/github.css'
 import 'styles/index.scss'
 
+import 'babel-polyfill'
 import React from 'react'
 import { browserHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
@@ -15,7 +16,7 @@ import { render } from 'react-dom'
 import useScroll from 'scroll-behavior/lib/useStandardScroll'
 import config from 'config'
 import createStore from './store.js'
-import Root from './containers/root.js'
+import Root from './components/root.js'
 
 // Global polyfill Promise
 global.Promise = require('rsvp').Promise

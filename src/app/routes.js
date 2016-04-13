@@ -1,11 +1,7 @@
 import React from 'react'
 import { Route } from 'react-router'
-
-/*
- * Components
- */
-import Main from './containers/main.js'
-import NotFoundContainer from './containers/not-found/not-found.js'
+import Main from './components/main.js'
+import NotFoundContainer from './components/not-found/not-found.js'
 
 export default (
   <Route

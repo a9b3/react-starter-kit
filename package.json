@@ -64,6 +64,7 @@
   "dependencies": {
     "animate.css": "3.4.0",
     "axios": "0.8.1",
+    "babel-polyfill": "6.7.4",
     "font-awesome": "4.4.0",
     "highlight.js": "8.9.1",
     "history": "1.13.0",

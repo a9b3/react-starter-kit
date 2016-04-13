@@ -1,9 +1,0 @@
-@import '~styles/shared';
-
-.style-guide {
-  @extend %fitted;
-  @extend %middle;
-  @extend %flex-col;
-
-  background: $paper;
-}
