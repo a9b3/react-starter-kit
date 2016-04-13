@@ -1,20 +1,20 @@
-%fitted {
+.fitted {
   min-height: 100%;
   width: 100%;
   overflow: auto;
 }
 
-%middle {
+.middle {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-%shadow {
+.shadow {
   box-shadow: 0px 5px 15px rgba(black, 0.4);
 }
 
-%flex-row {
+.flex-row {
   display: flex;
 
   >.end {
@@ -23,7 +23,7 @@
   }
 }
 
-%flex-col {
+.flex-col {
   display: flex;
   flex-direction: column;
 
@@ -33,15 +33,16 @@
   }
 }
 
-%pointer {
+.pointer {
   &:hover {
     cursor: pointer;
   }
 }
 
-%hover {
+.hover {
   opacity: 1;
   transition: opacity .2s;
+
   &:hover {
     opacity: .8;
     transition: opacity .2s;

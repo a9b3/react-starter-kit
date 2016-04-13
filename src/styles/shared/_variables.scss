@@ -61,9 +61,6 @@ $dark-alt3: #AFB1BE;
 $red-alt1: #DC6180;
 $purple: #BC6CE6;
 
-$link-color: $blue3;
-
-
 /****************************************************************************
  *  Utils
  ****************************************************************************/
@@ -73,3 +70,13 @@ $z-index-low: 1;
 $z-index-med: 2;
 $z-index-high: 3;
 $z-index-SHOW-THIS: 999;
+
+/****************************************************************************
+ *  Utils
+ ****************************************************************************/
+
+$default-link-color: $blue3;
+$default-font-color: $dark3;
+$default-font-family: 'Helvetica Neue';
+$default-font-color: rgba($dark3, 0.8);
+$default-font-size: 12px;
