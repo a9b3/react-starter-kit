@@ -1,3 +1,6 @@
+if (module.hot) {
+  module.hot.accept()
+}
 // app entry point
 // styles
 import '!style-loader!css-loader!font-awesome/css/font-awesome.css'
