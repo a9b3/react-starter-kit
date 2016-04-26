@@ -21,8 +21,7 @@ function entry() {
       entry[key] = [
         `webpack-dev-server/client?http://localhost:${port}`,
         `webpack/hot/only-dev-server`,
-        // Uncomment when adding react-hot-loader v3
-        // `react-hot-loader/patch`,
+        `react-hot-loader/patch`,
       ].concat(entry[key])
     })
   }
@@ -44,9 +43,7 @@ function wpModule() {
       include: [
         path.resolve('./src'),
       ],
-      loaders: [
-        'babel?cacheDirectory=true',
-      ],
+      loaders: [ 'babel' ],
     },
     styles: {
       test: /\.scss$/,

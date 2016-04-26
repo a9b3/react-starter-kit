@@ -1,21 +1,18 @@
-if (module.hot) {
-  module.hot.accept()
-}
-
 // app entry point
 import '!style-loader!css-loader!font-awesome/css/font-awesome.css'
 import '!style-loader!css-loader!animate.css/animate.css'
 import '!style-loader!css-loader!highlight.js/styles/github.css'
 import 'styles/index.scss'
+
 import React from 'react'
+import { render } from 'react-dom'
+import config from 'config'
 import { browserHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
-import { render } from 'react-dom'
 import useScroll from 'scroll-behavior/lib/useStandardScroll'
-import config from 'config'
 import createStore from './store.js'
+import { AppContainer } from 'react-hot-loader'
 import Root from './components/root.js'
-import initialize from './initialize.js'
 
 // Global polyfill Promise
 global.Promise = require('rsvp').Promise
@@ -24,16 +21,37 @@ if (!config.DEBUG && navigator.serviceWorker) {
   navigator.serviceWorker.register('/service-worker.js')
 }
 
-initialize()
-.then(() => {
-  const store = createStore()
-  const history = syncHistoryWithStore(
-    useScroll(() => browserHistory)(),
-      store
-  )
+const store = createStore()
+const history = syncHistoryWithStore(
+  useScroll(() => browserHistory)(),
+  store
+)
 
-  render(
-    <Root store={store} history={history} />,
-    document.getElementById('mount')
-  )
-})
+render(
+  <AppContainer
+    component={Root}
+    props={{
+      store,
+      history,
+    }}
+  />,
+  document.getElementById('mount')
+)
+
+if (module.hot) {
+  module.hot.accept('../styles/index.scss', () => {
+    require('../styles/index.scss')
+  })
+  module.hot.accept('./components/root.js', () => {
+    render(
+      <AppContainer
+        component={require('./components/root.js').default}
+        props={{
+          store,
+          history,
+        }}
+      />,
+      document.getElementById('mount')
+    )
+  })
+}
