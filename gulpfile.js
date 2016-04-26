@@ -3,7 +3,7 @@ const runSequence = require('run-sequence')
 
 const config = {
   src: 'src',
-  dist: 'dist',
+  dist: 'build',
   port: process.env.PORT || 8080,
 }
 
