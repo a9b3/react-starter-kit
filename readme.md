@@ -20,3 +20,8 @@ Use absolute paths when using url().
   background: url(~assets/images/foo.png);
 }
 ```
+
+## Todo
+- add tests
+- fix linting for js and scss
+- make use of flow

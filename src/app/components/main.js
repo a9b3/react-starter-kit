@@ -4,6 +4,12 @@
  */
 import React, { Component, PropTypes } from 'react'
 
+function init() {
+  return new Promise((resolve, reject) => {
+    setTimeout(resolve, 1000)
+  })
+}
+
 export default class Main extends Component {
   static propTypes = {
     children: PropTypes.node,
@@ -22,15 +28,9 @@ export default class Main extends Component {
   }
 
   async _init() {
-    return new Promise((resolve, reject) => {
-      // init logic here
-      // call this.setState once everything is done
-      setTimeout(() => {
-        resolve()
-        this.setState({
-          ready: true,
-        })
-      }, 500)
+    await init()
+    this.setState({
+      ready: true,
     })
   }
 
@@ -39,10 +39,15 @@ export default class Main extends Component {
       ready,
     } = this.state
 
-    return (!ready) ? <div className="loading">
-      <i className="fa fa-spinner fa-spin"></i>
-    </div> : <div>
-      {this.props.children}
-    </div>
+    return !ready
+      ?
+        <div className="loading">
+          <i className="fa fa-spinner fa-spin"></i>
+        </div>
+      :
+        <div>
+          Hello World
+          {this.props.children}
+        </div>
   }
 }
