@@ -8,7 +8,7 @@
     "lint": "gulp lint",
     "flow": "./node_modules/flow-bin/cli.js; [[ $?=0||$?=2 ]]",
     "build": "NODE_ENV=production webpack",
-    "preversion": "echo \"run tests here\"",
+    "preversion": "npm run lint",
     "version": "npm run prerelease && git add .",
     "postversion": "git push && git push --tags",
     "prerelease": "rm -rf build && npm run build"
