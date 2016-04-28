@@ -14,9 +14,6 @@ import createStore from './store.js'
 import { AppContainer } from 'react-hot-loader'
 import Root from './components/root.js'
 
-// Global polyfill Promise
-global.Promise = require('rsvp').Promise
-
 if (!config.DEBUG && navigator.serviceWorker) {
   navigator.serviceWorker.register('/service-worker.js')
 }
