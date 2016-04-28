@@ -11,11 +11,7 @@ export default function (initialState) {
   ]
   .filter(a => a)
 
-  return createStore(
-    rootReducer,
-    initialState,
-    compose(
-      applyMiddleware(...middlewares)
-    )
-  )
+  return compose(
+    applyMiddleware(...middlewares),
+  )(createStore)(rootReducer)
 }
