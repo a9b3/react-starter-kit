@@ -3,13 +3,9 @@ import React from 'react'
 import CSSModules from 'react-css-modules'
 
 class NotFoundContainer extends React.Component {
-  constructor() {
-    super()
-  }
-
   render() {
     return (
-      <div styleName="not-found">
+      <div styleName='not-found'>
         <div>
           <h1>Whoops!</h1>
           <h4>Page Not Found</h4>

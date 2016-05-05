@@ -5,9 +5,9 @@ import NotFoundContainer from './components/not-found/not-found.js'
 
 export default (
   <Route
-    path="/"
+    path='/'
     component={Main}
   >
-    <Route path="*" component={NotFoundContainer} />
+    <Route path='*' component={NotFoundContainer} />
   </Route>
 )

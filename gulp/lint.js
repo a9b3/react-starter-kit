@@ -9,7 +9,7 @@ module.exports = function lint(config) {
       `!node_modules/**/*`,
       `!dist/**/*`,
     ])
-    .pipe($.gitmodified(['added']))
+    .pipe($.gitmodified([ 'added' ]))
     .pipe($.eslint(require('../.eslintrc.js')))
     .pipe($.eslint.format())
     .pipe($.eslint.failAfterError())
@@ -21,7 +21,7 @@ module.exports = function lint(config) {
       `!node_modules/**/*`,
       `!dist/**/*`,
     ])
-    .pipe($.gitmodified(['added']))
+    .pipe($.gitmodified([ 'added' ]))
     .pipe($.scssLint({
       config: '../scss-lint.yml',
     }))

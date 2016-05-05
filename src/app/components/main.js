@@ -5,7 +5,7 @@
 import React, { Component, PropTypes } from 'react'
 
 function init() {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     setTimeout(resolve, 1000)
   })
 }
@@ -41,8 +41,8 @@ export default class Main extends Component {
 
     return !ready
       ?
-        <div className="loading">
-          <i className="fa fa-spinner fa-spin"></i>
+        <div className='loading'>
+          <i className='fa fa-spinner fa-spin'></i>
         </div>
       :
         <div>

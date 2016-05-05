@@ -4,7 +4,7 @@ import thunkMiddleware from 'redux-thunk'
 import createLogger from 'redux-logger'
 import rootReducer from './root-reducer.js'
 
-export default function (initialState) {
+export default function() {
   const middlewares = [
     thunkMiddleware,
     config.DEBUG && createLogger(),

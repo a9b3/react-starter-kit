@@ -17,7 +17,7 @@ require('./gulp/build.js')(config)
  * Public Gulp Tasks
  *****************************************************************************/
 
-gulp.task('default', ['dev'])
+gulp.task('default', [ 'dev' ])
 
 gulp.task('build', () => runSequence(
   'clean',

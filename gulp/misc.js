@@ -37,7 +37,7 @@ module.exports = function misc(config) {
 
   gulp.task('generate-service-worker', done => {
     swPrecache.write(path.join(config.dist, 'service-worker.js'), {
-      staticFileGlobs: [`${config.dist}/**/*.{js,html,css,png,jpg,gif}`],
+      staticFileGlobs: [ `${config.dist}/**/*.{js,html,css,png,jpg,gif}` ],
       stripPrefix: config.dist,
     }, done)
   })

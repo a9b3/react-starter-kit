@@ -12,7 +12,7 @@ module.exports = function serve(config) {
     new webpackDevServer(compiler, {
       publicPath: wpConfig.output.publicPath,
       stats: {
-        colors: true
+        colors: true,
       },
       hot: true,
       historyApiFallback: true,

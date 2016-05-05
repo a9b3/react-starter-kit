@@ -11,21 +11,21 @@ const port = process.env.PORT || 8080
 const VERSION = execSync('git describe --tag --always').toString().trim()
 
 function entry() {
-  const entry = {
+  const entryConfigs = {
     app: [
       './src/app/index.js',
     ],
   }
   if (env !== 'production') {
-    Object.keys(entry).forEach(key => {
-      entry[key] = [
+    Object.keys(entryConfigs).forEach(key => {
+      entryConfigs[key] = [
         `webpack-dev-server/client?http://localhost:${port}`,
         `webpack/hot/only-dev-server`,
         `react-hot-loader/patch`,
-      ].concat(entry[key])
+      ].concat(entryConfigs[key])
     })
   }
-  return entry
+  return entryConfigs
 }
 
 function output() {
@@ -105,7 +105,7 @@ function wpModule() {
 }
 
 function plugins() {
-  let plugins = [
+  let pluginsConfigs = [
     new webpackPlugins.html({
       filename: 'index.html',
       template: './src/index.html',
@@ -125,7 +125,7 @@ function plugins() {
   ]
 
   if (env === 'production') {
-    plugins = plugins.concat([
+    pluginsConfigs = pluginsConfigs.concat([
       new webpack.optimize.DedupePlugin(),
       new webpack.optimize.MinChunkSizePlugin({
         minChunkSize: 51200,
@@ -139,12 +139,12 @@ function plugins() {
       }),
     ])
   } else {
-    plugins = plugins.concat([
+    pluginsConfigs = pluginsConfigs.concat([
       new webpack.HotModuleReplacementPlugin(),
       new webpack.NoErrorsPlugin(),
     ])
   }
-  return plugins
+  return pluginsConfigs
 }
 
 // Webpack config
@@ -160,7 +160,7 @@ const configs = {
       config: path.join(
         __dirname,
         'config',
-        (env === 'production') ? env : 'default'
+        env === 'production' ? env : 'default'
       ),
     },
     modules: [
