@@ -28,5 +28,4 @@ gulp.task('build', () => runSequence(
 // Lint all js files added and modified in git
 gulp.task('lint', [
   'lint:js',
-  'lint:scss',
 ])
