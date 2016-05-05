@@ -1,13 +1,13 @@
 # react-starter-kit
 ##Gulp
-#### `gulp`
+#### `gulp [PORT=number]`
 Starts webpack dev server on port 8080 or given env PORT.
 #### `gulp build`
 Compiles into `/build/`.
 #### `gulp serve:dist`
 Serves the build folder.
 #### `gulp lint`
-Runs lint.
+Runs eslint.
 
 ##Release
 `npm version [major | minor | patch]`
@@ -21,7 +21,5 @@ Use absolute paths when using url().
 }
 ```
 
-## Todo
-- add tests
-- fix linting for js and scss
-- make use of flow
+##Lint
+Install eslint globally and babel-eslint 
