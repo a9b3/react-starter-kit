@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint:gitadded": "gulp lint",
-    "lint": "eslint .",
+    "lint": "./node_modules/eslint/bin/eslint.js .",
     "build": "NODE_ENV=production webpack",
     "preversion": "npm run lint",
     "version": "npm run prerelease && git add .",
@@ -14,7 +14,7 @@
     "prerelease": "rm -rf build && npm run build"
   },
   "pre-commit": [
-    "lint:gitadded"
+    "lint"
   ],
   "author": "Sam Lau",
   "license": "ISC",
@@ -31,6 +31,7 @@
     "babel-runtime": "^6.6.1",
     "css-loader": "0.23.0",
     "del": "2.0.2",
+    "eslint": "^2.9.0",
     "eslint-config-esayemm": "^0.1.1",
     "eslint-plugin-react": "^5.0.1",
     "express": "4.13.3",
