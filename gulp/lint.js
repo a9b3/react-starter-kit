@@ -1,16 +1,15 @@
 const $ = require('gulp-load-plugins')()
 const gulp = require('gulp')
 
-module.exports = function lint(config) {
+module.exports = function lint() {
   gulp.task('lint:js', () => {
     return gulp.src([
-      `gulpfile.js`,
-      `${config.src}/**/*.js`,
       `!node_modules/**/*`,
-      `!dist/**/*`,
+      `!build/**/*`,
+      `**/*.js`,
     ])
-    .pipe($.gitmodified([ 'added' ]))
-    .pipe($.eslint())
+    .pipe($.gitmodified([ 'added', 'modified' ]))
+    .pipe($.eslint(require('../.eslintrc.js')))
     .pipe($.eslint.format())
     .pipe($.eslint.failAfterError())
   })
