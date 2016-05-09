@@ -23,3 +23,12 @@ Use absolute paths when using url().
 
 ##Lint
 Install eslint globally and babel-eslint 
+
+## Docker
+
+Build the docker image after you run gulp build. The default dockerfile simply runs a nginx server that serves the `build/` files.
+
+```sh
+// inside project root dir
+docker build -t <docker username>/<docker hub repo> .
+```
