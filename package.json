@@ -14,7 +14,7 @@
     "prerelease": "rm -rf build && npm run build"
   },
   "pre-commit": [
-    "lint"
+    "lint:gitadded"
   ],
   "author": "Sam Lau",
   "license": "ISC",
