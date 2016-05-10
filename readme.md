@@ -31,4 +31,7 @@ Build the docker image after you run gulp build. The default dockerfile simply r
 ```sh
 // inside project root dir
 docker build -t <docker username>/<docker hub repo> .
+
+// run docker image
+docker run -d --name <custom name> -p <host port>:80 <docker username>/<docker hub repo>
 ```
