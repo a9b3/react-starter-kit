@@ -3,12 +3,9 @@
 const path = require('path')
 const webpack = require('webpack')
 const webpackPlugins = require('webpack-load-plugins')()
-const execSync = require('child_process').execSync
 // 'development' | 'production'
 const env = process.env.NODE_ENV || 'development'
 const port = process.env.PORT || 8080
-
-const VERSION = execSync('git describe --tag --always').toString().trim()
 
 function entry() {
   const entryConfigs = {
@@ -120,7 +117,6 @@ function plugins() {
       'process.env': {
         NODE_ENV: JSON.stringify(env),
       },
-      VERSION,
     }),
   ]
 

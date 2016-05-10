@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint:gitadded": "gulp lint",
     "lint": "./node_modules/eslint/bin/eslint.js .",
-    "build": "NODE_ENV=production webpack",
+    "build": "NODE_ENV=production ./node_modules/webpack/bin/webpack.js",
     "preversion": "npm run lint",
     "version": "npm run prerelease && git add .",
     "postversion": "git push && git push --tags",
