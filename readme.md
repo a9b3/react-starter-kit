@@ -1,4 +1,7 @@
 # react-starter-kit
+[![Build
+Status](https://travis-ci.org/esayemm/react-starter-kit.svg?branch=master)](https://travis-ci.org/esayemm/react-starter-kit)
+
 ##Gulp
 #### `gulp [PORT=number]`
 Starts webpack dev server on port 8080 or given env PORT.
@@ -22,7 +25,7 @@ Use absolute paths when using url().
 ```
 
 ##Lint
-Install eslint globally and babel-eslint 
+Install eslint globally and babel-eslint
 
 ## Docker
 
