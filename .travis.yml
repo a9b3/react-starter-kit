@@ -11,3 +11,8 @@ install:
 
 script:
   - npm test
+
+# IMPORTANT: set DEPLOY in travis ci settings env variables
+# to docker hub's `trigger url` value
+after_success:
+  - $DEPLOY

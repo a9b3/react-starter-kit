@@ -2,6 +2,8 @@
 [![Build
 Status](https://travis-ci.org/esayemm/react-starter-kit.svg?branch=master)](https://travis-ci.org/esayemm/react-starter-kit)
 
+**Important**: If you want automatic docker rebuilding remember to set up travis ci and docker hub.
+
 ##Gulp
 #### `gulp [PORT=number]`
 Starts webpack dev server on port 8080 or given env PORT.
