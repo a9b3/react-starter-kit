@@ -40,3 +40,11 @@ docker build -t <docker username>/<docker hub repo> .
 // run docker image
 docker run -d --name <custom name> -p <host port>:80 <docker username>/<docker hub repo>
 ```
+
+## Typescript
+
+If you want typescript check out the typescript branch.
+
+```
+git co b typescript
+```

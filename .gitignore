@@ -6,3 +6,4 @@ dist/
 nohup.out
 Session.vim
 stats.json
+typings/
