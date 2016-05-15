@@ -35,6 +35,13 @@ function output() {
 
 function wpModule() {
   const loaders = {
+    ts: {
+      test: /\.tsx?$/,
+      include: [
+        path.resolve('./src'),
+      ],
+      loaders: [ 'babel', 'ts' ],
+    },
     js: {
       test: /\.jsx?$/,
       include: [

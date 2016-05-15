@@ -1,0 +1,8 @@
+{
+  "name": "react-starter-kit",
+  "version": false,
+  "dependencies": {},
+  "ambientDependencies": {
+    "react": "registry:dt/react#0.14.0+20160423065914"
+  }
+}
