@@ -5,7 +5,6 @@ import 'styles/index.scss'
 
 import React from 'react'
 import { render } from 'react-dom'
-import config from 'config'
 import { browserHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 import useScroll from 'scroll-behavior/lib/useStandardScroll'
@@ -13,7 +12,7 @@ import createStore from './store.js'
 import { AppContainer } from 'react-hot-loader'
 import Root from './components/root.js'
 
-if (config.debug === false && navigator.serviceWorker) {
+if (CONFIG.debug === false && navigator.serviceWorker) {
   navigator.serviceWorker.register('/service-worker.js')
 }
 

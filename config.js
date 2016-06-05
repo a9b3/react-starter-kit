@@ -8,4 +8,4 @@ config.production = {
   debug: false,
 }
 
-export default config[process.env] || config.dev
+module.exports = config[process.env.NODE_ENV] || config.dev

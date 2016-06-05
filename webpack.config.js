@@ -6,6 +6,7 @@ const webpackPlugins = require('webpack-load-plugins')()
 // 'development' | 'production'
 const env = process.env.NODE_ENV || 'development'
 const port = process.env.PORT || 8080
+const CONFIG = require('./config.js')
 
 function entry() {
   const entryConfigs = {
@@ -117,6 +118,7 @@ function plugins() {
       'process.env': {
         NODE_ENV: JSON.stringify(env),
       },
+      'CONFIG': JSON.stringify(CONFIG),
     }),
   ]
 
@@ -153,12 +155,6 @@ const configs = {
     alias: {
       // ensure one instance of react
       react: path.resolve('./node_modules/react'),
-      config: path.join(__dirname, 'config.js'),
-      // config: path.join(
-      //   __dirname,
-      //   'config',
-      //   env === 'production' ? env : 'default'
-      // ),
     },
     modules: [
       path.resolve('./src'),

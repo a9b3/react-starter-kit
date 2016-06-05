@@ -1,4 +1,3 @@
-import config from 'config'
 import { createStore, applyMiddleware, compose } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import createLogger from 'redux-logger'
@@ -7,7 +6,7 @@ import rootReducer from './root-reducer.js'
 export default function() {
   const middlewares = [
     thunkMiddleware,
-    config.debug && createLogger(),
+    CONFIG.debug && createLogger(),
   ]
   .filter(a => a)
 
