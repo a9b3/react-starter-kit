@@ -7,7 +7,7 @@ import rootReducer from './root-reducer.js'
 export default function() {
   const middlewares = [
     thunkMiddleware,
-    config.DEBUG && createLogger(),
+    config.debug && createLogger(),
   ]
   .filter(a => a)
 

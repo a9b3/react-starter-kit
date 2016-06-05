@@ -153,11 +153,12 @@ const configs = {
     alias: {
       // ensure one instance of react
       react: path.resolve('./node_modules/react'),
-      config: path.join(
-        __dirname,
-        'config',
-        env === 'production' ? env : 'default'
-      ),
+      config: path.join(__dirname, 'config.js'),
+      // config: path.join(
+      //   __dirname,
+      //   'config',
+      //   env === 'production' ? env : 'default'
+      // ),
     },
     modules: [
       path.resolve('./src'),
