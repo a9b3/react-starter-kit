@@ -9,6 +9,9 @@ cache:
 install:
   - npm install
 
+before_script:
+  - export CONTINUOUS_INTEGRATION=true
+
 script:
   - npm test
 
