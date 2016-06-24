@@ -3,5 +3,15 @@
   "plugins": [
     "transform-runtime",
     "react-hot-loader/babel"
-  ]
+  ],
+  "env": {
+    "test": {
+      "presets": [
+        "airbnb",
+        "es2015-webpack",
+        "stage-0",
+        "react"
+      ]
+    }
+  }
 }

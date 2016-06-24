@@ -32,7 +32,14 @@ module.exports = function(config) {
       'dots',
       'mocha',
     ],
-    webpack: webpackConfig,
+    webpack: Object.assign({}, webpackConfig, {
+      externals: {
+        'cheerio': 'window',
+        'react/addons': true,
+        'react/lib/ExecutionEnvironment': true,
+        'react/lib/ReactContext': true,
+      },
+    }),
     webpackServer: {
       noInfo: true,
     },

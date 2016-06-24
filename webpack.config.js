@@ -39,10 +39,7 @@ function wpModule() {
   const loaders = {
     js: {
       test: /\.jsx?$/,
-      include: [
-        path.resolve('./src'),
-        path.resolve('./test'),
-      ],
+      exclude: /\/node_modules\//,
       loaders: [ 'babel' ],
     },
     styles: {
