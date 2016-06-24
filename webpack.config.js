@@ -3,7 +3,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const webpackPlugins = require('webpack-load-plugins')()
-// 'development' | 'production'
+// 'development' | 'production' | 'test
 const env = process.env.NODE_ENV || 'development'
 const port = process.env.PORT || 8080
 const CONFIG = require('./config.js')
@@ -23,15 +23,16 @@ function entry() {
       ].concat(entryConfigs[key])
     })
   }
-  return entryConfigs
+  return env === 'test' ? undefined : entryConfigs
 }
 
 function output() {
-  return {
+  const outputConfig = {
     filename: env === 'production' ? '[name].[hash].bundle.js' : '[name].bundle.js',
     path: path.resolve('./build'),
     publicPath: '/',
   }
+  return env === 'test' ? undefined : outputConfig
 }
 
 function wpModule() {
@@ -40,6 +41,7 @@ function wpModule() {
       test: /\.jsx?$/,
       include: [
         path.resolve('./src'),
+        path.resolve('./test'),
       ],
       loaders: [ 'babel' ],
     },
