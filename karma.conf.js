@@ -1,10 +1,12 @@
 process.env.NODE_ENV = 'test'
+// set this is travis yaml env var
 const isTravis = process.env.CONTINUOUS_INTEGRATION
 const webpackConfig = require('./webpack.config.js')
 
 module.exports = function(config) {
   config.set({
-    // port: 9999,
+    // default is 9876
+    port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     browsers: [
@@ -17,7 +19,8 @@ module.exports = function(config) {
     files: [
       {
         pattern: './test/**/*.spec.js?(x)',
-        watched: false,
+        // uncomment if you dont want to watch
+        // watched: false,
         included: true,
         served: true,
       },
@@ -33,6 +36,7 @@ module.exports = function(config) {
       'mocha',
     ],
     webpack: Object.assign({}, webpackConfig, {
+      // required by enzyme
       externals: {
         'cheerio': 'window',
         'react/addons': true,
