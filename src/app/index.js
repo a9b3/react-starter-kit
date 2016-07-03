@@ -23,29 +23,29 @@ const history = syncHistoryWithStore(
 )
 
 render(
-  <AppContainer
-    component={Root}
-    props={{
-      store,
-      history,
-    }}
-  />,
+  <AppContainer>
+    <Root
+      store={store}
+      history={history}
+    />
+  </AppContainer>,
   document.getElementById('mount')
 )
 
 if (module.hot) {
+  let HotRoot = require('./components/root.js').default
+
   module.hot.accept('../styles/index.scss', () => {
     require('../styles/index.scss')
   })
   module.hot.accept('./components/root.js', () => {
     render(
-      <AppContainer
-        component={require('./components/root.js').default}
-        props={{
-          store,
-          history,
-        }}
-      />,
+      <AppContainer>
+        <HotRoot
+          store={store}
+          history={history}
+        />
+      </AppContainer>,
       document.getElementById('mount')
     )
   })
