@@ -3,6 +3,7 @@ node_js:
   - "5.1"
 
 cache:
+  bundler: true
   directories:
     - node_modules
 
