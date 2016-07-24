@@ -1,11 +1,15 @@
 language: node_js
 node_js:
-  - "5.1"
+  - "6.1"
 
-# cache:
-#   bundler: true
-#   directories:
-#     - node_modules
+sudo: required
+
+services:
+  - docker
+
+cache:
+  directories:
+    - node_modules
 
 install:
   - npm install
@@ -17,7 +21,5 @@ before_script:
 script:
   - npm test
 
-# IMPORTANT: set DEPLOY in travis ci settings env variables
-# to docker hub's `trigger url` value
 after_success:
-  - $DEPLOY
+  - test $TRAVIS_BRANCH = "prod" && npm run deploy
