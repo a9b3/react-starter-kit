@@ -18,7 +18,7 @@ function entry() {
     Object.keys(entryConfigs).forEach(key => {
       entryConfigs[key] = [
         `webpack-dev-server/client?http://localhost:${port}`,
-        `webpack/hot/only-dev-server`,
+        `webpack/hot/dev-server`,
         `react-hot-loader/patch`,
       ].concat(entryConfigs[key])
     })
@@ -139,6 +139,7 @@ function plugins() {
     pluginsConfigs = pluginsConfigs.concat([
       new webpack.HotModuleReplacementPlugin(),
       new webpack.NoErrorsPlugin(),
+      new webpack.NamedModulesPlugin(),
     ])
   }
   return pluginsConfigs

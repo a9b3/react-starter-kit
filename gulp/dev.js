@@ -14,6 +14,7 @@ module.exports = function serve(config) {
       stats: {
         colors: true,
       },
+      quiet: true,
       hot: true,
       historyApiFallback: true,
     })
