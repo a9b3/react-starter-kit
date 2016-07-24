@@ -8,11 +8,11 @@
     "test:watch": "NODE_ENV=test karma start",
     "lint:gitadded": "gulp lint",
     "lint": "./node_modules/eslint/bin/eslint.js .",
-    "build": "NODE_ENV=production ./node_modules/webpack/bin/webpack.js",
+    "build": "rm -rf build && NODE_ENV=production ./node_modules/webpack/bin/webpack.js",
     "preversion": "npm run lint",
-    "version": "npm run prerelease && git add .",
+    "version": "git add .",
     "postversion": "git push && git push --tags",
-    "prerelease": "rm -rf build && npm run build"
+    "deploy": "echo add deploy script here"
   },
   "pre-commit": [
     "lint:gitadded"
