@@ -14,7 +14,14 @@ module.exports = function serve(config) {
       stats: {
         colors: true,
       },
-      quiet: true,
+      // outputs nothing
+      // quiet: false,
+      // suppress boring information
+      noInfo: true,
+      watchOptions: {
+        aggregateTimeout: 300,
+        poll: 1000,
+      },
       hot: true,
       historyApiFallback: true,
     })
