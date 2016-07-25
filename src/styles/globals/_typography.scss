@@ -61,4 +61,77 @@
     font-weight: 300;
     margin: 0;
   }
+
+  .light {
+    font-weight: 100;
+  }
+  .semi-bold {
+    font-weight: 600;
+  }
+  .bold {
+    font-weight: 700;
+  }
+
+  /*****************************************************************************
+   *  Colors
+   *****************************************************************************/
+
+  .dark1 { background: $dark1; }
+  .dark2 { background: $dark2; }
+  .dark3 { background: $dark3; }
+  .dark4 { background: $dark4; }
+  .dark5 { background: $dark5; }
+  .dark6 { background: $dark6; }
+  .dark7 { background: $dark7; }
+  .dark8 { background: $dark8; }
+
+  .blue1 { background: $blue1; }
+  .blue2 { background: $blue2; }
+  .blue3 { background: $blue3; }
+  .blue4 { background: $blue4; }
+  .blue5 { background: $blue5; }
+  .blue6 { background: $blue6; }
+
+  .green1 { background: $green1; }
+  .green2 { background: $green2; }
+  .green3 { background: $green3; }
+  .green4 { background: $green4; }
+  .green5 { background: $green5; }
+  .green6 { background: $green6; }
+
+  .red1 { background: $red1; }
+  .red2 { background: $red2; }
+  .red3 { background: $red3; }
+  .red4 { background: $red4; }
+  .red5 { background: $red5; }
+  .red6 { background: $red6; }
+
+  .yellow1 { background: $yellow1; }
+  .yellow2 { background: $yellow2; }
+  .yellow3 { background: $yellow3; }
+  .yellow4 { background: $yellow4; }
+  .yellow5 { background: $yellow5; }
+  .yellow6 { background: $yellow6; }
+
+  .turquoise1 { background: $turquoise1; }
+  .turquoise2 { background: $turquoise2; }
+  .turquoise3 { background: $turquoise3; }
+  .turquoise4 { background: $turquoise4; }
+  .turquoise5 { background: $turquoise5; }
+  .turquoise6 { background: $turquoise6; }
+
+  .paper { background: $paper; }
+  .skin { background: $skin; }
+  .paperbag { background: $paperbag; }
+  .pumpkin { background: $pumpkin; }
+  .pink { background: $pink; }
+  .peach { background: $peach; }
+  .peach2 { background: $peach2; }
+  .tan { background: $tan; }
+
+  .dark-alt1 { background: $dark-alt1; }
+  .dark-alt2 { background: $dark-alt2; }
+  .dark-alt3 { background: $dark-alt3; }
+  .red-alt1 { background: $red-alt1; }
+  .purple { background: $purple; }
 }

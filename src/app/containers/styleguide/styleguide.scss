@@ -1,0 +1,41 @@
+@import '../../components/styleguide/~styles/shared';
+
+.styleguide {
+
+}
+
+.section {
+  padding: 1em;
+}
+.big.section {
+  margin: 1em;
+  border: 1px solid $dark4;
+}
+
+.header1 {
+  composes: h1;
+}
+.type {
+
+}
+
+.swatch {
+  border-radius: .2em;
+  width: 4em;
+  height: 4em;
+  margin: 1em;
+}
+.dark1.swatch {
+  background: $dark1;
+}
+.dark2.swatch {
+  background: $dark2;
+}
+
+.colors {
+
+}
+
+.color-row {
+  composes: flex-row;
+}

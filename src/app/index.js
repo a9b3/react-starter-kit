@@ -10,7 +10,7 @@ import { syncHistoryWithStore } from 'react-router-redux'
 import useScroll from 'scroll-behavior/lib/useStandardScroll'
 import createStore from './store.js'
 import { AppContainer } from 'react-hot-loader'
-import Root from './components/root.js'
+import Root from './root.js'
 
 if (CONFIG.debug === false && navigator.serviceWorker) {
   navigator.serviceWorker.register('/service-worker.js')
@@ -33,7 +33,7 @@ render(
 )
 
 if (module.hot) {
-  let HotRoot = require('./components/root.js').default
+  let HotRoot = require('./root.js').default
 
   module.hot.accept('../styles/index.scss', () => {
     require('../styles/index.scss')
