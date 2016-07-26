@@ -165,9 +165,8 @@ const configs = {
   postcss() {
     return [
       require('postcss-import'),
-      require('rucksack-css')({
-        autoprefixer: true,
-      }),
+      require('rucksack-css')(),
+      require('autoprefixer'),
       require('precss'),
     ]
   },
