@@ -1,9 +1,0 @@
-@import '~styles/shared';
-
-.banner {
-  composes: flex-row;
-  flex-shrink: 0;
-  color: white;
-  padding: 4em;
-  background: linear-gradient(45deg, $blue1 10%, $purple 100%);
-}
