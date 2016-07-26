@@ -1,7 +1,11 @@
-import styles from './styleguide.scss'
+import styles from './general.scss'
 import React, { Component, PropTypes } from 'react'
 import CSSModules from 'react-css-modules'
-import Swatch from '../../components/swatch/swatch.js'
+import { connect } from 'react-redux'
+import Helmet from 'react-helmet'
+import Swatch from '../../../components/swatch/swatch.js'
+import Banner from '../components/banner/banner.js'
+import Card from '../components/card/card.js'
 
 const Typography = props => {
   return <div className={`${styles.type}`}>
@@ -18,6 +22,12 @@ const Typography = props => {
     </div>
     <div className={`${styles.section}`}>
       <h4>Header 4</h4>
+    </div>
+    <div className={`${styles.section}`}>
+      <h5>Header 5</h5>
+    </div>
+    <div className={`${styles.section}`}>
+      <h6>Header 6</h6>
     </div>
     <div className={`${styles.section}`}>
       <div className={`${styles.light}`}>Light Text</div>
@@ -120,21 +130,33 @@ const Colors = props => {
   </div>
 }
 
-class Styleguide extends Component {
+class General extends Component {
   render() {
-    return <div styleName='styleguide'>
+    return <div styleName='container'>
+      <Helmet
+        title='General'
+      />
+
+      <Banner
+        text='General'
+      />
+
       <div styleName='big section'>
-        <Typography />
+        <Card header='Typography'>
+          <Typography />
+        </Card>
       </div>
 
       <div styleName='big section'>
-        <Colors />
+        <Card header='Colors'>
+          <Colors />
+        </Card>
       </div>
     </div>
   }
 }
 
-export default CSSModules(Styleguide, styles, {
+export default CSSModules(General, styles, {
   allowMultiple: true,
   errorWhenNotFound: false,
 })

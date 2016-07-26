@@ -38,7 +38,7 @@ if (module.hot) {
   module.hot.accept('../styles/index.scss', () => {
     require('../styles/index.scss')
   })
-  module.hot.accept('./components/root.js', () => {
+  module.hot.accept('./root.js', () => {
     render(
       <AppContainer>
         <HotRoot

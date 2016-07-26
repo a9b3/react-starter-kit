@@ -25,6 +25,7 @@
   >.end {
     display: inherit;
     margin-left: auto;
+    flex-shrink: 0;
   }
 }
 
@@ -35,7 +36,15 @@
   >.end {
     display: inherit;
     margin-top: auto;
+    flex-shrink: 0;
   }
+}
+
+.scrollable-flexchild {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .hover {
