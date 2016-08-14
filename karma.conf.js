@@ -18,7 +18,7 @@ module.exports = function(config) {
     ],
     files: [
       {
-        pattern: './test/**/*.spec.js?(x)',
+        pattern: './!(node_modules|build)/**/*.spec.js?(x)',
         // uncomment if you dont want to watch
         // watched: false,
         included: true,
@@ -26,7 +26,7 @@ module.exports = function(config) {
       },
     ],
     preprocessors: {
-      './test/**/*.spec.js?(x)': [
+      './!(node_modules|build)/**/*.spec.js?(x)': [
         'webpack',
         'sourcemap',
       ],

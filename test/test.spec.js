@@ -34,6 +34,12 @@ describe('write tests', () => {
       this.setState({ res })
     }
 
+    bar = (a) => {
+      this.setState({
+        a,
+      })
+    }
+
     render() {
       return <div id='one'>
         <div id='two'>
@@ -66,5 +72,12 @@ describe('write tests', () => {
       sinon.assert.calledOnce(fooAsyncStub)
       expect(wrapper.state().res).toBe('hi')
     })
+  })
+
+  it('call component functions', async () => {
+    const wrapper = mount(<Foo />)
+    wrapper.instance().bar('foo')
+
+    expect(wrapper.state().a).toBe('foo')
   })
 })
