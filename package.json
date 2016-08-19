@@ -83,7 +83,6 @@
     "history": "1.13.0",
     "html": "0.0.10",
     "invariant": "2.2.1",
-    "normalize.css": "3.0.3",
     "react": "15.2.0",
     "react-css-modules": "^3.7.8",
     "react-dom": "15.2.0",
