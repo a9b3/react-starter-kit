@@ -80,6 +80,12 @@ function wpModule() {
       test: /\.json$/i,
       loaders: [ 'json' ],
     },
+    sounds: {
+      test: /\.(mp3|m4a)$/i,
+      loaders: [
+        'file',
+      ],
+    },
   }
 
   if (env === 'production') {
