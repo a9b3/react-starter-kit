@@ -1,8 +1,12 @@
 import styles from './not-found.scss'
-import React from 'react'
+import React, { Component } from 'react'
 import CSSModules from 'react-css-modules'
 
-class NotFoundContainer extends React.Component {
+@CSSModules(styles, {
+  allowMultiple: true,
+  errorWhenNotFound: false,
+})
+export default class NotFoundContainer extends Component {
   render() {
     return (
       <div styleName='not-found'>
@@ -14,8 +18,3 @@ class NotFoundContainer extends React.Component {
     )
   }
 }
-
-export default CSSModules(NotFoundContainer, styles, {
-  allowMultiple: true,
-  errorWhenNotFound: false,
-})
