@@ -6,9 +6,7 @@ import 'styles/index.scss'
 import React from 'react'
 import { render } from 'react-dom'
 import { browserHistory } from 'react-router'
-import { syncHistoryWithStore } from 'react-router-redux'
-import useScroll from 'scroll-behavior/lib/useStandardScroll'
-import createStore from './store.js'
+import useScroll from 'scroll-behavior'
 import { AppContainer } from 'react-hot-loader'
 import Root from './root.js'
 
@@ -16,16 +14,11 @@ if (CONFIG.debug === false && navigator.serviceWorker) {
   navigator.serviceWorker.register('/service-worker.js')
 }
 
-const store = createStore()
-const history = syncHistoryWithStore(
-  useScroll(() => browserHistory)(),
-  store
-)
+const history = useScroll(browserHistory)
 
 render(
   <AppContainer>
     <Root
-      store={store}
       history={history}
     />
   </AppContainer>,
@@ -43,7 +36,6 @@ if (module.hot) {
     render(
       <AppContainer>
         <HotRoot
-          store={store}
           history={history}
         />
       </AppContainer>,
