@@ -64,7 +64,7 @@ function wpModule() {
       loaders: [ 'html' ],
     },
     images: {
-      test: /\.(png|jpe?g|gif|svg)$/i,
+      test: /\.(png|jpe?g|gif|svg|ico)$/i,
       loaders: [
         env === 'production' ? 'url-loader?limit=8192' : 'url-loader',
         'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false',
@@ -81,7 +81,7 @@ function wpModule() {
       loaders: [ 'json' ],
     },
     sounds: {
-      test: /\.(mp3|m4a)$/i,
+      test: /\.(mp3|m4a|wav)$/i,
       loaders: [
         'file',
       ],
