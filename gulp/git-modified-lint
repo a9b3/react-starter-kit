@@ -1,0 +1,21 @@
+# USE FROM ROOT
+# vi: ft=zsh
+
+linter='./node_modules/eslint/bin/eslint.js'
+
+lines=""
+git status -s | \
+{
+  while read -r line
+  do
+    # only add git modified files
+    if echo $line | grep -Eq "^M.*js(x)?$"; then
+      file=$(echo $line | cut -d\  -f2)
+      lines="$lines $file"
+    fi
+  done
+
+  if [ "$lines" ]; then
+    $linter $lines
+  fi
+}
