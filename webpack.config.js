@@ -7,6 +7,8 @@ const webpackPlugins = require('webpack-load-plugins')()
 const env = process.env.NODE_ENV || 'development'
 const port = process.env.PORT || 8080
 const CONFIG = require('./config.js')
+const Dashboard = require('webpack-dashboard')
+const DashboardPlugin = require('webpack-dashboard/plugin')
 
 function entry() {
   const entryConfigs = {
@@ -142,10 +144,12 @@ function plugins() {
       }),
     ])
   } else {
+    const dashboard = new Dashboard()
     pluginsConfigs = pluginsConfigs.concat([
       new webpack.HotModuleReplacementPlugin(),
       new webpack.NoErrorsPlugin(),
       new webpack.NamedModulesPlugin(),
+      new DashboardPlugin(dashboard.setData),
     ])
   }
   return pluginsConfigs
