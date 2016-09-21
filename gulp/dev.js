@@ -23,6 +23,7 @@ module.exports = function serve(config) {
         poll: 1000,
       },
       hot: true,
+      clientLogLevel: 'error',
       historyApiFallback: true,
     })
     .listen(config.port, 'localhost', e => {
