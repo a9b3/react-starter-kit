@@ -144,12 +144,16 @@ function plugins() {
       }),
     ])
   } else {
-    const dashboard = new Dashboard()
+    if (env !== 'test') {
+      const dashboard = new Dashboard()
+      pluginsConfigs = pluginsConfigs.concat([
+        new DashboardPlugin(dashboard.setData),
+      ])
+    }
     pluginsConfigs = pluginsConfigs.concat([
       new webpack.HotModuleReplacementPlugin(),
       new webpack.NoErrorsPlugin(),
       new webpack.NamedModulesPlugin(),
-      new DashboardPlugin(dashboard.setData),
     ])
   }
   return pluginsConfigs
