@@ -122,10 +122,16 @@ function plugins() {
       minChunks: 2,
     }),
     new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify(env),
-      },
       'CONFIG': JSON.stringify(CONFIG),
+    }),
+
+    // allows you to access 'process.env.NODE_ENV'
+    new webpack.EnvironmentPlugin([
+      'NODE_ENV',
+    ]),
+    new webpack.ProvidePlugin({
+      React: 'react',
+      CSSModules: 'react-css-modules',
     }),
   ]
 
