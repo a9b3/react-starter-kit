@@ -127,6 +127,10 @@ function plugins() {
       },
       'CONFIG': JSON.stringify(CONFIG),
     }),
+    new webpack.ProvidePlugin({
+      React: 'react',
+      CSSModules: 'react-css-modules',
+    }),
   ]
 
   if (env === 'production') {
