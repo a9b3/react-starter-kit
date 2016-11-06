@@ -1,0 +1,5 @@
+{
+  "extends": [
+    "esayemm/lib/react"
+  ]
+}
