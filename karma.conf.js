@@ -35,7 +35,9 @@ module.exports = function(config) {
       'dots',
       'mocha',
     ],
-    webpack: Object.assign({}, webpackConfig, {
+    webpack: {
+      module: webpackConfig.module,
+      resolve: webpackConfig.resolve,
       // required by enzyme
       externals: {
         'cheerio': 'window',
@@ -43,7 +45,7 @@ module.exports = function(config) {
         'react/lib/ExecutionEnvironment': true,
         'react/lib/ReactContext': true,
       },
-    }),
+    },
     webpackServer: {
       noInfo: true,
     },
